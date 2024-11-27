@@ -12,13 +12,13 @@
                     <a class="nav-link px-3" href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-3" href="#about">About</a>
+                    <a class="nav-link px-3" href="about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-3" href="#services">Services</a>
+                    <a class="nav-link px-3" href="services">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-3" href="#contact">Contact</a>
+                    <a class="nav-link px-3" href="{{ route('contact') }}">Contact</a>
                 </li>
                 <li class="nav-item ms-lg-3">
                     <a class="btn btn-primary rounded-pill px-4" href="#contact">Get Started</a>
