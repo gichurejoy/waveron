@@ -146,8 +146,8 @@
 @push('styles')
 <style>
     :root {
-        --primary-color: #0056b3;
-        --secondary-color: #00a0e4;
+        --primary-color: #006400;
+        --secondary-color: #004d00;
     }
 
     .hero {
@@ -161,7 +161,7 @@
         right: -50px;
         width: 300px;
         height: 300px;
-        background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+        background: linear-gradient(45deg, #006400, #004d00);
         border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
         opacity: 0.1;
         animation: blob-animation 8s infinite;
@@ -173,7 +173,7 @@
         left: -50px;
         width: 250px;
         height: 250px;
-        background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+        background: linear-gradient(45deg, #004d00, #003300);
         border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
         opacity: 0.1;
         animation: blob-animation 8s infinite reverse;
@@ -219,6 +219,10 @@
     .btn:hover {
         transform: translateY(-2px);
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .hero-image {
+        filter: hue-rotate(85deg) saturate(120%) brightness(85%);
     }
 </style>
 @endpush

@@ -4,16 +4,16 @@
 
 @section('content')
 <!-- Hero Section -->
-<div class="about-hero bg-primary text-white py-5">
+<div class="about-hero py-5">
+    <div class="animated-background"></div>
     <div class="container position-relative">
         <div class="row align-items-center">
             <div class="col-lg-8">
                 <h1 class="display-4 fw-bold mb-4">Innovating for Tomorrow</h1>
                 <p class="lead mb-4">At Waveron Technologies, we're dedicated to transforming ideas into cutting-edge solutions that drive the future of technology.</p>
-                <a href="{{ route('contact') }}" class="btn btn-light btn-lg px-5">Get Started</a>
+                <a href="{{ route('contact') }}" class="btn btn-primary btn-lg px-5">Get Started</a>
             </div>
         </div>
-        <div class="hero-pattern"></div>
     </div>
 </div>
 
@@ -182,46 +182,138 @@
 
 @push('styles')
 <style>
+    :root {
+        --waveron-green: #006400;
+        --waveron-dark-green: #004d00;
+    }
+
     .about-hero {
-        background: linear-gradient(45deg, var(--bs-primary) 0%, #00a0e4 100%);
         position: relative;
+        padding: 8rem 0 4rem;
         overflow: hidden;
-        padding: 6rem 0;
+        background: rgba(248, 249, 250, 0.97);
+        perspective: 1000px;
     }
-    
-    .hero-pattern {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: 50%;
-        background: 
-            radial-gradient(circle at 0 0, rgba(255,255,255,0.1) 0, rgba(255,255,255,0.1) 5px, transparent 5px) 0 0/20px 20px,
-            radial-gradient(circle at 10px 10px, rgba(255,255,255,0.1) 0, rgba(255,255,255,0.1) 5px, transparent 5px) 0 0/20px 20px;
-        transform: skewX(-15deg) translateX(10%);
-        animation: patternMove 30s linear infinite;
-    }
-    
-    @keyframes patternMove {
-        0% {
-            background-position: 0 0;
-        }
-        100% {
-            background-position: 50px 50px;
-        }
-    }
-    
-    .about-hero::before {
-        content: '';
+
+    .animated-background {
         position: absolute;
         top: -50%;
+        left: -50%;
         right: -50%;
-        width: 100%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
-        transform: rotate(-15deg);
+        bottom: -50%;
+        transform-style: preserve-3d;
+        animation: rotate3d 30s linear infinite;
     }
-    
+
+    .tech-grid {
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        transform: rotateX(60deg) translateZ(-100px);
+    }
+
+    /* 3D Grid Planes */
+    .grid-plane {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: 
+            linear-gradient(90deg, transparent 49.5%, rgba(0, 100, 0, 0.1) 49.5%, rgba(0, 100, 0, 0.1) 50.5%, transparent 50.5%) 0 0/50px 100%,
+            linear-gradient(0deg, transparent 49.5%, rgba(0, 100, 0, 0.1) 49.5%, rgba(0, 100, 0, 0.1) 50.5%, transparent 50.5%) 0 0/100% 50px;
+        transform-style: preserve-3d;
+    }
+
+    .grid-plane:nth-child(1) { transform: translateZ(0); }
+    .grid-plane:nth-child(2) { transform: translateZ(-50px); opacity: 0.7; }
+    .grid-plane:nth-child(3) { transform: translateZ(-100px); opacity: 0.5; }
+
+    /* 3D Circuit Lines */
+    .circuit-lines {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+    }
+
+    .circuit-line {
+        position: absolute;
+        background: var(--waveron-green);
+        opacity: 0.2;
+        transform-style: preserve-3d;
+        animation: glowPulse 2s ease-in-out infinite;
+    }
+
+    /* Floating Tech Elements */
+    .tech-element {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: var(--waveron-green);
+        transform-style: preserve-3d;
+        opacity: 0.3;
+        animation: float 4s ease-in-out infinite;
+    }
+
+    /* 3D Data Flow */
+    .data-stream {
+        position: absolute;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(to bottom, transparent, var(--waveron-green), transparent);
+        opacity: 0.2;
+        transform-style: preserve-3d;
+        animation: dataFlow 3s linear infinite;
+    }
+
+    @keyframes rotate3d {
+        0% {
+            transform: rotateX(60deg) rotateZ(0);
+        }
+        100% {
+            transform: rotateX(60deg) rotateZ(360deg);
+        }
+    }
+
+    @keyframes glowPulse {
+        0%, 100% { opacity: 0.2; box-shadow: 0 0 10px var(--waveron-green); }
+        50% { opacity: 0.4; box-shadow: 0 0 20px var(--waveron-green); }
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateZ(0); }
+        50% { transform: translateZ(50px); }
+    }
+
+    @keyframes dataFlow {
+        0% { transform: translateY(-100%) translateZ(0); opacity: 0; }
+        50% { opacity: 0.4; }
+        100% { transform: translateY(100%) translateZ(100px); opacity: 0; }
+    }
+
+    .about-hero .container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .btn-primary {
+        background-color: var(--waveron-green);
+        border-color: var(--waveron-green);
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background-color: var(--waveron-dark-green);
+        border-color: var(--waveron-dark-green);
+    }
+
+    .text-primary {
+        color: var(--waveron-green) !important;
+    }
+
+    .bg-primary {
+        background-color: var(--waveron-green) !important;
+    }
+
     .feature-icon {
         width: 48px;
         height: 48px;
@@ -229,10 +321,13 @@
         align-items: center;
         justify-content: center;
         font-size: 24px;
+        background: var(--waveron-green) !important;
+        color: white;
     }
     
     .value-icon {
         transition: transform 0.3s ease;
+        color: var(--waveron-green) !important;
     }
     
     .value-icon:hover {
@@ -246,16 +341,96 @@
     }
     
     .social-links a:hover {
-        color: var(--bs-primary) !important;
+        color: var(--waveron-green) !important;
     }
     
     .card {
         transition: transform 0.3s ease;
+        border: 1px solid #eee;
     }
     
     .card:hover {
         transform: translateY(-5px);
+        border-color: var(--waveron-green);
+    }
+
+    .cta {
+        background: var(--waveron-green) !important;
+    }
+
+    .btn-light {
+        background: white;
+        color: var(--waveron-green);
+        border: 2px solid var(--waveron-green);
+    }
+
+    .btn-light:hover {
+        background: var(--waveron-green);
+        color: white;
     }
 </style>
 @endpush
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const background = document.querySelector('.animated-background');
+    
+    // Create 3D Grid
+    const techGrid = document.createElement('div');
+    techGrid.className = 'tech-grid';
+    for (let i = 0; i < 3; i++) {
+        const plane = document.createElement('div');
+        plane.className = 'grid-plane';
+        techGrid.appendChild(plane);
+    }
+    background.appendChild(techGrid);
+
+    // Create Circuit Lines
+    const circuitLines = document.createElement('div');
+    circuitLines.className = 'circuit-lines';
+    for (let i = 0; i < 20; i++) {
+        const line = document.createElement('div');
+        line.className = 'circuit-line';
+        const isVertical = Math.random() > 0.5;
+        const size = 50 + Math.random() * 150;
+        const position = Math.random() * 100;
+        const depth = Math.random() * 100;
+        
+        line.style.cssText = `
+            ${isVertical ? 'width: 2px; height: ${size}px; left: ${position}%;' 
+                        : 'height: 2px; width: ${size}px; top: ${position}%;'}
+            transform: translateZ(${depth}px);
+            animation-delay: ${Math.random() * 2}s;
+        `;
+        circuitLines.appendChild(line);
+    }
+    background.appendChild(circuitLines);
+
+    // Create Floating Tech Elements
+    for (let i = 0; i < 15; i++) {
+        const element = document.createElement('div');
+        element.className = 'tech-element';
+        element.style.cssText = `
+            left: ${Math.random() * 100}%;
+            top: ${Math.random() * 100}%;
+            transform: translateZ(${Math.random() * 100}px);
+            animation-delay: ${Math.random() * 4}s;
+        `;
+        background.appendChild(element);
+    }
+
+    // Create Data Streams
+    for (let i = 0; i < 30; i++) {
+        const stream = document.createElement('div');
+        stream.className = 'data-stream';
+        stream.style.cssText = `
+            left: ${Math.random() * 100}%;
+            animation-delay: ${Math.random() * 3}s;
+            transform: translateZ(${Math.random() * 100}px);
+        `;
+        background.appendChild(stream);
+    }
+});
+</script>
+
 @endsection

@@ -106,7 +106,7 @@
                         </div>
                         <div>
                             <h4 class="h5 mb-2">Our Location</h4>
-                            <p class="text-muted mb-0">123 Innovation Street<br>Tech City, TC 12345</p>
+                            <p class="text-muted mb-0">Westlands<br>Nairobi City, Kenya</p>
                         </div>
                     </div>
                     <div class="d-flex mb-4">
@@ -127,7 +127,7 @@
                         <div>
                             <h4 class="h5 mb-2">Call Us</h4>
                             <p class="text-muted mb-0">
-                                <a href="tel:+1234567890" class="text-decoration-none text-muted">+1 (234) 567-890</a>
+                                <a href="tel:+1234567890" class="text-decoration-none text-muted">+2547 98 717 800</a>
                             </p>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
                         </div>
                         <div>
                             <h4 class="h5 mb-2">Working Hours</h4>
-                            <p class="text-muted mb-0">Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 2:00 PM</p>
+                            <p class="text-muted mb-0">Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 7:00 PM</p>
                         </div>
                     </div>
                 </div>

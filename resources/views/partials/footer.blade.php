@@ -1,60 +1,51 @@
-<footer class="bg-dark text-light py-5">
+<footer class="footer py-5" style="background-color: #f8f9fa;">
     <div class="container">
-        <div class="row g-4">
+        <div class="row gy-4">
             <div class="col-lg-4">
-                <h4 class="text-primary fw-bold mb-4">WAVERON</h4>
-                <p class="text-white mb-4">Leading the wave of technological advancement, empowering businesses to thrive in the digital age and beyond.</p>
-                <div class="d-flex gap-3">
-                    <a href="#" class="text-white hover-primary"><i class="bi bi-linkedin fs-5"></i></a>
-                    <a href="#" class="text-white hover-primary"><i class="bi bi-twitter fs-5"></i></a>
-                    <a href="#" class="text-white hover-primary"><i class="bi bi-facebook fs-5"></i></a>
-                    <a href="#" class="text-white hover-primary"><i class="bi bi-instagram fs-5"></i></a>
+                <h5 class="text-primary mb-3">WAVERON</h5>
+                <p class="text-muted">Empowering businesses through innovative technology solutions.</p>
+                <div class="social-links">
+                    <a href="#" class="me-3"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="me-3"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4">
-                <h5 class="text-white mb-4">Quick Links</h5>
+                <h6 class="mb-3">Quick Links</h6>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a href="#about" class="text-white text-decoration-none hover-primary">About Us</a></li>
-                    <li class="mb-2"><a href="#services" class="text-white text-decoration-none hover-primary">Services</a></li>
-                    <li class="mb-2"><a href="{{ route('contact') }}" class="text-white text-decoration-none hover-primary">Contact</a></li>
-                    <li class="mb-2"><a href="#" class="text-white text-decoration-none hover-primary">Privacy Policy</a></li>
+                    <li><a href="{{ route('home') }}">Home</a></li>
+                    <li><a href="{{ route('about') }}">About</a></li>
+                    <li><a href="{{ route('contact') }}">Contact</a></li>
                 </ul>
             </div>
-            <div class="col-lg-2 col-md-4">
-                <h5 class="text-white mb-4">Services</h5>
+            <div class="col-lg-3 col-md-4">
+                <h6 class="mb-3">Contact Us</h6>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a href="#" class="text-white text-decoration-none hover-primary">Software Development</a></li>
-                    <li class="mb-2"><a href="#" class="text-white text-decoration-none hover-primary">Graphic Design</a></li>
-                    <li class="mb-2"><a href="#" class="text-white text-decoration-none hover-primary">Digital Marketing</a></li>
-                    <li class="mb-2"><a href="#" class="text-white text-decoration-none hover-primary">Branding</a></li>
+                    <li><i class="bi bi-geo-alt me-2"></i>Westlands, Nairobi</li>
+                    <li><i class="bi bi-telephone me-2"></i>+1 630-480-4540</li>
+                    <li><i class="bi bi-envelope me-2"></i>info@waveron.com</li>
                 </ul>
             </div>
-            <div class="col-lg-4 col-md-4">
-                <h5 class="text-white mb-4">Contact Info</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-3">
-                        <i class="bi bi-geo-alt text-primary me-2"></i>
-                        <span class="text-white">123 Innovation Street, Tech City, TC 12345</span>
-                    </li>
-                    <li class="mb-3">
-                        <i class="bi bi-envelope text-primary me-2"></i>
-                        <a href="mailto:contact@waveron.com" class="text-white text-decoration-none hover-primary">contact@waveron.com</a>
-                    </li>
-                    <li class="mb-3">
-                        <i class="bi bi-telephone text-primary me-2"></i>
-                        <a href="tel:+1234567890" class="text-white text-decoration-none hover-primary">+1 (234) 567-890</a>
-                    </li>
-                </ul>
+            <div class="col-lg-3 col-md-4">
+                <h6 class="mb-3">Newsletter</h6>
+                <p class="text-muted mb-3">Stay updated with our latest news and updates.</p>
+                <form class="newsletter-form">
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </div>
+                </form>
             </div>
         </div>
-        <hr class="my-4 border-secondary">
-        <div class="row align-items-center">
+        <hr class="my-4">
+        <div class="row">
             <div class="col-md-6 text-center text-md-start">
-                <p class="mb-md-0 text-white">&copy; {{ date('Y') }} Waveron Technologies. All rights reserved.</p>
+                <p class="mb-0">&copy; {{ date('Y') }} Waveron. All rights reserved.</p>
             </div>
             <div class="col-md-6 text-center text-md-end">
-                <a href="#" class="text-white text-decoration-none me-3 hover-primary">Terms of Service</a>
-                <a href="#" class="text-white text-decoration-none hover-primary">Privacy Policy</a>
+                <a href="#" class="text-muted me-3">Privacy Policy</a>
+                <a href="#" class="text-muted">Terms of Service</a>
             </div>
         </div>
     </div>
@@ -62,11 +53,26 @@
 
 @push('styles')
 <style>
-    .hover-primary {
+    footer {
+        background-color: #f8f9fa;
+    }
+
+    footer a {
+        color: #666;
+        text-decoration: none;
         transition: color 0.3s ease;
     }
-    .hover-primary:hover {
-        color: var(--primary-color) !important;
+
+    footer a:hover {
+        color: var(--waveron-green);
+    }
+
+    .social-links a {
+        font-size: 1.2rem;
+    }
+
+    .newsletter-form .input-group {
+        max-width: 300px;
     }
 </style>
 @endpush
