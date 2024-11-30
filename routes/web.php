@@ -12,3 +12,28 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
+// Services Pages
+Route::get('/services', function () {
+    return view('services');
+})->name('services');
+
+Route::get('/services/software-development', function () {
+    return view('softwaredevelopment');
+})->name('services.software');
+
+Route::get('/services/graphic-design', function () {
+    return view('graphicdesign');
+})->name('services.design');
+
+Route::get('/services/branding', function () {
+    return view('branding');
+})->name('services.branding');
+
+Route::get('/services/digital-marketing', function () {
+    return view('digitalmarketing');
+})->name('services.marketing');
+
+Route::get('/portfolio', function () {
+    return view('portfolio');
+})->name('portfolio');

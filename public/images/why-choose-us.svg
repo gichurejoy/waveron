@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#006400;stop-opacity:0.2"/>
+            <stop offset="100%" style="stop-color:#004d00;stop-opacity:0.1"/>
+        </linearGradient>
+    </defs>
+    <rect width="100%" height="100%" fill="white"/>
+    <!-- Trophy -->
+    <g transform="translate(250, 100)">
+        <path d="M150,50 L350,50 L350,250 Q250,300 150,250 Z" fill="#006400" opacity="0.1"/>
+        <path d="M200,100 L300,100 L300,200 Q250,250 200,200 Z" fill="#006400" opacity="0.2"/>
+        <!-- Trophy Base -->
+        <rect x="225" y="250" width="50" height="20" fill="#006400"/>
+        <rect x="200" y="270" width="100" height="10" fill="#006400"/>
+    </g>
+    <!-- Stars -->
+    <g fill="#006400" opacity="0.3">
+        <path d="M600,100 L610,120 L630,120 L615,135 L620,155 L600,145 L580,155 L585,135 L570,120 L590,120 Z"/>
+        <path d="M500,200 L507,213 L520,213 L510,223 L513,236 L500,229 L487,236 L490,223 L480,213 L493,213 Z"/>
+        <path d="M650,300 L657,313 L670,313 L660,323 L663,336 L650,329 L637,336 L640,323 L630,313 L643,313 Z"/>
+    </g>
+    <!-- Checkmarks -->
+    <g stroke="#006400" stroke-width="3" fill="none">
+        <path d="M100,300 L120,320 L150,280" opacity="0.6"/>
+        <path d="M200,350 L220,370 L250,330" opacity="0.6"/>
+        <path d="M300,400 L320,420 L350,380" opacity="0.6"/>
+    </g>
+</svg>

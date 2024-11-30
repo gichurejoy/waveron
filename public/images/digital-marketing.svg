@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#006400;stop-opacity:0.2"/>
+            <stop offset="100%" style="stop-color:#004d00;stop-opacity:0.1"/>
+        </linearGradient>
+    </defs>
+    <rect width="100%" height="100%" fill="white"/>
+    <!-- Analytics Graph -->
+    <g transform="translate(100, 100)">
+        <!-- Graph Lines -->
+        <path d="M50,300 L50,50 L600,50" stroke="#006400" stroke-width="2" fill="none"/>
+        <!-- Data Points -->
+        <path d="M50,250 L150,200 L250,220 L350,150 L450,100 L550,80" 
+              stroke="#006400" stroke-width="3" fill="none"/>
+        <circle cx="150" cy="200" r="5" fill="#006400"/>
+        <circle cx="250" cy="220" r="5" fill="#006400"/>
+        <circle cx="350" cy="150" r="5" fill="#006400"/>
+        <circle cx="450" cy="100" r="5" fill="#006400"/>
+        <circle cx="550" cy="80" r="5" fill="#006400"/>
+    </g>
+    <!-- Social Media Icons -->
+    <g transform="translate(100, 400)">
+        <circle cx="50" cy="50" r="30" fill="#006400" opacity="0.2"/>
+        <circle cx="130" cy="50" r="30" fill="#006400" opacity="0.3"/>
+        <circle cx="210" cy="50" r="30" fill="#006400" opacity="0.4"/>
+    </g>
+    <!-- Search Icon -->
+    <g transform="translate(500, 400)">
+        <circle cx="50" cy="50" r="30" fill="none" stroke="#006400" stroke-width="3"/>
+        <line x1="70" y1="70" x2="90" y2="90" stroke="#006400" stroke-width="3"/>
+    </g>
+</svg>

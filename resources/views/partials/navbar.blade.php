@@ -11,6 +11,22 @@
                 <li class="nav-item">
                     <a class="nav-link px-3 {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle px-3 {{ request()->routeIs('services*') ? 'active' : '' }}" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Services
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <li><a class="dropdown-item" href="{{ route('services') }}">All Services</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{{ route('services.software') }}">Software Development</a></li>
+                        <li><a class="dropdown-item" href="{{ route('services.design') }}">Graphic Design</a></li>
+                        <li><a class="dropdown-item" href="{{ route('services.branding') }}">Branding</a></li>
+                        <li><a class="dropdown-item" href="{{ route('services.marketing') }}">Digital Marketing</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-3 {{ request()->routeIs('portfolio') ? 'active' : '' }}" href="{{ route('portfolio') }}">Portfolio</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link px-3 {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">About</a>
                 </li>
@@ -46,6 +62,23 @@
 
     .nav-link:hover {
         color: var(--waveron-green);
+    }
+
+    .dropdown-item {
+        font-weight: 500;
+        padding: 0.5rem 1.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .dropdown-item:hover {
+        background-color: var(--waveron-green);
+        color: white;
+    }
+
+    .dropdown-menu {
+        border: none;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        border-radius: 0.5rem;
     }
 </style>
 @endpush

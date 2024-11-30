@@ -1,7 +1,7 @@
 <footer class="footer py-5" style="background-color: #f8f9fa;">
     <div class="container">
         <div class="row gy-4">
-            <div class="col-lg-4">
+            <div class="col-lg-3">
                 <h5 class="text-primary mb-3">WAVERON</h5>
                 <p class="text-muted">Empowering businesses through innovative technology solutions.</p>
                 <div class="social-links">
@@ -19,7 +19,16 @@
                     <li><a href="{{ route('contact') }}">Contact</a></li>
                 </ul>
             </div>
-            <div class="col-lg-3 col-md-4">
+            <div class="col-lg-2 col-md-4">
+                <h6 class="mb-3">Services</h6>
+                <ul class="list-unstyled">
+                    <li><a href="{{ route('services.software') }}">Software Development</a></li>
+                    <li><a href="{{ route('services.design') }}">Graphic Design</a></li>
+                    <li><a href="{{ route('services.branding') }}">Branding</a></li>
+                    <li><a href="{{ route('services.marketing') }}">Digital Marketing</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-4">
                 <h6 class="mb-3">Contact Us</h6>
                 <ul class="list-unstyled">
                     <li><i class="bi bi-geo-alt me-2"></i>Westlands, Nairobi</li>
