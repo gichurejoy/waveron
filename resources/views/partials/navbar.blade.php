@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white shadow-sm" style="padding: 0;">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
-            <span class="text-primary fw-bold h4 mb-0">WAVERON</span>
+            <img src="/images/copy of joybrand/3.png" alt="Logo" style="height: 80px; margin-bottom: 0;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -46,10 +46,15 @@
 
 @push('styles')
 <style>
+  
     .navbar {
+       
         transition: all 0.3s ease;
     }
-
+ 
+    .navbar-brand{
+        padding-bottom: 0px;
+    }
     .navbar.scrolled {
         background: rgba(255, 255, 255, 0.95) !important;
         backdrop-filter: blur(10px);

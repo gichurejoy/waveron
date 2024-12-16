@@ -146,6 +146,8 @@
     </div>
 </div>
 
+@include('partials.footer')
+
 @push('styles')
 <style>
     .contact-header {

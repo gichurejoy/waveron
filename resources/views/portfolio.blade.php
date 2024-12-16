@@ -144,6 +144,9 @@
     </div>
 </div>
 
+@include('partials.footer')
+@endsection
+
 @push('styles')
 <style>
     .portfolio-hero {

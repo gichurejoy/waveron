@@ -427,6 +427,9 @@ class WaveronTech {
         </div>
     </div>
 </div>
+
+
+@include('partials.footer')
 @endsection
 
 @push('scripts')
@@ -494,6 +497,7 @@ document.addEventListener('DOMContentLoaded', function() {
 //     }
 // });
 </script>
+
 @push('styles')
 <style>
    
@@ -1053,4 +1057,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 </style>
 @endpush
-

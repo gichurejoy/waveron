@@ -53,8 +53,8 @@
                 <p class="mb-0">&copy; {{ date('Y') }} Waveron. All rights reserved.</p>
             </div>
             <div class="col-md-6 text-center text-md-end">
-                <a href="#" class="text-muted me-3">Privacy Policy</a>
-                <a href="#" class="text-muted">Terms of Service</a>
+                <a href="{{ route('privacy-policy') }}" class="text-muted me-3">Privacy Policy</a>
+                <a href="{{ route('terms-of-service') }}" class="text-muted">Terms of Service</a>
             </div>
         </div>
     </div>
@@ -62,18 +62,23 @@
 
 @push('styles')
 <style>
-    footer {
-        background-color: #f8f9fa;
+    footer.footer {
+        background-color: #f8f9fa !important;
+        color: #333 !important;
     }
 
-    footer a {
-        color: #666;
+    footer.footer a {
+        color: #666 !important;
         text-decoration: none;
         transition: color 0.3s ease;
     }
 
-    footer a:hover {
-        color: var(--waveron-green);
+    footer.footer a:hover {
+        color: var(--waveron-green) !important;
+    }
+
+    footer.footer .text-muted {
+        color: #666 !important;
     }
 
     .social-links a {
