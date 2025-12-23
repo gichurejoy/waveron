@@ -33,8 +33,11 @@
                 <li class="nav-item">
                     <a class="nav-link px-3 {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contact</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link px-3 {{ request()->routeIs('quote') ? 'active' : '' }}" href="{{ route('quote') }}">Request Quote</a>
+                </li>
                 <li class="nav-item ms-lg-3">
-                    <a class="btn btn-primary rounded-pill px-4" href="{{ route('contact') }}">Get Started</a>
+                    <a class="btn btn-primary rounded-pill px-4" href="{{ route('quote') }}">Get Started</a>
                 </li>
             </ul>
         </div>
