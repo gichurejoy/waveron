@@ -7,6 +7,19 @@ You have received a new message from the contact form.
 **Email:** {{ $data['email'] }}  
 **Subject:** {{ $data['subject'] }}
 
+@if(isset($data['company']))
+**Company:** {{ $data['company'] }}
+@endif
+@if(isset($data['budget']))
+**Budget:** {{ $data['budget'] }}
+@endif
+@if(isset($data['timeline']))
+**Timeline:** {{ $data['timeline'] }}
+@endif
+@if(isset($data['services']))
+**Services:** {{ $data['services'] }}
+@endif
+
 **Message:**  
 {{ $data['message'] }}
 
