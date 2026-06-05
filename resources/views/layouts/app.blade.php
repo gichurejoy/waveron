@@ -32,6 +32,7 @@
         body {
             font-family: 'Inter', sans-serif;
             color: #333;
+            zoom: 0.8;
         }
 
         .btn-primary {
