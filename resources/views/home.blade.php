@@ -12,7 +12,7 @@
                 <p class="lead mb-4">A pioneering technology firm dedicated to creating cutting-edge solutions that
                     propel businesses into the future. We harness the power of advanced technology to transform
                     industries and elevate the human experience.</p>
-                <div class="d-flex gap-3">
+                <div class="d-flex flex-column flex-sm-row gap-3">
                     <a href="{{ route('services') }}" class="btn btn-primary btn-lg">Explore Services</a>
                     <a href="{{ route('contact') }}" class="btn btn-outline-primary btn-lg">Get Started</a>
                 </div>
@@ -353,7 +353,7 @@
                         </div>
                         <h3 class="h2 fw-bold mb-3">Full-Cycle Product Development</h3>
                         <p class="text-muted mb-4">From initial concept to production deployment, we build scalable software solutions tailored to your business needs using modern tech stacks and agile methodologies.</p>
-                        <div class="d-flex gap-3">
+                        <div class="d-flex flex-column flex-sm-row gap-3">
                             <a href="{{ route('services') }}" class="btn btn-outline-dark rounded-pill">
                                 <i class="bi bi-list-check me-2"></i> See process
                             </a>

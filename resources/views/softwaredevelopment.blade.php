@@ -13,7 +13,7 @@
                 <div class="hero-content" data-aos="fade-up">
                     <h1 class="display-4 fw-bold mb-4" style="color: var(--primary-color)">Software Development</h1>
                     <p class="lead text-secondary mb-4">Transforming ideas into powerful digital solutions with cutting-edge technology and innovative development practices.</p>
-                    <div class="d-flex gap-3">
+                    <div class="d-flex flex-column flex-sm-row gap-3">
                         <a href="{{ route('contact') }}" class="btn btn-primary btn-lg mb-3 mb-sm-0 me-sm-3">Get Started</a>
                         <a href="{{ route('services') }}" class="btn btn-outline-primary btn-lg mb-3 mb-sm-0">Learn More</a>
                     </div>
