@@ -22,6 +22,10 @@
             --waveron-dark-green: #004d00;
         }
 
+        html {
+            font-size: 80%;
+        }
+
         html, body {
             overflow-x: hidden;
             width: 100%;
