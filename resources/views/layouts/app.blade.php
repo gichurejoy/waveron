@@ -22,6 +22,13 @@
             --waveron-dark-green: #004d00;
         }
 
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             color: #333;
