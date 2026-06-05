@@ -15,6 +15,7 @@
                 <h6 class="mb-3">Quick Links</h6>
                 <ul class="list-unstyled">
                     <li><a href="{{ route('home') }}">Home</a></li>
+                    <li><a href="{{ route('careers') }}">Careers</a></li>
                     <li><a href="{{ route('about') }}">About</a></li>
                     <li><a href="{{ route('contact') }}">Contact</a></li>
                     <li><a href="{{ route('quote') }}">Request Quote</a></li>
@@ -33,7 +34,7 @@
                 <h6 class="mb-3">Contact Us</h6>
                 <ul class="list-unstyled">
                     <li><i class="bi bi-geo-alt me-2"></i>Westlands, Nairobi</li>
-                    <li><i class="bi bi-telephone me-2"></i>+1 630-480-4540</li>
+                    <li><i class="bi bi-telephone me-2"></i>+254798717800</li>
                     <li><i class="bi bi-envelope me-2"></i>info@waveron.com</li>
                 </ul>
             </div>
@@ -62,32 +63,32 @@
 </footer>
 
 @push('styles')
-<style>
-    footer.footer {
-        background-color: #f8f9fa !important;
-        color: #333 !important;
-    }
+    <style>
+        footer.footer {
+            background-color: #f8f9fa !important;
+            color: #333 !important;
+        }
 
-    footer.footer a {
-        color: #666 !important;
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
+        footer.footer a {
+            color: #666 !important;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-    footer.footer a:hover {
-        color: var(--waveron-green) !important;
-    }
+        footer.footer a:hover {
+            color: var(--waveron-green) !important;
+        }
 
-    footer.footer .text-muted {
-        color: #666 !important;
-    }
+        footer.footer .text-muted {
+            color: #666 !important;
+        }
 
-    .social-links a {
-        font-size: 1.2rem;
-    }
+        .social-links a {
+            font-size: 1.2rem;
+        }
 
-    .newsletter-form .input-group {
-        max-width: 300px;
-    }
-</style>
+        .newsletter-form .input-group {
+            max-width: 300px;
+        }
+    </style>
 @endpush

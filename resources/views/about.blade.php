@@ -114,59 +114,6 @@
     </div>
 </section>
 
-<!-- Team Section -->
-<section class="our-team py-5">
-    <div class="container">
-        <div class="row justify-content-center mb-5">
-            <div class="col-lg-8 text-center">
-                <h2 class="h1 fw-bold mb-4">Our Leadership Team</h2>
-                <p class="lead text-muted">Meet the people driving innovation at Waveron Technologies</p>
-            </div>
-        </div>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card border-0 shadow-sm">
-                    <img src="{{ asset('images/team/ceo.jpg') }}" class="card-img-top" alt="CEO">
-                    <div class="card-body text-center p-4">
-                        <h3 class="h4 mb-2">John Smith</h3>
-                        <p class="text-muted mb-3">Chief Executive Officer</p>
-                        <div class="social-links">
-                            <a href="#" class="text-muted me-2"><i class="bi bi-linkedin"></i></a>
-                            <a href="#" class="text-muted me-2"><i class="bi bi-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card border-0 shadow-sm">
-                    <img src="{{ asset('images/team/cto.jpg') }}" class="card-img-top" alt="CTO">
-                    <div class="card-body text-center p-4">
-                        <h3 class="h4 mb-2">Sarah Johnson</h3>
-                        <p class="text-muted mb-3">Chief Technology Officer</p>
-                        <div class="social-links">
-                            <a href="#" class="text-muted me-2"><i class="bi bi-linkedin"></i></a>
-                            <a href="#" class="text-muted me-2"><i class="bi bi-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card border-0 shadow-sm">
-                    <img src="{{ asset('images/team/coo.jpg') }}" class="card-img-top" alt="COO">
-                    <div class="card-body text-center p-4">
-                        <h3 class="h4 mb-2">Michael Chen</h3>
-                        <p class="text-muted mb-3">Chief Operations Officer</p>
-                        <div class="social-links">
-                            <a href="#" class="text-muted me-2"><i class="bi bi-linkedin"></i></a>
-                            <a href="#" class="text-muted me-2"><i class="bi bi-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- Call to Action -->
 <section class="cta bg-primary text-white py-5">
     <div class="container">

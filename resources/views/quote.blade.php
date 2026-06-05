@@ -183,7 +183,7 @@
                                             <a href="mailto:hello@waveron.com" class="text-decoration-none text-muted">
                                                 <i class="bi bi-envelope me-2"></i> hello@waveron.com
                                             </a>
-                                            <a href="#" class="text-decoration-none text-muted">
+                                            <a href="{{ route('contact') }}" class="text-decoration-none text-muted">
                                                 <i class="bi bi-telephone me-2"></i> Schedule a call
                                             </a>
                                         </div>

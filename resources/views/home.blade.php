@@ -13,8 +13,8 @@
                     propel businesses into the future. We harness the power of advanced technology to transform
                     industries and elevate the human experience.</p>
                 <div class="d-flex gap-3">
-                    <a href="#services" class="btn btn-primary btn-lg">Explore Services</a>
-                    <a href="#contact" class="btn btn-outline-primary btn-lg">Get Started</a>
+                    <a href="{{ route('services') }}" class="btn btn-primary btn-lg">Explore Services</a>
+                    <a href="{{ route('contact') }}" class="btn btn-outline-primary btn-lg">Get Started</a>
                 </div>
             </div>
             <div class="col-lg-6 d-none d-lg-block">
@@ -57,7 +57,7 @@
                 <div class="mt-5">
                     <h6 class="fw-bold mb-2">Impactful results across industries</h6>
                     <p class="text-muted mb-4">From startup MVPs to enterprise transformations, our projects consistently deliver measurable outcomes and user engagement that drives business growth.</p>
-                    <a href="#work" class="btn btn-dark rounded-pill">
+                    <a href="{{ route('portfolio') }}" class="btn btn-dark rounded-pill">
                         View all projects
                         <i class="bi bi-circle-fill ms-2" style="font-size: 0.5rem;"></i>
                     </a>
@@ -74,7 +74,7 @@
                                 </span>
                                 <span class="badge bg-light bg-opacity-25 text-white position-absolute top-0 end-0 m-3 backdrop-blur">Branding</span>
                                 <div class="position-absolute bottom-0 start-0 p-3 text-white">
-                                    <h5 class="mb-0">Arcadia OS</h5>
+                                    <h5 class="mb-0">Waveron CRM</h5>
                                 </div>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                                 </span>
                                 <span class="badge bg-light bg-opacity-25 text-white position-absolute top-0 end-0 m-3 backdrop-blur">Health</span>
                                 <div class="position-absolute bottom-0 start-0 p-3 text-white">
-                                    <h5 class="mb-0">Helix Care</h5>
+                                    <h5 class="mb-0">Lead Generator</h5>
                                 </div>
                             </div>
                         </div>
@@ -98,7 +98,7 @@
                                 </span>
                                 <span class="badge bg-light bg-opacity-25 text-white position-absolute top-0 end-0 m-3 backdrop-blur">Product</span>
                                 <div class="position-absolute bottom-0 start-0 p-3 text-white">
-                                    <h5 class="mb-0">Nimbus Finance</h5>
+                                    <h5 class="mb-0">E-Commerce Core</h5>
                                 </div>
                             </div>
                         </div>
@@ -109,7 +109,7 @@
                                 </span>
                                 <span class="badge bg-light bg-opacity-25 text-white position-absolute top-0 end-0 m-3 backdrop-blur">Motion</span>
                                 <div class="position-absolute bottom-0 start-0 p-3 text-white">
-                                    <h5 class="mb-0">Lumen AI</h5>
+                                    <h5 class="mb-0">Security Agent</h5>
                                 </div>
                             </div>
                         </div>
@@ -146,13 +146,13 @@
 
                         <div class="row g-3 mb-4">
                             <div class="col-md-6">
-                                <div class="bg-primary bg-opacity-10 rounded-3 p-4" style="height: 180px;">
+                                <div class="bg-success bg-opacity-10 rounded-3 p-4" style="height: 180px;">
                                     <div class="d-flex gap-2 mb-3">
                                         <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/184099c3-3f6c-4f6f-a05a-830150bf75c1_320w.jpg" class="rounded-circle" width="32" height="32" alt="Team">
                                         <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/292b814a-2c70-4f95-a74d-5a101fc0b698_320w.jpg" class="rounded-circle" width="32" height="32" alt="Team">
                                         <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/9e675575-668c-4087-8408-fa06dd33c5f0_320w.jpg" class="rounded-circle" width="32" height="32" alt="Team">
                                     </div>
-                                    <span class="badge bg-white text-primary small">
+                                    <span class="badge bg-white text-success small">
                                         <i class="bi bi-graph-up me-1"></i> Market Analysis
                                     </span>
                                 </div>
@@ -206,11 +206,11 @@
                         <h5 class="fw-bold mb-3">Agile Development Cycles</h5>
                         <p class="text-muted small mb-4">Streamline product delivery with our iterative sprint methodology and continuous feedback loops.</p>
 
-                        <div class="bg-light rounded-3 p-3 mb-3">
-                            <canvas id="workChart" height="120"></canvas>
+                        <div class="bg-light rounded-3 mb-3 overflow-hidden" style="height: 120px;">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f03d228e-5eab-4149-af94-7d6c5c2eb5c5_800w.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="Agile Development">
                         </div>
 
-                        <span class="badge bg-primary bg-opacity-10 text-primary">
+                        <span class="badge bg-success bg-opacity-10 text-success">
                             <i class="bi bi-cpu me-1"></i> Rapid Deployment
                         </span>
                     </div>
@@ -277,8 +277,8 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="text-center bg-primary bg-opacity-10 rounded-3 p-4">
-                                    <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px;">
+                                <div class="text-center bg-success bg-opacity-10 rounded-3 p-4">
+                                    <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px;">
                                         <i class="bi bi-file-check-fill"></i>
                                     </div>
                                     <h6 class="fw-bold">Compliance</h6>
@@ -354,7 +354,7 @@
                         <h3 class="h2 fw-bold mb-3">Full-Cycle Product Development</h3>
                         <p class="text-muted mb-4">From initial concept to production deployment, we build scalable software solutions tailored to your business needs using modern tech stacks and agile methodologies.</p>
                         <div class="d-flex gap-3">
-                            <a href="#services" class="btn btn-outline-dark rounded-pill">
+                            <a href="{{ route('services') }}" class="btn btn-outline-dark rounded-pill">
                                 <i class="bi bi-list-check me-2"></i> See process
                             </a>
                             <a href="{{ route('contact') }}" class="btn btn-success rounded-pill">
@@ -443,7 +443,7 @@
                 <p class="lead text-muted">Clear scopes, fixed sprints, and embedded options. No surprises—just momentum.</p>
             </div>
             <div class="col-lg-4 text-lg-end d-flex align-items-center justify-content-lg-end">
-                <a href="#contact" class="btn btn-dark rounded-pill">
+                <a href="{{ route('quote') }}" class="btn btn-dark rounded-pill">
                     Get a tailored quote
                     <i class="bi bi-arrow-up-right ms-2"></i>
                 </a>

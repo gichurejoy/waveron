@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\Api\QuoteController;
+use App\Http\Controllers\CareerController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/about', function () {
@@ -13,6 +13,11 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
+Route::get('/careers', function () {
+    return view('careers');
+})->name('careers');
+Route::post('/careers/submit', [CareerController::class, 'submit'])->name('careers.submit');
 
 // Services Pages
 Route::get('/services', function () {
@@ -50,17 +55,3 @@ Route::get('/terms-of-service', function () {
 Route::get('/quote', function () {
     return view('quote');
 })->name('quote');
-
-Route::prefix('api')->group(function () {
-    Route::post('quote', [QuoteController::class, 'store']);
-    Route::get('features', [QuoteController::class, 'features']);
-    Route::get('services/{service}', [QuoteController::class, 'getService']);
-});
-
-// Quote PDF Routes
-Route::get('quotes/{quote}/pdf', [\App\Http\Controllers\QuotePDFController::class, 'generate'])->name('quotes.pdf');
-Route::get('quotes/{quote}/download', [\App\Http\Controllers\QuotePDFController::class, 'download'])->name('quotes.download');
-
-// Leads Routes
-Route::get('/leads', [\App\Http\Controllers\LeadController::class, 'index'])->name('leads.index');
-Route::get('/leads/{lead}', [\App\Http\Controllers\LeadController::class, 'show'])->name('leads.show');

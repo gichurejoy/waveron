@@ -14,8 +14,8 @@
                     <h1 class="display-4 fw-bold mb-4" style="color: var(--primary-color)">Software Development</h1>
                     <p class="lead text-secondary mb-4">Transforming ideas into powerful digital solutions with cutting-edge technology and innovative development practices.</p>
                     <div class="d-flex gap-3">
-                        <a href="#contact" class="btn btn-primary btn-lg">Get Started</a>
-                        <a href="#process" class="btn btn-outline-primary btn-lg">Learn More</a>
+                        <a href="{{ route('contact') }}" class="btn btn-primary btn-lg mb-3 mb-sm-0 me-sm-3">Get Started</a>
+                        <a href="{{ route('services') }}" class="btn btn-outline-primary btn-lg mb-3 mb-sm-0">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -202,7 +202,7 @@ class WaveronTech {
                         <span class="period" style="color: var(--secondary-color)">/project</span>
                     </div>
                     <div class="mt-4">
-                        <a href="#contact" class="btn btn-primary btn-lg">Get Started</a>
+                        <a href="{{ route('contact') }}" class="btn btn-primary btn-lg">Get Started</a>
                     </div>
                 </div>
             </div>
