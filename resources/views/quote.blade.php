@@ -82,29 +82,29 @@
                                             <div class="col-md-6">
                                                 <div class="form-check border rounded-3 p-3 h-100">
                                                     <input class="form-check-input" type="checkbox" value="maintenance" id="addonMaintenance">
-                                                    <label class="form-check-label fw-semibold" for="addonMaintenance">Maintenance & updates</label>
-                                                    <div class="text-muted small">Ongoing fixes, patching, minor enhancements.</div>
+                                                    <label class="form-check-label fw-semibold" for="addonMaintenance">Continuous Security & Auto-Patching</label>
+                                                    <div class="text-muted small">Weekly malware sweeps, vulnerability patching, and automated dependency updates.</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-check border rounded-3 p-3 h-100">
                                                     <input class="form-check-input" type="checkbox" value="support" id="addonSupport">
-                                                    <label class="form-check-label fw-semibold" for="addonSupport">Priority support</label>
-                                                    <div class="text-muted small">Faster response times and dedicated contact.</div>
+                                                    <label class="form-check-label fw-semibold" for="addonSupport">24/7 SLA-Backed Hotlines</label>
+                                                    <div class="text-muted small">Dedicated emergency contact with guaranteed under-1-hour resolution times.</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-check border rounded-3 p-3 h-100">
                                                     <input class="form-check-input" type="checkbox" value="analytics" id="addonAnalytics">
-                                                    <label class="form-check-label fw-semibold" for="addonAnalytics">Analytics setup</label>
-                                                    <div class="text-muted small">Tracking, dashboards, and KPI instrumentation.</div>
+                                                    <label class="form-check-label fw-semibold" for="addonAnalytics">Advanced Behavioral Intelligence</label>
+                                                    <div class="text-muted small">Heatmapping and recording (Hotjar/Mixpanel) to find where users drop off.</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-check border rounded-3 p-3 h-100">
                                                     <input class="form-check-input" type="checkbox" value="qa" id="addonQa">
-                                                    <label class="form-check-label fw-semibold" for="addonQa">QA & usability testing</label>
-                                                    <div class="text-muted small">Test plans, regression passes, and usability sessions.</div>
+                                                    <label class="form-check-label fw-semibold" for="addonQa">AI-Driven Automated Testing Suite</label>
+                                                    <div class="text-muted small">Custom E2E test suites (Playwright/Cypress) that run before every deploy.</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -329,32 +329,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const serviceFeatures = {
         software: [
-            'Responsive web or mobile-ready UI',
-            'API integrations (payments, auth, third parties)',
-            'Role-based access and security hardening',
-            'Analytics + event tracking instrumentation',
-            'Scalable deployment pipeline (CI/CD)',
+            'Real-Time Live WebSockets & Messaging',
+            'Custom AI Model / Chatbot Integration',
+            'Multi-Tenant SaaS Infrastructure Setup',
+            'Offline-First Synchronization (PWA)',
+            'Advanced Custom Search Engine Integration',
         ],
         design: [
-            'Visual identity and design system tokens',
-            'High-fidelity UI screens and components',
-            'Interactive prototypes for key user journeys',
-            'Asset exports and developer handoff specs',
-            'Accessibility-conscious color/typography choices',
+            'Interactive Micro-Animations & Lottie Assets',
+            '3D Rendered Elements & Scene Illustration',
+            'Light / Dark Mode Adaptive Design System',
+            'Interactive Figma Prototype & User Journeys',
+            'Comprehensive Conversion Rate Audit Report',
         ],
         branding: [
-            'Logo suite (primary, secondary, marks)',
-            'Color, typography, and usage guidelines',
-            'Voice/tone and messaging pillars',
-            'Brand collateral templates (pitch, socials)',
-            'Iconography and illustration direction',
+            'Interactive Brand Guidelines Digital Portal',
+            'Custom Bespoke Typography & Logomark Creation',
+            'Animated Motion Graphics (Intros, Transitions)',
+            'Premium Packaging & Merchandise Mockups',
+            'Sonic Brand Identity (Custom Audio Logo/Jingle)',
         ],
         marketing: [
-            'Campaign planning and channel mix',
-            'Landing pages with conversion tracking',
-            'SEO/SEM and keyword targeting setup',
-            'Email/SMS nurture flows and automation',
-            'Reporting dashboards and KPI reviews',
+            'Automated CRM & Multi-Step Sales Funnel Integration',
+            'AI-Powered Competitor Intelligence Tracking',
+            'SEO Domination (High-Authority Backlink Engine)',
+            'Influencer Partnership Strategy & Matchmaking',
+            'Predictive Analytics & Lifetime Value Reporting',
         ],
     };
 
