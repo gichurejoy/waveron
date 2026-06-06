@@ -116,7 +116,7 @@
                         <div>
                             <h4 class="h5 mb-2">Email Us</h4>
                             <p class="text-muted mb-0">
-                                <a href="mailto:contact@waveron.com" class="text-decoration-none text-muted">contact@waveron.com</a>
+                                <a href="mailto:info@waverontechnologies.co.ke" class="text-decoration-none text-muted">info@waverontechnologies.co.ke</a>
                             </p>
                         </div>
                     </div>

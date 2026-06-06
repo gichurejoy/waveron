@@ -35,7 +35,7 @@
         <h2>9. Amendments</h2>
         <p>We may revise these terms from time to time. We will notify you of any changes by posting the new terms on this page.</p>
         <h2>10. Contact Us</h2>
-        <p>If you have any questions about these terms, please contact us at support@waveron.com.</p>
+        <p>If you have any questions about these terms, please contact us at info@waverontechnologies.co.ke.</p>
     </div>
 </div>
 @include('partials.footer')

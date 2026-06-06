@@ -180,8 +180,8 @@
                                         </ul>
 
                                         <div class="d-flex flex-column gap-2 text-muted small">
-                                            <a href="mailto:hello@waveron.com" class="text-decoration-none text-muted">
-                                                <i class="bi bi-envelope me-2"></i> hello@waveron.com
+                                            <a href="mailto:info@waverontechnologies.co.ke" class="text-decoration-none text-muted">
+                                                <i class="bi bi-envelope me-2"></i> info@waverontechnologies.co.ke
                                             </a>
                                             <a href="{{ route('contact') }}" class="text-decoration-none text-muted">
                                                 <i class="bi bi-telephone me-2"></i> Schedule a call
@@ -505,7 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'Let’s discuss and refine the scope.',
         ].join('%0A');
         const subject = encodeURIComponent('Quote Request');
-        return `mailto:joy.gichure@outlook.com?subject=${subject}&body=${body}`;
+        return `mailto:info@waverontechnologies.co.ke?subject=${subject}&body=${body}`;
     }
 
     function calcEstimate() {

@@ -35,7 +35,7 @@
                 <ul class="list-unstyled">
                     <li><i class="bi bi-geo-alt me-2"></i>Westlands, Nairobi</li>
                     <li><i class="bi bi-telephone me-2"></i>+254798717800</li>
-                    <li><i class="bi bi-envelope me-2"></i>info@waveron.com</li>
+                    <li><i class="bi bi-envelope me-2"></i>info@waverontechnologies.co.ke</li>
                 </ul>
             </div>
             <div class="col-lg-3 col-md-4">
