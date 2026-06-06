@@ -302,10 +302,10 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const basePrices = {
-        software: 650000,
-        design: 234000,
-        branding: 286000,
-        marketing: 260000,
+        software: 250000,
+        design: 85000,
+        branding: 65000,
+        marketing: 95000,
     };
 
     const complexityMultipliers = {
@@ -321,10 +321,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const addonPrices = {
-        maintenance: 78000,
-        support: 58500,
-        analytics: 52000,
-        qa: 84500,
+        maintenance: 25000,
+        support: 20000,
+        analytics: 15000,
+        qa: 30000,
     };
 
     const serviceFeatures = {
