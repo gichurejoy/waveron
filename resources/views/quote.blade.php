@@ -302,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const basePrices = {
-        software: 250000,
+        software: 150000,
         design: 85000,
         branding: 65000,
         marketing: 95000,
