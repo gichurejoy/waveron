@@ -190,15 +190,15 @@ class WaveronTech {
         <div class="row justify-content-center mb-5">
             <div class="col-lg-8 text-center">
                 <h2 class="section-title mb-4" style="color: var(--primary-color)">Our Pricing Plans</h2>
-                <p class="lead" style="color: var(--secondary-color)">Starting from $200</p>
+                <p class="lead" style="color: var(--secondary-color)">Starting from Ksh 25,000</p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-6 text-center">
                 <div class="pricing-card">
                     <div class="price-tag mb-4">
-                        <span class="currency" style="color: var(--primary-color)">$</span>
-                        <span class="amount" style="color: var(--primary-color)">200</span>
+                        <span class="currency" style="color: var(--primary-color)">Ksh</span>
+                        <span class="amount" style="color: var(--primary-color)">25,000</span>
                         <span class="period" style="color: var(--secondary-color)">/project</span>
                     </div>
                     <div class="mt-4">

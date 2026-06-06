@@ -14,6 +14,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Schema.org JSON-LD Metadata -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Waveron Technologies",
+      "url": "https://waverontechnologies.co.ke",
+      "logo": "https://waverontechnologies.co.ke/images/w.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+254798717800",
+        "contactType": "customer service",
+        "areaServed": "KE",
+        "availableLanguage": "English"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Waveron Technologies",
+      "url": "https://waverontechnologies.co.ke"
+    }
+    </script>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     <style>

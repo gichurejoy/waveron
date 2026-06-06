@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Waveron Technologies - Innovation\'s Crest, Tomorrow\'s Best')
+@section('title', 'Waveron Technologies - Custom Software Development Agency in Nairobi, Kenya')
 
 @section('content')
 <!-- Hero Section -->
@@ -462,7 +462,7 @@
 
                         <div class="mb-4">
                             <div class="d-flex align-items-baseline gap-2 mb-2">
-                                <h2 class="display-6 fw-bold mb-0">$500</h2>
+                                <h2 class="display-6 fw-bold mb-0">Ksh 65,000</h2>
                                 <span class="text-muted">starting price</span>
                             </div>
                             <p class="text-muted small">Perfect for personal brands, students, and creative portfolios.</p>

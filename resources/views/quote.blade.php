@@ -124,11 +124,11 @@
                                 <ul class="list-unstyled mb-4" id="breakdownList"></ul>
                                 <div class="d-flex align-items-center justify-content-between mb-2">
                                     <span class="text-muted">Estimated total</span>
-                                    <span class="h3 fw-bold text-primary" id="totalDisplay">$0</span>
+                                    <span class="h3 fw-bold text-primary" id="totalDisplay">Ksh 0</span>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                     <span class="text-muted small">Est. monthly (6-month engagement)</span>
-                                    <span class="fw-semibold" id="monthlyDisplay">$0</span>
+                                    <span class="fw-semibold" id="monthlyDisplay">Ksh 0</span>
                                 </div>
                                 <div class="alert alert-info d-flex align-items-start gap-2">
                                     <i class="bi bi-info-circle text-primary fs-5"></i>
@@ -209,7 +209,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label small fw-bold text-muted">Budget</label>
-                                                    <input type="text" name="budget" class="form-control" placeholder="$25k-$50k">
+                                                    <input type="text" name="budget" class="form-control" placeholder="Ksh 50,000 - Ksh 100,000">
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label small fw-bold text-muted">Timeline</label>
@@ -302,10 +302,10 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const basePrices = {
-        software: 5000,
-        design: 1800,
-        branding: 2200,
-        marketing: 2000,
+        software: 650000,
+        design: 234000,
+        branding: 286000,
+        marketing: 260000,
     };
 
     const complexityMultipliers = {
@@ -321,10 +321,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const addonPrices = {
-        maintenance: 600,
-        support: 450,
-        analytics: 400,
-        qa: 650,
+        maintenance: 78000,
+        support: 58500,
+        analytics: 52000,
+        qa: 84500,
     };
 
     const serviceFeatures = {
@@ -359,7 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     function formatCurrency(value) {
-        return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(value);
+        return 'Ksh ' + new Intl.NumberFormat('en-KE', { maximumFractionDigits: 0 }).format(value);
     }
 
     function renderFeatures(service) {
