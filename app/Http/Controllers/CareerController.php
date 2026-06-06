@@ -24,7 +24,7 @@ class CareerController extends Controller
         ];
 
         // Send the email with the attached file
-        Mail::to('info@waverontechnologies.co.ke')->send(new JobApplicationMail($data, $request->file('resume')));
+        Mail::to(config('mail.from.address'))->send(new JobApplicationMail($data, $request->file('resume')));
 
         return redirect()->back()->with('success', 'Application submitted successfully! Our team will review your resume and reach out.');
     }

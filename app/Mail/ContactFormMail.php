@@ -25,7 +25,8 @@ class ContactFormMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('New Contact Form Submission')
+        return $this->subject($this->data['subject'] ?? 'New Contact Form Submission')
+                    ->replyTo($this->data['email'], $this->data['name'])
                     ->markdown('emails.contact-form');
     }
 }

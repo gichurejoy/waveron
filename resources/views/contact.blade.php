@@ -127,7 +127,7 @@
                         <div>
                             <h4 class="h5 mb-2">Call Us</h4>
                             <p class="text-muted mb-0">
-                                <a href="tel:+1234567890" class="text-decoration-none text-muted">+2547 98 717 800</a>
+                                <a href="tel:+254798717800" class="text-decoration-none text-muted">+2547 98 717 800</a>
                             </p>
                         </div>
                     </div>
