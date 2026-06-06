@@ -24,7 +24,7 @@ class ContactController extends Controller
 
         try {
             // Send email
-            Mail::to(config('mail.from.address'))->send(new ContactFormMail($validated));
+            Mail::to(config('mail.to.address'))->send(new ContactFormMail($validated));
 
             // Return with success message
             return back()->with('success', 'Thank you for your message. We will get back to you soon!');
