@@ -47,14 +47,10 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label fw-semibold">Complexity</label>
+                                        <label class="form-label fw-semibold">Complexity / Scale</label>
                                         <select id="complexitySelect" class="form-select">
-                                            <option value="basic">Standard (MVP / straightforward)</option>
-                                            <option value="advanced">Advanced (integrations, custom workflows)</option>
-                                            <option value="enterprise">Enterprise (scalability, security, compliance)</option>
                                         </select>
-                                        <div class="text-muted small mt-2">
-                                            Standard: simple flows and few integrations. Advanced: multiple roles/flows and custom logic. Enterprise: security/compliance, heavy integrations, and scale.
+                                        <div class="text-muted small mt-2" id="complexityDescription">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -78,35 +74,7 @@
                                     <div class="col-md-12">
                                         <label class="form-label fw-semibold d-block mb-2">Add-ons</label>
                                         <div class="text-muted small mb-2">Optional layers that stack on top of the estimate (works with any complexity/timeline).</div>
-                                        <div class="row g-3">
-                                            <div class="col-md-6">
-                                                <div class="form-check border rounded-3 p-3 h-100">
-                                                    <input class="form-check-input" type="checkbox" value="maintenance" id="addonMaintenance">
-                                                    <label class="form-check-label fw-semibold" for="addonMaintenance">Continuous Security & Auto-Patching</label>
-                                                    <div class="text-muted small">Weekly malware sweeps, vulnerability patching, and automated dependency updates.</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-check border rounded-3 p-3 h-100">
-                                                    <input class="form-check-input" type="checkbox" value="support" id="addonSupport">
-                                                    <label class="form-check-label fw-semibold" for="addonSupport">24/7 SLA-Backed Hotlines</label>
-                                                    <div class="text-muted small">Dedicated emergency contact with guaranteed under-1-hour resolution times.</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-check border rounded-3 p-3 h-100">
-                                                    <input class="form-check-input" type="checkbox" value="analytics" id="addonAnalytics">
-                                                    <label class="form-check-label fw-semibold" for="addonAnalytics">Advanced Behavioral Intelligence</label>
-                                                    <div class="text-muted small">Heatmapping and recording (Hotjar/Mixpanel) to find where users drop off.</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-check border rounded-3 p-3 h-100">
-                                                    <input class="form-check-input" type="checkbox" value="qa" id="addonQa">
-                                                    <label class="form-check-label fw-semibold" for="addonQa">AI-Driven Automated Testing Suite</label>
-                                                    <div class="text-muted small">Custom E2E test suites (Playwright/Cypress) that run before every deploy.</div>
-                                                </div>
-                                            </div>
+                                        <div class="row g-3" id="addonsContainer">
                                         </div>
                                     </div>
                                 </div>
@@ -294,83 +262,153 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailEstimateBtn = document.getElementById('emailEstimateBtn');
     const pdfEstimateBtn = document.getElementById('pdfEstimateBtn');
 
-    const addonInputs = [
-        document.getElementById('addonMaintenance'),
-        document.getElementById('addonSupport'),
-        document.getElementById('addonAnalytics'),
-        document.getElementById('addonQa'),
-    ];
-
-    const basePrices = {
-        software: 150000,
-        design: 85000,
-        branding: 65000,
-        marketing: 95000,
-    };
-
-    const complexityMultipliers = {
-        basic: 1,
-        advanced: 1.35,
-        enterprise: 1.8,
-    };
-
     const timelineMultipliers = {
         flexible: 0.9,
         standard: 1,
         rush: 1.25,
     };
 
-    const addonPrices = {
-        maintenance: 25000,
-        support: 20000,
-        analytics: 15000,
-        qa: 30000,
-    };
-
-    const serviceFeatures = {
-        software: [
-            'Real-Time Live WebSockets & Messaging',
-            'Custom AI Model / Chatbot Integration',
-            'Multi-Tenant SaaS Infrastructure Setup',
-            'Offline-First Synchronization (PWA)',
-            'Advanced Custom Search Engine Integration',
-        ],
-        design: [
-            'Interactive Micro-Animations & Lottie Assets',
-            '3D Rendered Elements & Scene Illustration',
-            'Light / Dark Mode Adaptive Design System',
-            'Interactive Figma Prototype & User Journeys',
-            'Comprehensive Conversion Rate Audit Report',
-        ],
-        branding: [
-            'Interactive Brand Guidelines Digital Portal',
-            'Custom Bespoke Typography & Logomark Creation',
-            'Animated Motion Graphics (Intros, Transitions)',
-            'Premium Packaging & Merchandise Mockups',
-            'Sonic Brand Identity (Custom Audio Logo/Jingle)',
-        ],
-        marketing: [
-            'Automated CRM & Multi-Step Sales Funnel Integration',
-            'AI-Powered Competitor Intelligence Tracking',
-            'SEO Domination (High-Authority Backlink Engine)',
-            'Influencer Partnership Strategy & Matchmaking',
-            'Predictive Analytics & Lifetime Value Reporting',
-        ],
+    const serviceConfigs = {
+        software: {
+            basePrice: 150000,
+            complexities: [
+                { value: 'basic', label: 'Standard MVP (Core flows)', multiplier: 1.0, desc: 'Ideal for simple flows, standard features, and minimal custom logic.' },
+                { value: 'advanced', label: 'Advanced System (Integrations & workflows)', multiplier: 1.35, desc: 'Multiple user roles, custom dashboard widgets, and third-party API connectivity.' },
+                { value: 'enterprise', label: 'Enterprise Platform (Scalable & secure)', multiplier: 1.8, desc: 'High-availability architecture, multi-tenant SaaS capability, and intensive data compliance.' }
+            ],
+            addons: [
+                { value: 'maintenance', label: 'Continuous Security & Auto-Patching', desc: 'Weekly malware sweeps, vulnerability patching, dependency updates.', price: 25000 },
+                { value: 'support', label: '24/7 SLA-Backed Emergency Hotlines', desc: 'Guaranteed under-1-hour resolution for critical downtimes.', price: 20000 },
+                { value: 'analytics', label: 'Advanced Behavioral Intelligence', desc: 'Heatmapping and user recording (Hotjar/Mixpanel).', price: 15000 },
+                { value: 'qa', label: 'AI-Driven Automated Testing Suite', desc: 'Custom E2E test suites (Playwright/Cypress) that run before every deploy.', price: 30000 }
+            ],
+            features: [
+                'Real-Time Live WebSockets & Messaging',
+                'Custom AI Model / Chatbot Integration',
+                'Multi-Tenant SaaS Infrastructure Setup',
+                'Offline-First Synchronization (PWA)',
+                'Advanced Custom Search Engine Integration',
+            ]
+        },
+        design: {
+            basePrice: 85000,
+            complexities: [
+                { value: 'basic', label: 'Standard Web/App Design (Up to 5 pages)', multiplier: 1.0, desc: 'Straightforward clean landing page or simple multi-page marketing design.' },
+                { value: 'advanced', label: 'Multi-Platform System (Up to 15 pages + tokens)', multiplier: 1.4, desc: 'Complete interactive interface design for full web apps and responsive tablet/mobile viewports.' },
+                { value: 'enterprise', label: 'Comprehensive App Suite (Web + iOS + Android)', multiplier: 1.9, desc: 'Cross-platform native apps designs, unified Figma design systems, and component libraries.' }
+            ],
+            addons: [
+                { value: 'lottie', label: 'Interactive Lottie & Micro-Animations', desc: 'Custom vector animations for transitions and interactive effects.', price: 15000 },
+                { value: 'illustrations', label: 'Custom 3D Rendered Elements & Scenes', desc: 'Bespoke 3D assets to elevate website visuals.', price: 20000 },
+                { value: 'abtesting', label: 'UX A/B Testing Variant Assets', desc: 'Alternative screen variations designed for user behavior testing.', price: 25000 }
+            ],
+            features: [
+                'Interactive Micro-Animations & Lottie Assets',
+                '3D Rendered Elements & Scene Illustration',
+                'Light / Dark Mode Adaptive Design System',
+                'Interactive Figma Prototype & User Journeys',
+                'Comprehensive Conversion Rate Audit Report',
+            ]
+        },
+        branding: {
+            basePrice: 65000,
+            complexities: [
+                { value: 'basic', label: 'Startup Brand Package (Logo + typography)', multiplier: 1.0, desc: 'Perfect for new ventures needing a fast, professional logo, color palette, and typography.' },
+                { value: 'advanced', label: 'Complete Corporate Identity (Logo + full guidelines)', multiplier: 1.5, desc: 'Full branding including print collaterals, pitch deck template, and brand book guidelines.' },
+                { value: 'enterprise', label: 'Global Rebrand & Portal (Full identity + web assets portal)', multiplier: 2.0, desc: 'Full brand guidelines, custom stationery designs, and a digital cloud brand assets hub.' }
+            ],
+            addons: [
+                { value: 'stationery', label: 'Stationery, Pitch Decks & Marketing Templates', desc: 'Print-ready business cards, letterheads, and presentations.', price: 15000 },
+                { value: 'motion', label: 'Motion Graphics Pack (Animated Logos)', desc: 'Animated logos and video assets for intros and social media.', price: 25000 },
+                { value: 'sonic', label: 'Sonic Brand Identity (Bespoke Audio Jingle)', desc: 'Custom sound signature/audio logo for digital content.', price: 30000 }
+            ],
+            features: [
+                'Interactive Brand Guidelines Digital Portal',
+                'Custom Bespoke Typography & Logomark Creation',
+                'Animated Motion Graphics (Intros, Transitions)',
+                'Premium Packaging & Merchandise Mockups',
+                'Sonic Brand Identity (Custom Audio Logo/Jingle)',
+            ]
+        },
+        marketing: {
+            basePrice: 95000,
+            complexities: [
+                { value: 'basic', label: 'Local Campaign Booster (Local SEO + 1 channel)', multiplier: 1.0, desc: 'Highly focused local presence boost, search map setup, and primary social campaign.' },
+                { value: 'advanced', label: 'Multi-Channel Strategy (SEO + Facebook/Google Ads)', multiplier: 1.5, desc: 'Full organic optimization, keyword bidding, and monthly audience acquisition funnels.' },
+                { value: 'enterprise', label: 'Full Funnel Inbound Automation (SEO + email drip + CRM)', multiplier: 2.2, desc: 'End-to-end user growth engines including auto-responders, lead grading, and CRM integrations.' }
+            ],
+            addons: [
+                { value: 'backlinks', label: 'Premium Editorial Backlink Injection', desc: 'Securing premium editorial backlinks to boost search rank.', price: 30000 },
+                { value: 'influencer', label: 'Influencer Sourcing & Partnership Management', desc: 'Vetting, contracting, and managing niche micro-influencers.', price: 35000 },
+                { value: 'funnel', label: 'Automated CRM & Lead Scoring Funnel Setup', desc: 'Advanced email automation, CRM triggers, and lead grading.', price: 20000 }
+            ],
+            features: [
+                'Automated CRM & Multi-Step Sales Funnel Integration',
+                'AI-Powered Competitor Intelligence Tracking',
+                'SEO Domination (High-Authority Backlink Engine)',
+                'Influencer Partnership Strategy & Matchmaking',
+                'Predictive Analytics & Lifetime Value Reporting',
+            ]
+        }
     };
 
     function formatCurrency(value) {
         return 'Ksh ' + new Intl.NumberFormat('en-KE', { maximumFractionDigits: 0 }).format(value);
     }
 
+    function renderServiceOptions() {
+        const service = serviceSelect.value;
+        const config = serviceConfigs[service];
+        if (!config) return;
+
+        // Render Complexity options
+        complexitySelect.innerHTML = config.complexities.map(c => 
+            `<option value="${c.value}" data-multiplier="${c.multiplier}" data-desc="${c.desc}">${c.label}</option>`
+        ).join('');
+        
+        // Render Complexity description
+        updateComplexityDescription();
+
+        // Render Addons checkboxes
+        const addonsContainer = document.getElementById('addonsContainer');
+        addonsContainer.innerHTML = config.addons.map(addon => `
+            <div class="col-md-6">
+                <div class="form-check border rounded-3 p-3 h-100">
+                    <input class="form-check-input addon-check" type="checkbox" value="${addon.value}" id="addon-${addon.value}" data-price="${addon.price}" data-label="${addon.label}">
+                    <label class="form-check-label fw-semibold text-wrap text-start" for="addon-${addon.value}">${addon.label}</label>
+                    <div class="text-muted small text-start">${addon.desc}</div>
+                </div>
+            </div>
+        `).join('');
+
+        // Re-attach listeners to dynamic add-ons
+        addonsContainer.querySelectorAll('.addon-check').forEach(input => {
+            input.addEventListener('change', calcEstimate);
+        });
+
+        // Render features
+        renderFeatures(service);
+
+        // Run calculation
+        calcEstimate();
+    }
+
+    function updateComplexityDescription() {
+        const selectedOption = complexitySelect.options[complexitySelect.selectedIndex];
+        const desc = selectedOption ? selectedOption.getAttribute('data-desc') : '';
+        document.getElementById('complexityDescription').textContent = desc;
+    }
+
     function renderFeatures(service) {
-        const items = serviceFeatures[service] || [];
+        const config = serviceConfigs[service];
+        const items = config ? config.features : [];
         featureList.innerHTML = items.map((text, idx) => {
             const id = `feature-${service}-${idx}`;
             return `
                 <li class="d-flex align-items-start mb-2">
                     <div class="form-check">
                         <input class="form-check-input feature-check" type="checkbox" id="${id}" data-label="${text}" checked>
-                        <label class="form-check-label ms-2" for="${id}">${text}</label>
+                        <label class="form-check-label ms-2 text-start" for="${id}">${text}</label>
                     </div>
                 </li>
             `;
@@ -386,11 +424,11 @@ document.addEventListener('DOMContentLoaded', () => {
             .map(el => el.getAttribute('data-label'));
     }
 
-    function buildSummary(total, monthly, features, addonTotal, featureAdj, selectedFeatures) {
+    function buildSummary(total, monthly, features, addonTotal, featureAdj, selectedFeatures, checkedAddons) {
         const serviceLabel = serviceSelect.options[serviceSelect.selectedIndex].text;
-        const complexityLabel = complexitySelect.options[complexitySelect.selectedIndex].text;
+        const complexityLabel = complexitySelect.options[complexitySelect.selectedIndex]?.text || '';
         const timelineLabel = timelineSelect.options[timelineSelect.selectedIndex].text;
-        const addonNames = addonInputs.filter(a => a.checked).map(a => a.nextElementSibling?.textContent?.trim() || a.value);
+        const addonNames = checkedAddons.map(a => a.getAttribute('data-label'));
 
         return {
             serviceLabel,
@@ -409,6 +447,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function openPdf(summary) {
         const { serviceLabel, complexityLabel, timelineLabel, features, addonNames, total, monthly, featureAdj, selectedFeatures } = summary;
         const selectedFeatureItems = (selectedFeatures || []).map(f => `<li>${f}</li>`).join('') || '<li>Features will be finalized in scope</li>';
+        const selectedAddonItems = (addonNames || []).map(a => `<li>${a}</li>`).join('') || '<li>None selected</li>';
 
         const html = `
 <!DOCTYPE html>
@@ -468,14 +507,14 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="row g-3">
                 <div class="col-md-6">
                     <div class="fw-semibold mb-2">Example feature coverage</div>
-                    <ul class="mb-0 ps-3">${selectedFeatureItems}</ul>
+                    <ul class="mb-0 ps-3 text-start">${selectedFeatureItems}</ul>
                 </div>
                 <div class="col-md-6">
                     <div class="fw-semibold mb-2">Selected add-ons</div>
-                    <ul class="mb-0 ps-3">${addonNames.length ? addonNames.map(a => `<li>${a}</li>`).join('') : '<li>None selected</li>'}</ul>
+                    <ul class="mb-0 ps-3 text-start">${selectedAddonItems}</ul>
                 </div>
             </div>
-            <div class="alert alert-info mt-4 mb-0 small">This estimate is indicative. Final pricing will be confirmed after a scoping call.</div>
+            <div class="alert alert-info mt-4 mb-0 small text-start">This estimate is indicative. Final pricing will be confirmed after a scoping call.</div>
         </div>
     </div>
 </body>
@@ -509,45 +548,47 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function calcEstimate() {
-        // Only run if elements exist (e.g. we are on the page)
         if(!serviceSelect) return;
         
         const service = serviceSelect.value;
+        const config = serviceConfigs[service];
+        if (!config) return;
+
+        const selectedOption = complexitySelect.options[complexitySelect.selectedIndex];
+        const complexityMultiplier = selectedOption ? parseFloat(selectedOption.getAttribute('data-multiplier')) : 1.0;
         const complexity = complexitySelect.value;
+
         const timeline = timelineSelect.value;
         const selectedFeatures = getSelectedFeatures();
         const features = selectedFeatures.length || 1;
 
         featureCountLabel.textContent = `${features} feature${features === 1 ? '' : 's'} selected`;
 
-        const base = basePrices[service] || 0;
+        const base = config.basePrice;
         const baseline = 5;
         const featureAdj = Math.max(0.7, 1 + ((features - baseline) * 0.06)); // adjust per selected feature, capped floor
-        const subtotal = base * complexityMultipliers[complexity] * timelineMultipliers[timeline] * featureAdj;
+        const subtotal = base * complexityMultiplier * timelineMultipliers[timeline] * featureAdj;
 
         let addonTotal = 0;
-        addonInputs.forEach(input => {
-            if (input.checked) addonTotal += addonPrices[input.value] || 0;
+        const checkedAddons = Array.from(document.querySelectorAll('.addon-check:checked'));
+        checkedAddons.forEach(input => {
+            addonTotal += parseFloat(input.getAttribute('data-price')) || 0;
         });
 
         const total = Math.round(subtotal + addonTotal);
         const monthly = Math.round(total / 6);
 
-        renderBreakdown({ base, complexity, timeline, featureAdj, addonTotal, total, monthly });
+        renderBreakdown({ base, complexityMultiplier, timeline, featureAdj, addonTotal, total, monthly });
 
-        const summary = buildSummary(total, monthly, features, addonTotal, featureAdj, selectedFeatures);
+        const summary = buildSummary(total, monthly, features, addonTotal, featureAdj, selectedFeatures, checkedAddons);
         emailEstimateBtn.onclick = () => {
             window.location.href = buildMailto(summary);
         };
         pdfEstimateBtn.onclick = () => openPdf(summary);
     }
 
-    function renderBreakdown({ base, complexity, timeline, featureAdj, addonTotal, total, monthly }) {
-        const complexityLabels = {
-            basic: 'Standard x1.00',
-            advanced: 'Advanced x1.35',
-            enterprise: 'Enterprise x1.80',
-        };
+    function renderBreakdown({ base, complexityMultiplier, timeline, featureAdj, addonTotal, total, monthly }) {
+        const complexityLabel = complexitySelect.options[complexitySelect.selectedIndex]?.text || '';
         const timelineLabels = {
             flexible: 'Flexible timeline x0.90',
             standard: 'Standard timeline x1.00',
@@ -559,13 +600,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span>Base for ${serviceSelect.options[serviceSelect.selectedIndex].text}</span>
                 <span>${formatCurrency(base)}</span>
             </li>
-            <li class="d-flex justify-content-between mb-2 text-muted">
-                <span>${complexityLabels[complexitySelect.value]}</span>
-                <span>× ${complexityMultipliers[complexitySelect.value]}</span>
+            <li class="d-flex justify-content-between mb-2 text-muted text-wrap text-end">
+                <span>Complexity (${complexityLabel})</span>
+                <span>× ${complexityMultiplier}</span>
             </li>
             <li class="d-flex justify-content-between mb-2 text-muted">
-                <span>${timelineLabels[timelineSelect.value]}</span>
-                <span>× ${timelineMultipliers[timelineSelect.value]}</span>
+                <span>${timelineLabels[timeline]}</span>
+                <span>× ${timelineMultipliers[timeline]}</span>
             </li>
             <li class="d-flex justify-content-between mb-3 text-muted">
                 <span>Feature set adjustment</span>
@@ -582,18 +623,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if(serviceSelect) {
-        [complexitySelect, timelineSelect, ...addonInputs].forEach(el => {
-            el.addEventListener('input', calcEstimate);
-            el.addEventListener('change', calcEstimate);
-        });
-
-        serviceSelect.addEventListener('change', () => {
-            renderFeatures(serviceSelect.value);
+        serviceSelect.addEventListener('change', renderServiceOptions);
+        complexitySelect.addEventListener('change', () => {
+            updateComplexityDescription();
             calcEstimate();
         });
+        timelineSelect.addEventListener('change', calcEstimate);
 
-        renderFeatures(serviceSelect.value);
-        calcEstimate();
+        // Initial render
+        renderServiceOptions();
     }
 });
 </script>

@@ -1,4 +1,22 @@
 User-agent: *
 Disallow:
 
+# Explicitly allow Anthropic Claude AI bots
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Explicitly allow OpenAI ChatGPT bots
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Explicitly allow Google AI
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://waverontechnologies.co.ke/sitemap.xml

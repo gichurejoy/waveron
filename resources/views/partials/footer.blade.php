@@ -1,7 +1,7 @@
 <footer class="footer py-5" style="background-color: #f8f9fa;">
-    <div class="container">
+    <div class="container-fluid px-lg-5 px-4">
         <div class="row gy-4">
-            <div class="col-lg-3">
+            <div class="col-lg-2 col-md-6">
                 <h5 class="text-primary mb-3">WAVERON</h5>
                 <p class="text-muted">Empowering businesses through innovative technology solutions.</p>
                 <div class="social-links">
@@ -11,7 +11,7 @@
                     <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-4">
+            <div class="col-lg-2 col-md-6">
                 <h6 class="mb-3">Quick Links</h6>
                 <ul class="list-unstyled">
                     <li><a href="{{ route('home') }}">Home</a></li>
@@ -21,7 +21,7 @@
                     <li><a href="{{ route('quote') }}">Request Quote</a></li>
                 </ul>
             </div>
-            <div class="col-lg-2 col-md-4">
+            <div class="col-lg-2 col-md-6">
                 <h6 class="mb-3">Services</h6>
                 <ul class="list-unstyled">
                     <li><a href="{{ route('services.software') }}">Software Development</a></li>
@@ -30,15 +30,15 @@
                     <li><a href="{{ route('services.marketing') }}">Digital Marketing</a></li>
                 </ul>
             </div>
-            <div class="col-lg-2 col-md-4">
+            <div class="col-lg-3 col-md-6">
                 <h6 class="mb-3">Contact Us</h6>
                 <ul class="list-unstyled">
-                    <li><i class="bi bi-geo-alt me-2"></i>Westlands, Nairobi</li>
-                    <li><i class="bi bi-telephone me-2"></i>+254798717800</li>
-                    <li><i class="bi bi-envelope me-2"></i>info@waverontechnologies.co.ke</li>
+                    <li class="mb-2"><i class="bi bi-geo-alt me-2 text-primary"></i>Westlands, Nairobi</li>
+                    <li class="mb-2"><i class="bi bi-telephone me-2 text-primary"></i>+254798717800</li>
+                    <li class="mb-2 text-wrap"><i class="bi bi-envelope me-2 text-primary"></i>info@waverontechnologies.co.ke</li>
                 </ul>
             </div>
-            <div class="col-lg-3 col-md-4">
+            <div class="col-lg-3 col-md-6">
                 <h6 class="mb-3">Newsletter</h6>
                 <p class="text-muted mb-3">Stay updated with our latest news and updates.</p>
                 <form class="newsletter-form">
@@ -88,7 +88,7 @@
         }
 
         .newsletter-form .input-group {
-            max-width: 300px;
+            max-width: 100%;
         }
     </style>
 @endpush
