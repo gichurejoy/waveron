@@ -190,19 +190,49 @@ class WaveronTech {
         <div class="row justify-content-center mb-5">
             <div class="col-lg-8 text-center">
                 <h2 class="section-title mb-4" style="color: var(--primary-color)">Our Pricing Plans</h2>
-                <p class="lead" style="color: var(--secondary-color)">Starting from Ksh 25,000</p>
+                <p class="lead" style="color: var(--secondary-color)">Starting from Ksh 150,000 for custom systems and platforms.</p>
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-6 text-center">
-                <div class="pricing-card">
-                    <div class="price-tag mb-4">
-                        <span class="currency" style="color: var(--primary-color)">Ksh</span>
-                        <span class="amount" style="color: var(--primary-color)">25,000</span>
-                        <span class="period" style="color: var(--secondary-color)">/project</span>
+            <div class="col-lg-6">
+                <div class="pricing-card bg-white p-5 rounded-4 shadow-sm border border-success border-opacity-25 hover-lift">
+                    <div class="text-center mb-4">
+                        <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3 py-2 mb-3">Custom Platforms</span>
+                        <div class="price-tag mb-2">
+                            <span class="currency h4 fw-bold align-top" style="color: var(--primary-color)">Ksh</span>
+                            <span class="amount display-5 fw-bold" style="color: var(--primary-color)">150,000</span>
+                            <span class="period text-muted" style="color: var(--secondary-color)"> starting</span>
+                        </div>
+                        <p class="text-muted small">Ideal for custom administrative databases, client portals, and bespoke web applications.</p>
                     </div>
-                    <div class="mt-4">
-                        <a href="{{ route('contact') }}" class="btn btn-primary btn-lg">Get Started</a>
+                    
+                    <hr class="my-4">
+                    
+                    <ul class="list-unstyled mb-4">
+                        <li class="d-flex align-items-center gap-3 mb-3">
+                            <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                            <span>Custom Admin Dashboard & DB Integration</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-3 mb-3">
+                            <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                            <span>Responsive Mobile-Ready Frontend UI</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-3 mb-3">
+                            <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                            <span>Third-Party API & Payment Integrations (e.g. M-Pesa)</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-3 mb-3">
+                            <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                            <span>Security Hardening & Role-based access control</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-3 mb-3">
+                            <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                            <span>3 Months Dedicated Post-Launch Support</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="text-center mt-4">
+                        <a href="{{ route('contact') }}" class="btn btn-success btn-lg w-100 rounded-pill">Get Started</a>
                     </div>
                 </div>
             </div>
