@@ -55,3 +55,8 @@ Route::get('/terms-of-service', function () {
 Route::get('/quote', function () {
     return view('quote');
 })->name('quote');
+
+// Blog Routes
+use App\Http\Controllers\BlogController;
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
