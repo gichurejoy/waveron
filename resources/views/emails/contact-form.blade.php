@@ -3,9 +3,9 @@
 
 You have received a new message from the contact form.
 
-**Name:** {{ $data['name'] }}  
-**Email:** {{ $data['email'] }}  
-**Subject:** {{ $data['subject'] }}
+**Name:** {{ $data['name'] ?? 'N/A' }}  
+**Email:** {{ $data['email'] ?? 'N/A' }}  
+**Subject:** {{ $data['subject'] ?? 'No Subject' }}
 
 @if(isset($data['company']))
 **Company:** {{ $data['company'] }}

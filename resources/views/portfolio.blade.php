@@ -22,7 +22,7 @@
         <!-- Item 1: Order Matching Engine (SaaS/CRM Equivalent) -->
         <div class="col-md-6 col-lg-4">
             <div class="jwg-image-block dark-block mb-4">
-                <div class="jwg-code-header d-flex justify-content-between">
+                <div class="jwg-code-header d-flex justify-content-between flex-wrap gap-1">
                     <span class="text-muted small font-monospace">MATCHING_ENGINE_V2.LOG</span>
                     <span class="jwg-green font-monospace small">LIVE: PROCESSING</span>
                 </div>
@@ -125,7 +125,7 @@
         <!-- Item 4: Lead Generator -->
         <div class="col-md-6 col-lg-4">
             <div class="jwg-image-block light-block mb-4 p-0 overflow-hidden d-flex flex-column">
-                <div class="p-3 border-bottom border-secondary border-opacity-10 d-flex justify-content-between align-items-center bg-white">
+                <div class="p-3 border-bottom border-secondary border-opacity-10 d-flex justify-content-between flex-wrap gap-1 align-items-center bg-white">
                     <span class="text-muted small font-monospace"><i class="bi bi-funnel-fill text-success"></i> PIPELINE_ACTIVE</span>
                     <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 rounded-pill" style="font-size:0.6rem;">+240 LEADS</span>
                 </div>
@@ -279,7 +279,7 @@
 
     /* Mockup Blocks */
     .jwg-image-block {
-        height: 220px;
+        min-height: 220px;
         border-radius: 12px;
         padding: 1.5rem;
         position: relative;

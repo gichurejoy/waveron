@@ -30,7 +30,8 @@ class ContactController extends Controller
             return back()->with('success', 'Thank you for your message. We will get back to you soon!');
         } catch (\Exception $e) {
             // Log the error
-            \Log::error('Contact form error: ' . $e->getMessage());
+            \Log::error('Contact form error: ' . $e->getMessage() . ' in ' . $e->getFile() . ' on line ' . $e->getLine());
+            \Log::error($e->getTraceAsString());
             
             // Return with error message
             return back()->with('error', 'Sorry, there was an error sending your message. Please try again later.')
