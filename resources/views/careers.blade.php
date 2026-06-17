@@ -62,7 +62,7 @@
 
 <!-- Apply Modal -->
 <div class="modal fade" id="applyModal" tabindex="-1" aria-labelledby="applyModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content border-0 shadow rounded-4">
       <div class="modal-header border-bottom border-primary border-opacity-10 bg-light rounded-top-4">
         <h5 class="modal-title fw-bold" id="applyModalLabel">Apply for Salesperson</h5>
@@ -113,10 +113,32 @@
             <label class="form-label text-muted small fw-bold">Resume / CV (PDF, DOCX)</label>
             <input type="file" name="resume" class="form-control rounded-3" required accept=".pdf,.doc,.docx">
           </div>
-          <div class="mb-4">
+          <div class="mb-3">
             <label class="form-label text-muted small fw-bold">Why are you a great fit for Waveron?</label>
-            <textarea name="why_fit" class="form-control rounded-3" rows="4" required placeholder="Briefly describe your sales experience and why you would excel at pitching our custom services and SaaS products..."></textarea>
+            <textarea name="why_fit" class="form-control rounded-3" rows="3" required placeholder="Briefly describe your sales experience and why you would excel at pitching our custom services and SaaS products..."></textarea>
           </div>
+
+          <hr class="my-3">
+          <p class="fw-bold text-dark mb-3" style="font-size:0.95rem;">Custom Application Questions</p>
+
+          <div class="mb-3">
+            <label class="form-label text-muted small fw-bold">1. What is the largest deal you have personally closed?</label>
+            <p class="text-muted" style="font-size:0.78rem; margin-top:-4px;">Include the product/service sold, approximate deal value, and your specific role in the sale.</p>
+            <textarea name="largest_deal" class="form-control rounded-3" rows="4" required placeholder="E.g. Closed a KSh 2.5M ERP implementation for a logistics company — I prospected the lead, ran all demos, and negotiated the contract..."></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label text-muted small fw-bold">2. Describe a sale you are particularly proud of.</label>
+            <p class="text-muted" style="font-size:0.78rem; margin-top:-4px;">What was the client's challenge, how did you approach the opportunity, and what was the outcome?</p>
+            <textarea name="proud_sale" class="form-control rounded-3" rows="4" required placeholder="The client was struggling with customer churn. I positioned our CRM as a retention tool, ran a 2-week trial, and converted them to a 12-month contract..."></textarea>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label text-muted small fw-bold">3. If hired, how would you find your first three potential clients for Waveron Technologies within the first 30 days?</label>
+            <p class="text-muted" style="font-size:0.78rem; margin-top:-4px;">Please be as specific as possible.</p>
+            <textarea name="first_clients" class="form-control rounded-3" rows="4" required placeholder="Week 1: I would map SMEs in Westlands using Google Maps and LinkedIn, targeting founders with active Facebook/Instagram pages but no professional website. Week 2..."></textarea>
+          </div>
+
           <button type="submit" class="btn btn-primary w-100 rounded-pill py-2 fw-bold">Submit Application</button>
         </form>
       </div>

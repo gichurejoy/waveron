@@ -11,16 +11,22 @@ class CareerController extends Controller
     public function submit(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'contact' => 'required|string|max:255',
-            'why_fit' => 'required|string',
-            'resume' => 'required|file|mimes:pdf,doc,docx|max:10240', // 10MB limit
+            'name'          => 'required|string|max:255',
+            'contact'       => 'required|string|max:255',
+            'why_fit'       => 'required|string',
+            'largest_deal'  => 'required|string',
+            'proud_sale'    => 'required|string',
+            'first_clients' => 'required|string',
+            'resume'        => 'required|file|mimes:pdf,doc,docx|max:10240',
         ]);
 
         $data = [
-            'name' => $request->name,
-            'contact' => $request->contact,
-            'why_fit' => $request->why_fit,
+            'name'          => $request->name,
+            'contact'       => $request->contact,
+            'why_fit'       => $request->why_fit,
+            'largest_deal'  => $request->largest_deal,
+            'proud_sale'    => $request->proud_sale,
+            'first_clients' => $request->first_clients,
         ];
 
         // Send the email with the attached file
