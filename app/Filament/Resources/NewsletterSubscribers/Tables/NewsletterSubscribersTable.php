@@ -1,41 +1,30 @@
 <?php
 
-namespace App\Filament\Resources\BlogPosts\Tables;
+namespace App\Filament\Resources\NewsletterSubscribers\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class BlogPostsTable
+class NewsletterSubscribersTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                ImageColumn::make('featured_image')
-                    ->label('Cover'),
-                TextColumn::make('title')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('categories.name')
-                    ->badge()
-                    ->label('Categories')
+                TextColumn::make('email')
+                    ->label('Email address')
                     ->searchable(),
-                TextColumn::make('author.name')
-                    ->label('Author')
-                    ->searchable()
-                    ->sortable(),
-                IconColumn::make('is_published')
-                    ->label('Published')
+                IconColumn::make('is_active')
                     ->boolean(),
-                TextColumn::make('published_at')
-                    ->dateTime()
-                    ->sortable(),
                 TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

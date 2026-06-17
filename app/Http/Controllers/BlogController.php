@@ -18,11 +18,11 @@ class BlogController extends Controller
         $data = Cache::remember($cacheKey, now()->addHours(1), function () use ($categorySlug) {
             $query = BlogPost::where('is_published', true)
                 ->where('published_at', '<=', now())
-                ->with('category')
+                ->with(['categories', 'author'])
                 ->latest('published_at');
 
             if ($categorySlug) {
-                $query->whereHas('category', function ($q) use ($categorySlug) {
+                $query->whereHas('categories', function ($q) use ($categorySlug) {
                     $q->where('slug', $categorySlug);
                 });
             }
@@ -48,15 +48,19 @@ class BlogController extends Controller
             return BlogPost::where('slug', $slug)
                 ->where('is_published', true)
                 ->where('published_at', '<=', now())
-                ->with('category')
+                ->with(['categories', 'author'])
                 ->firstOrFail();
         });
 
         // Get related posts by category (excluding current)
         $relatedPosts = Cache::remember('related_posts_' . $post->id, now()->addHours(24), function () use ($post) {
-            return BlogPost::where('blog_category_id', $post->blog_category_id)
+            $categoryIds = $post->categories->pluck('id')->toArray();
+            return BlogPost::whereHas('categories', function ($q) use ($categoryIds) {
+                    $q->whereIn('blog_categories.id', $categoryIds);
+                })
                 ->where('id', '!=', $post->id)
                 ->where('is_published', true)
+                ->with(['categories', 'author'])
                 ->latest('published_at')
                 ->take(3)
                 ->get();
@@ -64,4 +68,30 @@ class BlogController extends Controller
 
         return view('blog.show', compact('post', 'relatedPosts'));
     }
+
+    public function storeComment(Request $request, $slug)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'comment' => 'required|string|max:2000',
+        ]);
+
+        $post = BlogPost::where('slug', $slug)
+            ->where('is_published', true)
+            ->firstOrFail();
+
+        $post->comments()->create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'comment' => $request->comment,
+            'is_approved' => true, // Approved by default for immediate visibility
+        ]);
+
+        // Clear cache for this blog post
+        Cache::forget('blog_post_' . $slug);
+
+        return back()->with('comment_success', 'Comment submitted successfully!');
+    }
 }
+

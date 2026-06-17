@@ -5,9 +5,9 @@
                 <h5 class="text-primary mb-3">WAVERON</h5>
                 <p class="text-muted">Empowering businesses through innovative technology solutions.</p>
                 <div class="social-links">
-                    <a href="#" class="me-3"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/company/waveron-technologies" target="_blank" rel="noopener" class="me-3"><i class="bi bi-linkedin"></i></a>
                     <a href="#" class="me-3"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.facebook.com/61563241431145" target="_blank" rel="noopener" class="me-3"><i class="bi bi-facebook"></i></a>
                     <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
                 </div>
             </div>
@@ -15,6 +15,7 @@
                 <h6 class="mb-3">Quick Links</h6>
                 <ul class="list-unstyled">
                     <li><a href="{{ route('home') }}">Home</a></li>
+                    <li><a href="{{ route('blog.index') }}">Blog</a></li>
                     <li><a href="{{ route('careers') }}">Careers</a></li>
                     <li><a href="{{ route('about') }}">About</a></li>
                     <li><a href="{{ route('contact') }}">Contact</a></li>
@@ -41,9 +42,20 @@
             <div class="col-lg-3 col-md-6">
                 <h6 class="mb-3">Newsletter</h6>
                 <p class="text-muted mb-3">Stay updated with our latest news and updates.</p>
-                <form class="newsletter-form">
+                @if (session('newsletter_success'))
+                    <div class="alert alert-success py-2 px-3 mb-2" role="alert" style="font-size: 0.8rem;">
+                        {{ session('newsletter_success') }}
+                    </div>
+                @endif
+                @if (session('newsletter_error'))
+                    <div class="alert alert-danger py-2 px-3 mb-2" role="alert" style="font-size: 0.8rem;">
+                        {{ session('newsletter_error') }}
+                    </div>
+                @endif
+                <form class="newsletter-form" action="{{ route('newsletter.subscribe') }}" method="POST">
+                    @csrf
                     <div class="input-group">
-                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
                         <button class="btn btn-primary" type="submit">Subscribe</button>
                     </div>
                 </form>

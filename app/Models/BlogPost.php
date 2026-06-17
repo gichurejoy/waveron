@@ -13,8 +13,18 @@ class BlogPost extends Model
         'is_published' => 'boolean',
     ];
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo(BlogCategory::class, 'blog_category_id');
+        return $this->belongsToMany(BlogCategory::class, 'blog_category_blog_post');
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'author_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(BlogComment::class, 'blog_post_id');
     }
 }

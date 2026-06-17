@@ -30,4 +30,9 @@ class User extends Authenticatable implements FilamentUser
     {
         return str_ends_with($this->email, '@waverontechnologies.co.ke') || $this->email === 'admin@waverontechnologies.co.ke';
     }
+
+    public function posts()
+    {
+        return $this->hasMany(BlogPost::class, 'author_id');
+    }
 }

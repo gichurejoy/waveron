@@ -10,6 +10,6 @@ class BlogCategory extends Model
 
     public function posts()
     {
-        return $this->hasMany(BlogPost::class);
+        return $this->belongsToMany(BlogPost::class, 'blog_category_blog_post');
     }
 }
