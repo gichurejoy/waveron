@@ -3,8 +3,8 @@
 namespace App\Filament\Resources\BlogPosts\Pages;
 
 use App\Filament\Resources\BlogPosts\BlogPostResource;
+use Filament\Actions\Action;
 use Filament\Resources\Pages\CreateRecord;
-use Illuminate\Contracts\View\View;
 
 class CreateBlogPost extends CreateRecord
 {
@@ -33,10 +33,24 @@ class CreateBlogPost extends CreateRecord
             $this->getCancelFormAction()
                 ->label('Cancel')
                 ->color('gray'),
+
+            Action::make('saveDraft')
+                ->label('Save Draft')
+                ->color('gray')
+                ->action(function () {
+                    $this->data['is_published'] = false;
+                    $this->create();
+                }),
+
             $this->getCreateFormAction()
                 ->label('Publish')
-                ->extraAttributes(['form' => 'form'])
-                ->color('primary'),
+                ->color('primary')
+                ->before(function () {
+                    $this->data['is_published'] = true;
+                    if (empty($this->data['published_at'])) {
+                        $this->data['published_at'] = now()->toDateString();
+                    }
+                }),
         ];
     }
 

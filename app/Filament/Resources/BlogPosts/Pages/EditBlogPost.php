@@ -3,8 +3,8 @@
 namespace App\Filament\Resources\BlogPosts\Pages;
 
 use App\Filament\Resources\BlogPosts\BlogPostResource;
+use Filament\Actions\Action;
 use Filament\Resources\Pages\EditRecord;
-use Illuminate\Contracts\View\View;
 
 class EditBlogPost extends EditRecord
 {
@@ -33,10 +33,25 @@ class EditBlogPost extends EditRecord
             $this->getCancelFormAction()
                 ->label('Cancel')
                 ->color('gray'),
-            $this->getSaveFormAction()
+
+            Action::make('saveDraft')
+                ->label('Save Draft')
+                ->color('gray')
+                ->action(function () {
+                    $this->data['is_published'] = false;
+                    $this->save();
+                }),
+
+            Action::make('publish')
                 ->label('Publish')
-                ->extraAttributes(['form' => 'form'])
-                ->color('primary'),
+                ->color('primary')
+                ->action(function () {
+                    $this->data['is_published'] = true;
+                    if (empty($this->data['published_at'])) {
+                        $this->data['published_at'] = now()->toDateString();
+                    }
+                    $this->save();
+                }),
         ];
     }
 
