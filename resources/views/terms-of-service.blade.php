@@ -3,7 +3,7 @@
 @section('title', 'Terms of Service - Waveron Technologies')
 
 @section('content')
-<div class="container" style="padding-top: 0; padding-bottom: 20px;">
+<div class="container" style="padding-top: 100px; padding-bottom: 60px;">
     <h1 class="mb-2 text-center" style="background-color: #e9ecef; padding: 1px; border-radius: 5px;">Terms of Service</h1>
     <div class="policy-terms-container" style="border: 1px solid #ddd; padding: 20px; background-color: #f8f9fa;">
         <p>Welcome to Waveron Technologies! These terms of service govern your use of our services. By using our services, you agree to these terms.</p>

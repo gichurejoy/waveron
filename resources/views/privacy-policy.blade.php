@@ -3,7 +3,7 @@
 @section('title', 'Privacy Policy - Waveron Technologies')
 
 @section('content')
-<div class="container" style="padding-top: 0; padding-bottom: 20px;">
+<div class="container" style="padding-top: 100px; padding-bottom: 60px;">
     <h1 class="mb-2 text-center" style="background-color: #e9ecef; padding: 5px; border-radius: 5px;">Privacy Policy</h1>
     <div class="policy-terms-container" style="border: 1px solid #ddd; padding: 20px; background-color: #f8f9fa;">
         <p>Your privacy is important to us. This privacy policy explains how we collect, use, and share information about you when you use our services.</p>
