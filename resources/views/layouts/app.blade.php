@@ -51,6 +51,9 @@
             gtag('config', '{{ config("services.google.analytics_id") }}');
         </script>
     @endif
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3555921222521764"
+        crossorigin="anonymous"></script>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     <style>
