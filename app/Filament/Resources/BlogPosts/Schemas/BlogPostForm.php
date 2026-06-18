@@ -79,6 +79,7 @@ class BlogPostForm
 
                             FileUpload::make('featured_image')
                                 ->image()
+                                ->disk('public')
                                 ->placeholder(new HtmlString('Drag and Drop Images or <span class="filepond--label-action" style="color: #2563eb; text-decoration: none; font-weight: 600; cursor: pointer;">Upload Image</span>'))
                                 ->label('Cover Image'),
 

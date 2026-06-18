@@ -59,10 +59,17 @@
         <!-- Main Content -->
         <div class="col-lg-8 pe-lg-5" style="min-height: 1200px;">
             
+            <!-- Back Navigation -->
+            <div class="mb-4">
+                <a href="{{ route('blog.index') }}" class="d-inline-flex align-items-center gap-2 text-decoration-none fw-semibold" style="color: var(--waveron-green, #00c853); font-size: 0.9rem;">
+                    <i class="bi bi-arrow-left"></i> All Posts
+                </a>
+            </div>
+
             <!-- Featured Image -->
             @if($post->featured_image)
                 <div class="mb-4 rounded overflow-hidden shadow-sm">
-                    <img src="{{ Storage::url($post->featured_image) }}" alt="{{ $post->title }}" class="img-fluid w-100" style="max-height: 480px; object-fit: cover;">
+                    <img src="{{ asset('storage/' . $post->featured_image) }}" alt="{{ $post->title }}" class="img-fluid w-100" style="max-height: 480px; object-fit: cover;">
                 </div>
             @endif
 
