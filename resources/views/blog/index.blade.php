@@ -99,7 +99,7 @@
                 <div class="card border-0 shadow-sm h-100 waveron-blog-card">
                     <div class="position-relative overflow-hidden card-img-container">
                         @if($post->featured_image)
-                            <img src="{{ Storage::url($post->featured_image) }}" class="card-img-top" style="height: 240px; object-fit: cover; transition: transform 0.5s ease;" alt="{{ $post->title }}">
+                            <img src="{{ asset('storage/' . $post->featured_image) }}" class="card-img-top" style="height: 240px; object-fit: cover; transition: transform 0.5s ease;" alt="{{ $post->title }}">
                         @else
                             <div class="bg-secondary d-flex align-items-center justify-content-center" style="height: 240px;">
                                 <i class="bi bi-image text-white fs-1"></i>

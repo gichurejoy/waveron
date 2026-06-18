@@ -246,7 +246,7 @@
                             <div class="d-flex gap-3 align-items-center">
                                 <a href="{{ route('blog.show', $recent->slug) }}" style="width: 60px; height: 60px; flex-shrink: 0;">
                                     @if($recent->featured_image)
-                                        <img src="{{ Storage::url($recent->featured_image) }}" class="rounded-3" style="height: 60px; width: 60px; object-fit: cover;" alt="{{ $recent->title }}">
+                                        <img src="{{ asset('storage/' . $recent->featured_image) }}" class="rounded-3" style="height: 60px; width: 60px; object-fit: cover;" alt="{{ $recent->title }}">
                                     @else
                                         <div class="bg-secondary rounded-3 d-flex align-items-center justify-content-center text-white" style="height: 60px; width: 60px;">
                                             <i class="bi bi-image" style="font-size: 1.2rem;"></i>
@@ -350,7 +350,7 @@
                     <div class="card border-0 shadow-sm h-100 waveron-blog-card">
                         <div class="position-relative overflow-hidden card-img-container">
                             @if($related->featured_image)
-                                <img src="{{ Storage::url($related->featured_image) }}" class="card-img-top" style="height: 200px; object-fit: cover; transition: transform 0.5s ease;" alt="{{ $related->title }}">
+                                <img src="{{ asset('storage/' . $related->featured_image) }}" class="card-img-top" style="height: 200px; object-fit: cover; transition: transform 0.5s ease;" alt="{{ $related->title }}">
                             @else
                                 <div class="bg-secondary d-flex align-items-center justify-content-center" style="height: 200px;">
                                     <i class="bi bi-image text-white fs-1"></i>
