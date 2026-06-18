@@ -5,10 +5,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CareerController;
 
-use App\Http\Controllers\SitemapController;
-
-Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
-
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/about', function () {
     return view('about');
