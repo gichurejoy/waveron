@@ -38,18 +38,18 @@ class CreateBlogPost extends CreateRecord
                 ->label('Save Draft')
                 ->color('gray')
                 ->action(function () {
-                    $this->data['is_published'] = false;
                     $this->create();
+                    $this->record->update(['is_published' => false]);
                 }),
 
             $this->getCreateFormAction()
                 ->label('Publish')
                 ->color('primary')
-                ->before(function () {
-                    $this->data['is_published'] = true;
-                    if (empty($this->data['published_at'])) {
-                        $this->data['published_at'] = now()->toDateString();
-                    }
+                ->after(function () {
+                    $this->record->update([
+                        'is_published' => true,
+                        'published_at' => $this->record->published_at ?? now()->toDateString(),
+                    ]);
                 }),
         ];
     }

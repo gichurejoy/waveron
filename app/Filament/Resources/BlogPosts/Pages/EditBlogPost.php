@@ -38,19 +38,20 @@ class EditBlogPost extends EditRecord
                 ->label('Save Draft')
                 ->color('gray')
                 ->action(function () {
-                    $this->data['is_published'] = false;
                     $this->save();
+                    $this->record->update(['is_published' => false]);
                 }),
 
             Action::make('publish')
                 ->label('Publish')
                 ->color('primary')
                 ->action(function () {
-                    $this->data['is_published'] = true;
-                    if (empty($this->data['published_at'])) {
-                        $this->data['published_at'] = now()->toDateString();
-                    }
                     $this->save();
+                    $this->record->update([
+                        'is_published' => true,
+                        'published_at' => $this->record->published_at ?? now()->toDateString(),
+                    ]);
+                    $this->fillForm();
                 }),
         ];
     }
