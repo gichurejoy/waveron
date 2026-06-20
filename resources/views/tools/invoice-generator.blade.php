@@ -158,8 +158,8 @@
                     <div id="invoice-preview" class="invoice-paper shadow-sm bg-white p-5 rounded-3">
                         <div class="invoice-header d-flex justify-content-between border-bottom pb-4 mb-4 align-items-center">
                                 <div class="d-flex align-items-center gap-3">
-                                    <div id="prev-logo-container" class="d-none" style="max-width: 85px; max-height: 85px; overflow: hidden;">
-                                        <img id="prev-logo-img" src="" alt="Company Logo" style="max-height: 75px; object-fit: contain;">
+                                    <div id="prev-logo-container" class="d-none" style="max-width: 220px; max-height: 100px; overflow: hidden;">
+                                        <img id="prev-logo-img" src="" alt="Company Logo" style="max-height: 80px; max-width: 220px; object-fit: contain;">
                                     </div>
                                     <div>
                                         <h2 id="prev-biz-name" class="fw-bold text-success mb-1">Waveron Client</h2>
@@ -266,7 +266,8 @@
         body {
             background-color: white !important;
             color: black !important;
-            font-size: 12pt;
+            font-size: 10.5pt !important;
+            margin: 0.25in !important;
         }
         .no-print, header, footer, .navbar, .navbar-spacer, #navbarNav, .navbar-toggler, .tools-hero, .btn, .card, .AI-widget, #AI-chatbot-widget {
             display: none !important;
@@ -280,6 +281,29 @@
             box-shadow: none !important;
             padding: 0 !important;
             margin: 0 !important;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+        /* Tighten spacing for print to fit on one page */
+        .invoice-paper h2, .invoice-paper h3, .invoice-paper h5, .invoice-paper h6 {
+            margin-top: 4px !important;
+            margin-bottom: 4px !important;
+        }
+        .invoice-header {
+            padding-bottom: 10px !important;
+            margin-bottom: 10px !important;
+        }
+        .invoice-paper table {
+            margin-bottom: 10px !important;
+        }
+        .invoice-paper th, .invoice-paper td {
+            padding: 4px 8px !important;
+        }
+        .invoice-paper .mb-4 {
+            margin-bottom: 10px !important;
+        }
+        .invoice-paper .mt-4 {
+            margin-top: 10px !important;
         }
     }
 

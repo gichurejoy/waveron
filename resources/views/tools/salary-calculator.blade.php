@@ -95,7 +95,7 @@
                     <div id="payslip-preview" class="payslip-paper shadow-sm bg-white p-4 p-md-5 rounded-4 border border-light">
                         <div class="text-center border-bottom pb-4 mb-4">
                             <div id="prev-logo-container" class="d-none mb-3">
-                                <img id="prev-logo-img" src="" alt="Company Logo" class="img-fluid" style="max-height: 55px; object-fit: contain; margin: 0 auto; display: block;">
+                                <img id="prev-logo-img" src="" alt="Company Logo" class="img-fluid" style="max-height: 90px; max-width: 250px; object-fit: contain; margin: 0 auto; display: block;">
                             </div>
                             <h4 class="fw-bold text-primary mb-1">ESTIMATED PAYSLIP BREAKDOWN</h4>
                             <div class="text-muted small font-monospace">Tax Period: June 2026 (KRA Compliance)</div>
@@ -244,7 +244,8 @@
         body {
             background-color: white !important;
             color: black !important;
-            font-size: 12pt;
+            font-size: 10.5pt !important;
+            margin: 0.25in !important;
         }
         .no-print, header, footer, .navbar, .navbar-spacer, #navbarNav, .navbar-toggler, .tools-hero, .btn, .card, .AI-widget, #AI-chatbot-widget {
             display: none !important;
@@ -258,6 +259,33 @@
             box-shadow: none !important;
             padding: 0 !important;
             margin: 0 !important;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+        /* Tighten spacing for print to fit on one page */
+        .payslip-paper h4, .payslip-paper h5 {
+            margin-top: 5px !important;
+            margin-bottom: 5px !important;
+        }
+        .payslip-paper .border-bottom {
+            padding-bottom: 8px !important;
+            margin-bottom: 8px !important;
+        }
+        .payslip-paper table {
+            margin-bottom: 8px !important;
+        }
+        .payslip-paper th, .payslip-paper td {
+            padding: 3px 6px !important;
+        }
+        .payslip-paper .mb-4 {
+            margin-bottom: 8px !important;
+        }
+        .payslip-paper .mt-4 {
+            margin-top: 8px !important;
+        }
+        .payslip-paper .p-3 {
+            padding: 8px !important;
+            margin-bottom: 8px !important;
         }
     }
 
