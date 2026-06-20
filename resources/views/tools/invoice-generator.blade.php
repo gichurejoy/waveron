@@ -157,15 +157,16 @@
                     <!-- Paper Sheet Layout -->
                     <div id="invoice-preview" class="invoice-paper shadow-sm bg-white p-5 rounded-3">
                         <div class="invoice-header d-flex justify-content-between border-bottom pb-4 mb-4 align-items-center">
-                            <div class="d-flex align-items-center gap-3">
-                                <div id="prev-logo-container" class="d-none" style="max-width: 85px; max-height: 85px; overflow: hidden;">
-                                    <img id="prev-logo-img" src="" alt="Company Logo" style="max-height: 75px; object-fit: contain;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div id="prev-logo-container" class="d-none" style="max-width: 85px; max-height: 85px; overflow: hidden;">
+                                        <img id="prev-logo-img" src="" alt="Company Logo" style="max-height: 75px; object-fit: contain;">
+                                    </div>
+                                    <div>
+                                        <h2 id="prev-biz-name" class="fw-bold text-success mb-1">Waveron Client</h2>
+                                        <div id="prev-biz-email" class="text-muted small">billing@yourbiz.com</div>
+                                        <div id="prev-biz-address" class="text-muted small">Nairobi, Kenya | +254 700 000000</div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h2 id="prev-biz-name" class="fw-bold text-success mb-1">Waveron Client</h2>
-                                <div id="prev-biz-email" class="text-muted small">billing@yourbiz.com</div>
-                                <div id="prev-biz-address" class="text-muted small">Nairobi, Kenya | +254 700 000000</div>
-                            </div>
                             <div class="text-end">
                                 <h3 id="prev-doc-type" class="fw-bold text-success mb-1">INVOICE</h3>
                                 <div class="fw-semibold text-dark mb-1" id="prev-doc-number">#WV-2026-001</div>
