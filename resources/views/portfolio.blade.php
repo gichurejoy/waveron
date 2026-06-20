@@ -37,7 +37,7 @@
                     </div>
                     <div class="text-white mt-3 fw-bold">> Throughput: 10,000 matches/sec</div>
                     <div class="progress mt-2 bg-dark" style="height: 4px;">
-                        <div class="progress-bar bg-success" style="width: 100%;"></div>
+                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%;"></div>
                     </div>
                 </div>
             </div>
@@ -52,12 +52,17 @@
                 <span>DOCKER</span>
                 <span>POSTGRESQL</span>
             </div>
+            <div class="mt-4">
+                <a href="{{ route('portfolio.case-study', 'waveron-crm') }}" class="btn btn-outline-success btn-sm rounded-pill px-3 py-2 fw-semibold view-case-study-btn">
+                    <i class="bi bi-journal-text me-1"></i> View Case Study
+                </a>
+            </div>
         </div>
 
         <!-- Item 2: Pharma Automation (Brand Book Equivalent) -->
         <div class="col-md-6 col-lg-4">
             <div class="jwg-image-block light-block mb-4 d-flex flex-column align-items-center justify-content-center position-relative">
-                <div class="mic-circle shadow-sm mb-3">
+                <div class="mic-circle shadow-sm mb-3 animate-pulse">
                     <i class="bi bi-mic-fill text-success fs-3"></i>
                 </div>
                 <div class="audio-waves mb-4">
@@ -82,6 +87,11 @@
                 <div class="result-label">RESULT</div>
                 <div class="result-text">Reduced operational overhead by 85%.</div>
             </div>
+            <div class="mt-3">
+                <a href="{{ route('portfolio.case-study', 'brand-book-generator') }}" class="btn btn-outline-success btn-sm rounded-pill px-3 py-2 fw-semibold view-case-study-btn">
+                    <i class="bi bi-journal-text me-1"></i> View Case Study
+                </a>
+            </div>
         </div>
 
         <!-- Item 3: Contract Dashboard (Scholar Matcher Equivalent) -->
@@ -91,7 +101,7 @@
                     <div class="w-50 p-4 border-end border-secondary border-opacity-25">
                         <div class="d-flex justify-content-between align-items-center mb-2">
                             <i class="bi bi-shield-check text-success fs-4"></i>
-                            <div class="rounded-circle bg-success" style="width:8px; height:8px;"></div>
+                            <div class="rounded-circle bg-success pulse-dot" style="width:8px; height:8px;"></div>
                         </div>
                         <div class="text-white-50 small mb-1" style="font-size:0.6rem; letter-spacing:1px;">SYSTEM HEALTH</div>
                         <h3 class="text-white m-0">100.0%</h3>
@@ -120,6 +130,11 @@
                 <span>PYTHON</span>
                 <span>MYSQL</span>
             </div>
+            <div class="mt-4">
+                <a href="{{ route('portfolio.case-study', 'career-matcher') }}" class="btn btn-outline-success btn-sm rounded-pill px-3 py-2 fw-semibold view-case-study-btn">
+                    <i class="bi bi-journal-text me-1"></i> View Case Study
+                </a>
+            </div>
         </div>
 
         <!-- Item 4: Lead Generator -->
@@ -137,7 +152,7 @@
                         <span class="text-muted">Enrichment:</span> <span class="jwg-green">100% Complete</span>
                     </div>
                     <div class="progress mt-3 mb-1" style="height: 6px;">
-                        <div class="progress-bar bg-success" style="width: 85%;"></div>
+                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 85%;"></div>
                     </div>
                     <div class="text-end text-muted" style="font-size:0.6rem;">Conversion Prob: 85%</div>
                 </div>
@@ -151,6 +166,11 @@
                 <span>PRISMA</span>
                 <span>BULLMQ</span>
                 <span>PYTHON</span>
+            </div>
+            <div class="mt-4">
+                <a href="{{ route('portfolio.case-study', 'lead-generator') }}" class="btn btn-outline-success btn-sm rounded-pill px-3 py-2 fw-semibold view-case-study-btn">
+                    <i class="bi bi-journal-text me-1"></i> View Case Study
+                </a>
             </div>
         </div>
 
@@ -185,6 +205,11 @@
                 <span>MPESA</span>
                 <span>REDIS</span>
             </div>
+            <div class="mt-4">
+                <a href="{{ route('portfolio.case-study', 'ecommerce-core') }}" class="btn btn-outline-success btn-sm rounded-pill px-3 py-2 fw-semibold view-case-study-btn">
+                    <i class="bi bi-journal-text me-1"></i> View Case Study
+                </a>
+            </div>
         </div>
 
         <!-- Item 6: Security Agent -->
@@ -204,7 +229,7 @@
                         <div class="text-white-50">> Scanning net_protocols... <span class="text-success">CLEAN</span></div>
                         <div class="text-white-50">> Analyzing payload_sig... <span class="text-success">CLEAN</span></div>
                         <div class="text-white-50">> Checking auth_tokens...</div>
-                        <div class="text-danger fw-bold mt-2 bg-danger bg-opacity-10 p-1 rounded border border-danger border-opacity-25">> THREAT MITIGATED: IP 192.168.*</div>
+                        <div class="text-danger fw-bold mt-2 bg-danger bg-opacity-10 p-1 rounded border border-danger border-opacity-25 threat-pulse">> THREAT MITIGATED: IP 192.168.*</div>
                     </div>
                 </div>
             </div>
@@ -216,7 +241,11 @@
             <div class="jwg-badges mt-4">
                 <span>NESTJS</span>
                 <span>FASTAPI</span>
-             
+            </div>
+            <div class="mt-4">
+                <a href="{{ route('portfolio.case-study', 'security-agent') }}" class="btn btn-outline-success btn-sm rounded-pill px-3 py-2 fw-semibold view-case-study-btn">
+                    <i class="bi bi-journal-text me-1"></i> View Case Study
+                </a>
             </div>
         </div>
     </div>
@@ -326,8 +355,65 @@
     }
     .wave {
         width: 6px;
-        background-color: #9ca3af;
+        background-color: var(--jwg-green);
         border-radius: 4px;
+    }
+
+    /* Animation Keyframes */
+    @keyframes pulseChart {
+        0%, 100% { transform: scaleY(0.7); }
+        50% { transform: scaleY(1.3); }
+    }
+    @keyframes pulseAudio {
+        0%, 100% { transform: scaleY(0.4); }
+        50% { transform: scaleY(1.3); }
+    }
+    @keyframes pulseDot {
+        0%, 100% { opacity: 0.5; transform: scale(0.85); box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
+        50% { opacity: 1; transform: scale(1.15); box-shadow: 0 0 8px 3px rgba(40, 167, 69, 0.5); }
+    }
+    @keyframes pulseSparkline {
+        0%, 100% { transform: scaleY(0.6); }
+        50% { transform: scaleY(1.2); }
+    }
+    @keyframes threatPulse {
+        0%, 100% { opacity: 0.85; }
+        50% { opacity: 0.45; }
+    }
+
+    /* Assign Animations */
+    .jwg-chart .bar {
+        animation: pulseChart 1.5s ease-in-out infinite alternate;
+        transform-origin: bottom;
+    }
+    .jwg-chart .bar:nth-child(2) { animation-delay: 0.3s; }
+    .jwg-chart .bar:nth-child(3) { animation-delay: 0.6s; }
+    .jwg-chart .bar:nth-child(4) { animation-delay: 0.9s; }
+
+    .audio-waves .wave {
+        animation: pulseAudio 1.2s ease-in-out infinite alternate;
+        transform-origin: center;
+    }
+    .audio-waves .wave:nth-child(2) { animation-delay: 0.25s; }
+    .audio-waves .wave:nth-child(3) { animation-delay: 0.5s; }
+    .audio-waves .wave:nth-child(4) { animation-delay: 0.15s; }
+    .audio-waves .wave:nth-child(5) { animation-delay: 0.35s; }
+
+    .pulse-dot {
+        animation: pulseDot 2s infinite ease-in-out;
+        display: inline-block;
+    }
+
+    .sparkline > div {
+        animation: pulseSparkline 1.2s ease-in-out infinite alternate;
+        transform-origin: bottom;
+    }
+    .sparkline > div:nth-child(2) { animation-delay: 0.2s; }
+    .sparkline > div:nth-child(3) { animation-delay: 0.4s; }
+    .sparkline > div:nth-child(4) { animation-delay: 0.6s; }
+
+    .threat-pulse {
+        animation: threatPulse 1.2s infinite ease-in-out;
     }
     .automation-pill {
         position: absolute;
@@ -378,6 +464,38 @@
         letter-spacing: 1px;
         text-transform: uppercase;
         background: transparent;
+    }
+
+    /* Case Study Modal Styles */
+    .case-study-modal .modal-content {
+        border-radius: 20px;
+        overflow: hidden;
+    }
+    .case-study-modal .modal-header {
+        background-color: #111827 !important;
+    }
+    .case-study-modal .btn-close-white {
+        filter: invert(1) grayscale(1) brightness(2);
+    }
+    .case-study-modal .metric-value {
+        font-family: 'Inter', sans-serif;
+        color: var(--waveron-green) !important;
+        font-size: 1.75rem;
+    }
+    .case-study-modal .case-section p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    .view-case-study-btn {
+        transition: all 0.3s ease;
+        border-color: var(--waveron-green);
+        color: var(--waveron-green);
+    }
+    .view-case-study-btn:hover {
+        background-color: var(--waveron-green);
+        border-color: var(--waveron-green);
+        color: #fff !important;
+        transform: translateY(-2px);
     }
 </style>
 @endpush

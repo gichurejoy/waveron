@@ -27,6 +27,9 @@
                 <li class="nav-item">
                     <a class="nav-link px-3 {{ request()->routeIs('portfolio') ? 'active' : '' }}" href="{{ route('portfolio') }}">Portfolio</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link px-3 {{ request()->routeIs('tools*') ? 'active' : '' }}" href="{{ route('tools.index') }}">Tools</a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link px-3 {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">About</a>
