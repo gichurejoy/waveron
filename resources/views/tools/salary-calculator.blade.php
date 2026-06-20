@@ -239,26 +239,42 @@
         }
     }
 
+    @page {
+        size: auto;
+        margin: 12mm;
+    }
+
     /* Print stylesheet settings */
     @media print {
         body {
             background-color: white !important;
             color: black !important;
             font-size: 10.5pt !important;
-            margin: 0.25in !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            zoom: 1 !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
         }
         .no-print, header, footer, .navbar, .navbar-spacer, #navbarNav, .navbar-toggler, .tools-hero, .btn, .card, .AI-widget, #AI-chatbot-widget {
             display: none !important;
         }
         .print-only {
             display: block !important;
-            width: 100%;
+            width: 100% !important;
+            max-width: 100% !important;
+            padding: 0 !important;
+            margin: 0 !important;
         }
         .payslip-paper {
             border: none !important;
             box-shadow: none !important;
             padding: 0 !important;
             margin: 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
             page-break-inside: avoid;
             break-inside: avoid;
         }
