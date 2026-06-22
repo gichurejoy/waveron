@@ -613,8 +613,8 @@ document.addEventListener('DOMContentLoaded', function () {
         link.click();
         document.body.removeChild(link);
 
-        // Clean up URL object
-        setTimeout(() => URL.revokeObjectURL(url), 100);
+        // Clean up URL object after a safe delay to prevent filename fallback race conditions
+        setTimeout(() => URL.revokeObjectURL(url), 15000);
     });
 });
 </script>
