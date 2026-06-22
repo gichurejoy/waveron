@@ -578,30 +578,43 @@ document.addEventListener('DOMContentLoaded', function () {
     exportCsvBtn.addEventListener('click', function() {
         if (activeSchedule.length === 0) return;
 
-        let csvContent = "data:text/csv;charset=utf-8,";
+        // Add UTF-8 BOM to ensure Excel opens special characters and formatting correctly
+        let csvContent = "\uFEFF";
         csvContent += "Week,Day,Platform,Topic,Hook,Content Template,CTA,Status\n";
 
         activeSchedule.forEach(p => {
+            // Helper to clean fields for CSV/Excel formatting
+            const cleanField = (text) => {
+                if (!text) return '""';
+                // Double up double-quotes and replace line-breaks with space for clean Excel row formatting
+                const escaped = text.toString().replace(/"/g, '""').replace(/\r?\n|\r/g, ' ');
+                return `"${escaped}"`;
+            };
+
             const row = [
-                `Week ${p.week}`,
-                p.day,
-                p.platform,
-                `"${p.topic.replace(/"/g, '""')}"`,
-                `"${p.hook.replace(/"/g, '""')}"`,
-                `"${p.body.replace(/"/g, '""')}"`,
-                `"${p.cta.replace(/"/g, '""')}"`,
-                p.status
+                `"Week ${p.week}"`,
+                `"${p.day}"`,
+                `"${p.platform}"`,
+                cleanField(p.topic),
+                cleanField(p.hook),
+                cleanField(p.body),
+                cleanField(p.cta),
+                `"${p.status}"`
             ].join(",");
             csvContent += row + "\n";
         });
 
-        const encodedUri = encodeURI(csvContent);
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
         const link = document.createElement("a");
-        link.setAttribute("href", encodedUri);
+        link.setAttribute("href", url);
         link.setAttribute("download", "marketing-content-calendar.csv");
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+
+        // Clean up URL object
+        setTimeout(() => URL.revokeObjectURL(url), 100);
     });
 });
 </script>
