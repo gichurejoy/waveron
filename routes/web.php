@@ -296,5 +296,25 @@ Route::prefix('tools')->name('tools.')->group(function () {
     Route::get('/cover-letter-generator', function () {
         return view('tools.cover-letter-generator');
     })->name('cover-letter-generator');
+
+    Route::get('/break-even-calculator', function () {
+        return view('tools.break-even-calculator');
+    })->name('break-even-calculator');
+
+    Route::get('/ats-resume-checker', function () {
+        return view('tools.ats-resume-checker');
+    })->name('ats-resume-checker');
+
+    Route::get('/pdf-merger', function () {
+        return view('tools.pdf-merger');
+    })->name('pdf-merger');
+
+    Route::get('/content-calendar-generator', function () {
+        return view('tools.content-calendar-generator');
+    })->name('content-calendar-generator');
+
+    Route::get('/loan-calculator', function () {
+        return view('tools.loan-calculator');
+    })->name('loan-calculator');
 });
 

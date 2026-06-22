@@ -173,6 +173,151 @@
                 </div>
             </div>
         </div>
+
+        <!-- Tool 5: Break-Even Point Calculator -->
+        <div class="col-md-6 col-lg-5">
+            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden tool-card">
+                <div class="p-4 bg-light border-bottom d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="tool-icon bg-info bg-opacity-10 text-info rounded-3 p-3">
+                            <i class="bi bi-graph-up-arrow fs-3"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold mb-0">Break-Even Calculator</h4>
+                            <small class="text-muted">Business Analytics</small>
+                        </div>
+                    </div>
+                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-2 py-1" style="font-size:0.7rem;">NEW</span>
+                </div>
+                <div class="card-body p-4 d-flex flex-column justify-content-between">
+                    <p class="text-muted">Calculate units and revenue volume needed to cover your fixed and variable costs. Renders a dynamic, real-time SVG charting dashboard.</p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Real-time SVG Cost & Revenue Chart</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Contribution Margin & Target Profit</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Printable A4 margin report</li>
+                    </ul>
+                    <a href="{{ route('tools.break-even-calculator') }}" class="btn btn-info w-100 rounded-pill py-2 fw-semibold text-white">
+                        Launch Break-Even <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tool 6: ATS Resume Checker -->
+        <div class="col-md-6 col-lg-5">
+            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden tool-card">
+                <div class="p-4 bg-light border-bottom d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="tool-icon bg-dark bg-opacity-10 text-dark rounded-3 p-3">
+                            <i class="bi bi-file-earmark-check fs-3"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold mb-0">ATS Resume Checker</h4>
+                            <small class="text-muted">Career & Resume Score</small>
+                        </div>
+                    </div>
+                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-2 py-1" style="font-size:0.7rem;">NEW</span>
+                </div>
+                <div class="card-body p-4 d-flex flex-column justify-content-between">
+                    <p class="text-muted">Analyze your resume against a target job description. Instantly calculates match score, identifies missing keywords, and flags layout issues.</p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Keyword match rate & TF-IDF scan</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Format & contact info validation</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Detailed layout improvement tips</li>
+                    </ul>
+                    <a href="{{ route('tools.ats-resume-checker') }}" class="btn btn-dark w-100 rounded-pill py-2 fw-semibold">
+                        Launch Resume Check <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tool 7: PDF Merger -->
+        <div class="col-md-6 col-lg-5">
+            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden tool-card">
+                <div class="p-4 bg-light border-bottom d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="tool-icon bg-danger bg-opacity-10 text-danger rounded-3 p-3">
+                            <i class="bi bi-files fs-3"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold mb-0">PDF Merger</h4>
+                            <small class="text-muted">Document Utilities</small>
+                        </div>
+                    </div>
+                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-2 py-1" style="font-size:0.7rem;">NEW</span>
+                </div>
+                <div class="card-body p-4 d-flex flex-column justify-content-between">
+                    <p class="text-muted">Combine multiple PDF documents into a single unified file entirely inside your browser. High speed, client-side encryption and safety.</p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Secure local processing (No servers)</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Drag-and-drop sortable queue list</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Fast compile & instant download</li>
+                    </ul>
+                    <a href="{{ route('tools.pdf-merger') }}" class="btn btn-danger w-100 rounded-pill py-2 fw-semibold">
+                        Launch PDF Merger <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tool 8: Content Calendar Generator -->
+        <div class="col-md-6 col-lg-5">
+            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden tool-card">
+                <div class="p-4 bg-light border-bottom d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="tool-icon bg-primary bg-opacity-10 text-primary rounded-3 p-3">
+                            <i class="bi bi-calendar3 fs-3"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold mb-0">Content Calendar</h4>
+                            <small class="text-muted">Marketing Automation</small>
+                        </div>
+                    </div>
+                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-2 py-1" style="font-size:0.7rem;">NEW</span>
+                </div>
+                <div class="card-body p-4 d-flex flex-column justify-content-between">
+                    <p class="text-muted">Generate a localized social media and blog scheduling calendar. Select industries and tones, copy templates, and export schedule lists.</p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Multi-platform scheduled posts board</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> High-converting templates & hooks</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Click to edit & export CSV schedule</li>
+                    </ul>
+                    <a href="{{ route('tools.content-calendar-generator') }}" class="btn btn-primary w-100 rounded-pill py-2 fw-semibold">
+                        Launch Generator <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tool 9: Loan & Amortization Calculator -->
+        <div class="col-md-6 col-lg-5">
+            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden tool-card">
+                <div class="p-4 bg-light border-bottom d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="tool-icon bg-success bg-opacity-10 text-success rounded-3 p-3">
+                            <i class="bi bi-cash-coin fs-3"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold mb-0">Loan Calculator</h4>
+                            <small class="text-muted">Financial Calculations</small>
+                        </div>
+                    </div>
+                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-2 py-1" style="font-size:0.7rem;">NEW</span>
+                </div>
+                <div class="card-body p-4 d-flex flex-column justify-content-between">
+                    <p class="text-muted">Calculate loan monthly repayments, interest fees, and amortization tables. Features interactive visual ratio charts and PDF scheduling reports.</p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Principal vs Interest donut chart</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Full month-by-month repayment schedule</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Printable A4 schedule reports</li>
+                    </ul>
+                    <a href="{{ route('tools.loan-calculator') }}" class="btn btn-success w-100 rounded-pill py-2 fw-semibold">
+                        Launch Loan Tool <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
