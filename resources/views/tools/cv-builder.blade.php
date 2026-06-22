@@ -144,7 +144,7 @@
                     <div id="cv-preview" class="cv-paper shadow-sm bg-white p-4 p-md-5 rounded-4 border border-light" style="min-height: 297mm;">
                         <!-- CV Top Header Layout -->
                         <div class="row align-items-center border-bottom pb-4 mb-4">
-                            <div class="col-md-8 d-flex align-items-center gap-3">
+                            <div class="col-7 d-flex align-items-center gap-3">
                                 <!-- Profile Photo container -->
                                 <div id="prev-photo-container" class="rounded-circle overflow-hidden d-none" style="width: 75px; height: 75px; flex-shrink: 0; border: 2px solid #006400;">
                                     <img id="prev-photo-img" src="" alt="Profile Headshot" style="width: 100%; height: 100%; object-fit: cover;">
@@ -158,11 +158,23 @@
                                     <h6 class="text-muted fw-semibold mb-0" id="prev-prof-title">Senior Software Engineer</h6>
                                 </div>
                             </div>
-                            <div class="col-md-4 text-md-end mt-3 mt-md-0 small font-monospace text-muted">
-                                <div class="mb-1"><i class="bi bi-envelope me-1"></i> <span id="prev-email">alex.njoroge@email.com</span></div>
-                                <div class="mb-1"><i class="bi bi-telephone me-1"></i> <span id="prev-phone">+254 712 345678</span></div>
-                                <div class="mb-1"><i class="bi bi-geo-alt me-1"></i> <span id="prev-location">Nairobi, Kenya</span></div>
-                                <div><i class="bi bi-linkedin me-1"></i> <span id="prev-linkedin">linkedin.com/in/alexnjoroge</span></div>
+                            <div class="col-5 d-flex flex-column align-items-end justify-content-center small font-monospace text-muted">
+                                <div class="d-flex align-items-start justify-content-end gap-2 mb-1 text-end">
+                                    <i class="bi bi-envelope text-theme" style="margin-top: 2px;"></i>
+                                    <span id="prev-email" style="word-break: break-all;">alex.njoroge@email.com</span>
+                                </div>
+                                <div class="d-flex align-items-start justify-content-end gap-2 mb-1 text-end">
+                                    <i class="bi bi-telephone text-theme" style="margin-top: 2px;"></i>
+                                    <span id="prev-phone" style="word-break: break-all;">+254 712 345678</span>
+                                </div>
+                                <div class="d-flex align-items-start justify-content-end gap-2 mb-1 text-end">
+                                    <i class="bi bi-geo-alt text-theme" style="margin-top: 2px;"></i>
+                                    <span id="prev-location" style="word-break: break-all;">Nairobi, Kenya</span>
+                                </div>
+                                <div class="d-flex align-items-start justify-content-end gap-2 text-end">
+                                    <i class="bi bi-linkedin text-theme" style="margin-top: 2px;"></i>
+                                    <span id="prev-linkedin" style="word-break: break-all;">linkedin.com/in/alexnjoroge</span>
+                                </div>
                             </div>
                         </div>
 
@@ -231,6 +243,15 @@
 
     .cv-paper {
         font-family: 'Inter', sans-serif;
+        position: relative !important;
+        padding-bottom: 60px !important;
+    }
+
+    .cv-paper .watermark-print {
+        position: absolute !important;
+        bottom: 20px !important;
+        left: 48px !important;
+        right: 48px !important;
     }
 
     .text-theme {
@@ -276,6 +297,8 @@
             max-width: 100% !important;
             page-break-inside: avoid;
             break-inside: avoid;
+            min-height: 0 !important;
+            padding-bottom: 0 !important;
         }
         .watermark-print {
             position: fixed !important;

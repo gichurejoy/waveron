@@ -239,6 +239,19 @@
         }
     }
 
+    .payslip-paper {
+        position: relative !important;
+        min-height: 297mm;
+        padding-bottom: 60px !important;
+    }
+
+    .payslip-paper .watermark-print {
+        position: absolute !important;
+        bottom: 20px !important;
+        left: 48px !important;
+        right: 48px !important;
+    }
+
     @page {
         size: auto;
         margin: 12mm;
@@ -278,6 +291,8 @@
             max-width: 100% !important;
             page-break-inside: avoid;
             break-inside: avoid;
+            min-height: 0 !important;
+            padding-bottom: 0 !important;
         }
         .watermark-print {
             position: fixed !important;

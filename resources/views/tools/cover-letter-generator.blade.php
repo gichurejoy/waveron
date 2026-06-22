@@ -164,7 +164,7 @@
                                     <div class="text-muted small" id="prev-sender-title">Senior Systems Engineer</div>
                                 </div>
                             </div>
-                            <div class="text-end small text-muted font-monospace">
+                            <div class="text-end small text-muted font-monospace" style="max-width: 45%; word-break: break-all;">
                                 <div id="prev-sender-email">michael.kamau@email.com</div>
                                 <div id="prev-sender-phone">+254 722 111 222</div>
                                 <div id="prev-sender-address">P.O. Box 100-00100, Nairobi, Kenya</div>
@@ -224,6 +224,18 @@
         top: 96px;
     }
 
+    .invoice-paper {
+        position: relative !important;
+        padding-bottom: 60px !important;
+    }
+
+    .invoice-paper .watermark-print {
+        position: absolute !important;
+        bottom: 20px !important;
+        left: 48px !important;
+        right: 48px !important;
+    }
+
     .text-theme {
         transition: color 0.2s ease;
     }
@@ -267,6 +279,8 @@
             max-width: 100% !important;
             page-break-inside: avoid;
             break-inside: avoid;
+            min-height: 0 !important;
+            padding-bottom: 0 !important;
         }
         .watermark-print {
             position: fixed !important;

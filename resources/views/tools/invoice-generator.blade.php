@@ -300,6 +300,8 @@
             max-width: 100% !important;
             page-break-inside: avoid;
             break-inside: avoid;
+            min-height: 0 !important;
+            padding-bottom: 0 !important;
         }
         .watermark-print {
             position: fixed !important;
@@ -341,8 +343,17 @@
 
     /* Invoice paper layout */
     .invoice-paper {
-        min-height: 600px;
+        position: relative !important;
+        min-height: 297mm;
+        padding-bottom: 60px !important;
         border: 1px solid #eee;
+    }
+
+    .invoice-paper .watermark-print {
+        position: absolute !important;
+        bottom: 20px !important;
+        left: 48px !important;
+        right: 48px !important;
     }
 
     .preview-table th {
