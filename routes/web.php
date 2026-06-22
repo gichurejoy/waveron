@@ -288,5 +288,13 @@ Route::prefix('tools')->name('tools.')->group(function () {
     Route::get('/salary-calculator', function () {
         return view('tools.salary-calculator');
     })->name('salary-calculator');
+
+    Route::get('/cv-builder', function () {
+        return view('tools.cv-builder');
+    })->name('cv-builder');
+
+    Route::get('/cover-letter-generator', function () {
+        return view('tools.cover-letter-generator');
+    })->name('cover-letter-generator');
 });
 

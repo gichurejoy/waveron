@@ -115,6 +115,64 @@
                 </div>
             </div>
         </div>
+
+        <!-- Tool 3: Professional CV Builder -->
+        <div class="col-md-6 col-lg-5">
+            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden tool-card">
+                <div class="p-4 bg-light border-bottom d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="tool-icon bg-info bg-opacity-10 text-info rounded-3 p-3">
+                            <i class="bi bi-file-earmark-person fs-3"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold mb-0">CV Builder</h4>
+                            <small class="text-muted">Career Growth</small>
+                        </div>
+                    </div>
+                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-2 py-1" style="font-size:0.7rem;">NEW</span>
+                </div>
+                <div class="card-body p-4 d-flex flex-column justify-content-between">
+                    <p class="text-muted">Build a modern, job-winning professional CV. Custom colors, dynamic experience and education fields, profile picture support, and instant print layout sizing.</p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Dynamic Work & Study list fields</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Photo upload & Accent colors</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Standard A4 bottom watermark printing</li>
+                    </ul>
+                    <a href="{{ route('tools.cv-builder') }}" class="btn btn-info w-100 rounded-pill py-2 fw-semibold text-white">
+                        Launch CV Builder <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tool 4: Cover Letter Generator -->
+        <div class="col-md-6 col-lg-5">
+            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden tool-card">
+                <div class="p-4 bg-light border-bottom d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="tool-icon bg-warning bg-opacity-10 text-warning rounded-3 p-3">
+                            <i class="bi bi-envelope-paper fs-3"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold mb-0">Cover Letter Gen</h4>
+                            <small class="text-muted">Job Applications</small>
+                        </div>
+                    </div>
+                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-2 py-1" style="font-size:0.7rem;">NEW</span>
+                </div>
+                <div class="card-body p-4 d-flex flex-column justify-content-between">
+                    <p class="text-muted">Instantly draft highly personalized cover letters. Choose from professional, enthusiastic, or creative templates and edit body text in real-time before export.</p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Tone presets (Professional, Creative)</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Custom letterhead styles</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Live A4-scaled print formatting</li>
+                    </ul>
+                    <a href="{{ route('tools.cover-letter-generator') }}" class="btn btn-warning w-100 rounded-pill py-2 fw-semibold text-white">
+                        Launch Generator <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
