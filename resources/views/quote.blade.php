@@ -112,6 +112,9 @@
                                     <button class="btn btn-outline-secondary" id="pdfEstimateBtn" type="button">
                                         <i class="bi bi-file-earmark-pdf me-2"></i>Download PDF
                                     </button>
+                                    <a href="{{ route('quote.guide') }}?download=1" target="_blank" class="btn btn-link text-success fw-bold text-decoration-none mt-2 text-center" id="downloadGuideBtn">
+                                        <i class="bi bi-book me-1"></i> Download Configuration & Cost Guide (PDF)
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -210,6 +213,33 @@
         </div>
     </div>
 </section>
+
+<!-- Email Estimate Modal -->
+<div class="modal fade" id="emailEstimateModal" tabindex="-1" aria-labelledby="emailEstimateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0 shadow">
+            <div class="modal-header border-bottom-0 pb-0">
+                <h5 class="modal-title fw-bold text-dark" id="emailEstimateModalLabel">Email Estimate Summary</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pb-0">
+                <p class="text-muted small">Enter your email address to receive a detailed breakdown of your project configuration. The estimate will also be forwarded directly to our team at <strong>info@waverontechnologies.co.ke</strong>.</p>
+                <div class="mb-3">
+                    <label for="estimate-email-input" class="form-label small fw-bold">Your Email Address</label>
+                    <input type="email" id="estimate-email-input" class="form-control rounded-3" placeholder="name@company.com" required>
+                    <div class="invalid-feedback" id="estimate-email-error-msg">Please enter a valid email address.</div>
+                </div>
+            </div>
+            <div class="modal-footer border-top-0 pt-0">
+                <button type="button" class="btn btn-light rounded-pill px-3" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" id="sendEstimateSubmitBtn" class="btn btn-primary rounded-pill px-4">
+                    <span id="sendEstimateSpinner" class="spinner-border spinner-border-sm me-1 d-none" role="status" aria-hidden="true"></span>
+                    Send Estimate
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 @include('partials.footer')
 
@@ -582,7 +612,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const summary = buildSummary(total, monthly, features, addonTotal, featureAdj, selectedFeatures, checkedAddons);
         emailEstimateBtn.onclick = () => {
-            window.location.href = buildMailto(summary);
+            window.activeEstimateSummary = summary;
+            const modalEl = document.getElementById('emailEstimateModal');
+            const modalInstance = new bootstrap.Modal(modalEl);
+            modalInstance.show();
         };
         pdfEstimateBtn.onclick = () => openPdf(summary);
     }
@@ -633,6 +666,67 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initial render
         renderServiceOptions();
     }
+
+    // Handle sending estimate via AJAX
+    const sendEstimateSubmitBtn = document.getElementById('sendEstimateSubmitBtn');
+    const estimateEmailInput = document.getElementById('estimate-email-input');
+    const sendEstimateSpinner = document.getElementById('sendEstimateSpinner');
+
+    sendEstimateSubmitBtn.addEventListener('click', () => {
+        const email = estimateEmailInput.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        if (!email || !emailRegex.test(email)) {
+            estimateEmailInput.classList.add('is-invalid');
+            return;
+        }
+        
+        estimateEmailInput.classList.remove('is-invalid');
+        
+        // Show spinner, disable button
+        sendEstimateSpinner.classList.remove('d-none');
+        sendEstimateSubmitBtn.disabled = true;
+        
+        // Get CSRF Token
+        const csrfToken = document.querySelector('input[name="_token"]').value;
+
+        fetch('{{ route("quote.email-estimate") }}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': csrfToken,
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email,
+                summary: window.activeEstimateSummary
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            sendEstimateSpinner.classList.add('d-none');
+            sendEstimateSubmitBtn.disabled = false;
+            
+            if (data.success) {
+                // Hide modal
+                const modalEl = document.getElementById('emailEstimateModal');
+                const modalInstance = bootstrap.Modal.getInstance(modalEl);
+                if (modalInstance) modalInstance.hide();
+                
+                // Show a success message
+                alert('Estimate successfully sent to ' + email + ' and our sales team!');
+                estimateEmailInput.value = '';
+            } else {
+                alert('Error: ' + (data.message || 'Failed to send estimate email.'));
+            }
+        })
+        .catch(error => {
+            sendEstimateSpinner.classList.add('d-none');
+            sendEstimateSubmitBtn.disabled = false;
+            console.error('Email estimate error:', error);
+            alert('An unexpected error occurred. Please try again.');
+        });
+    });
 });
 </script>
 @endpush

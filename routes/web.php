@@ -265,6 +265,12 @@ Route::get('/quote', function () {
     return view('quote');
 })->name('quote');
 
+Route::get('/quote/configuration-guide', function () {
+    return view('quote-guide');
+})->name('quote.guide');
+
+Route::post('/quote/email-estimate', [ContactController::class, 'emailEstimate'])->name('quote.email-estimate');
+
 // Blog Routes
 use App\Http\Controllers\BlogController;
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
