@@ -336,6 +336,9 @@ document.addEventListener('DOMContentLoaded', function () {
             progressBar.style.width = '100%';
             progressPercent.innerText = '100%';
             progressText.innerText = 'Documents merged successfully! Download started.';
+            if (window.showToast) {
+                window.showToast('Documents merged successfully! Download started.', 'success');
+            }
             
             setTimeout(() => {
                 processingState.classList.add('d-none');
@@ -344,7 +347,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         } catch (err) {
             console.error(err);
-            alert('Error merging files: ' + err.message + '. Please ensure none of the PDFs are password-protected.');
+            if (window.showToast) {
+                window.showToast('Error merging files: ' + err.message + '. Please ensure none of the PDFs are password-protected.', 'error');
+            } else {
+                alert('Error merging files: ' + err.message + '. Please ensure none of the PDFs are password-protected.');
+            }
             processingState.classList.add('d-none');
             mergeBtn.disabled = false;
         }

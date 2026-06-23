@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'About Us - Waveron Technologies')
+@section('meta_description', 'Learn about Waveron Technologies, our mission, vision, values, and how our team of engineers, designers, and marketing experts build the future of software.')
 
 @section('content')
 <!-- Hero Section -->

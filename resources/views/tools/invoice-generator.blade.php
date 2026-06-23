@@ -473,7 +473,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 row.remove();
                 calculateInvoice();
             } else {
-                alert('Invoice must have at least one line item.');
+                if (window.showToast) {
+                    window.showToast('Invoice must have at least one line item.', 'error');
+                } else {
+                    alert('Invoice must have at least one line item.');
+                }
             }
         });
         

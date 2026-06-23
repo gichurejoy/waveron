@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Waveron Technologies - Custom Software Development Agency in Nairobi, Kenya')
+@section('meta_description', 'Waveron Technologies is Kenya\'s leading custom software development agency, specializing in bespoke mobile & web apps, brand design, and growth marketing solutions.')
 
 @section('content')
 <!-- Hero Section -->

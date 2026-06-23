@@ -124,8 +124,71 @@
         @include('components.newsletter-popup')
     @endif
 
+    <!-- Global Toast Container -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 2000;">
+        <!-- Success Toast -->
+        <div id="globalSuccessToast" class="toast align-items-center text-white bg-success border-0 rounded-3 shadow" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body d-flex align-items-center gap-2">
+                    <i class="bi bi-check-circle-fill fs-5"></i>
+                    <span id="globalSuccessToastMessage">Success!</span>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+        
+        <!-- Error Toast -->
+        <div id="globalErrorToast" class="toast align-items-center text-white bg-danger border-0 rounded-3 shadow" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body d-flex align-items-center gap-2">
+                    <i class="bi bi-exclamation-triangle-fill fs-5"></i>
+                    <span id="globalErrorToastMessage">An error occurred.</span>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Global Toast Helper Script -->
+    <script>
+        window.showToast = function(message, type = 'success') {
+            if (type === 'success') {
+                const toastMessage = document.getElementById('globalSuccessToastMessage');
+                if (toastMessage) {
+                    toastMessage.textContent = message;
+                    const toastEl = document.getElementById('globalSuccessToast');
+                    const toast = new bootstrap.Toast(toastEl, { delay: 6000 });
+                    toast.show();
+                }
+            } else {
+                const toastMessage = document.getElementById('globalErrorToastMessage');
+                if (toastMessage) {
+                    toastMessage.textContent = message;
+                    const toastEl = document.getElementById('globalErrorToast');
+                    const toast = new bootstrap.Toast(toastEl, { delay: 6000 });
+                    toast.show();
+                }
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            @if(session('success'))
+                window.showToast("{{ session('success') }}", 'success');
+            @endif
+            @if(session('error'))
+                window.showToast("{{ session('error') }}", 'error');
+            @endif
+            @if(session('newsletter_success'))
+                window.showToast("{{ session('newsletter_success') }}", 'success');
+            @endif
+            @if(session('newsletter_error'))
+                window.showToast("{{ session('newsletter_error') }}", 'error');
+            @endif
+        });
+    </script>
     @stack('scripts')
     <script src="https://unpkg.com/lucide@latest"></script>
 <script>

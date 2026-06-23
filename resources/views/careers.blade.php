@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Careers & Referrals - Waveron')
+@section('meta_description', 'Join the Waveron Technologies team or participate in our referral program. Explore job openings, career development, and contract opportunities.')
 
 @section('content')
 <!-- Hero Section -->
@@ -180,7 +181,7 @@
                             <div class="card border-0 shadow-sm border-top border-primary border-4 rounded-4">
                                 <div class="card-body p-4">
                                     <h4 class="fw-bold mb-4 text-center">Referral Form</h4>
-                                    <form onsubmit="event.preventDefault(); const code = 'WVRN-' + Math.random().toString(36).substr(2, 6).toUpperCase(); alert('Referral submitted successfully!\n\nYour Referral Tracking Code is: ' + code + '\nKeep this code to claim your commission when the client pays.'); this.reset();">
+                                    <form onsubmit="event.preventDefault(); const code = 'WVRN-' + Math.random().toString(36).substr(2, 6).toUpperCase(); document.getElementById('referralCodeDisplay').textContent = code; const refModal = new bootstrap.Modal(document.getElementById('referralSuccessModal')); refModal.show(); this.reset();">
                                         <div class="mb-3">
                                             <label class="form-label text-muted small">Your Name</label>
                                             <input type="text" class="form-control" required placeholder="John Doe">
@@ -208,6 +209,30 @@
         </div>
     </div>
 </section>
+
+<!-- Referral Success Modal -->
+<div class="modal fade" id="referralSuccessModal" tabindex="-1" aria-labelledby="referralSuccessModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow rounded-4 text-center">
+      <div class="modal-body p-5">
+        <div class="bg-success bg-opacity-10 text-success rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+          <i class="bi bi-check-circle-fill" style="font-size: 3rem;"></i>
+        </div>
+        <h3 class="fw-bold mb-3 text-dark">Referral Submitted!</h3>
+        <p class="text-muted mb-4">Your referral has been successfully logged. Keep this tracking code to claim your commission when the client pays:</p>
+        
+        <div class="bg-light rounded-3 p-3 mb-4 d-flex align-items-center justify-content-between border">
+          <code class="fs-4 fw-bold text-primary" id="referralCodeDisplay">WVRN-XXXXXX</code>
+          <button type="button" class="btn btn-outline-primary btn-sm rounded-pill" onclick="navigator.clipboard.writeText(document.getElementById('referralCodeDisplay').textContent); this.innerHTML = '<i class=&quot;bi bi-check2&quot;></i> Copied!'; setTimeout(() => this.innerHTML = '<i class=&quot;bi bi-copy&quot;></i> Copy', 2000);">
+            <i class="bi bi-copy"></i> Copy
+          </button>
+        </div>
+        
+        <button type="button" class="btn btn-primary rounded-pill px-5 py-2 w-100" data-bs-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 @include('partials.footer')
 

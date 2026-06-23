@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Service Quote Calculator - Waveron')
+@section('title', 'Interactive Project Cost & Quote Calculator | Waveron Technologies')
+@section('meta_description', 'Configure and calculate ballpark estimates for software development, graphic design, branding, and digital marketing. Download detailed cost guides or request instant email quotes.')
 
 @section('content')
 <section class="py-5 bg-light">
@@ -713,18 +714,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 const modalInstance = bootstrap.Modal.getInstance(modalEl);
                 if (modalInstance) modalInstance.hide();
                 
-                // Show a success message
-                alert('Estimate successfully sent to ' + email + ' and our sales team!');
+                // Show a success toast message using global helper
+                if (window.showToast) {
+                    window.showToast(`Estimate emailed successfully to ${email}`, 'success');
+                } else {
+                    alert(`Estimate emailed successfully to ${email}`);
+                }
+                
                 estimateEmailInput.value = '';
             } else {
-                alert('Error: ' + (data.message || 'Failed to send estimate email.'));
+                if (window.showToast) {
+                    window.showToast('Error: ' + (data.message || 'Failed to send estimate email.'), 'error');
+                } else {
+                    alert('Error: ' + (data.message || 'Failed to send estimate email.'));
+                }
             }
         })
         .catch(error => {
             sendEstimateSpinner.classList.add('d-none');
             sendEstimateSubmitBtn.disabled = false;
             console.error('Email estimate error:', error);
-            alert('An unexpected error occurred. Please try again.');
+            if (window.showToast) {
+                window.showToast('An unexpected error occurred. Please try again.', 'error');
+            } else {
+                alert('An unexpected error occurred. Please try again.');
+            }
         });
     });
 });

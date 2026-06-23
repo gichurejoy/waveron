@@ -397,7 +397,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         if (selectedPlatforms.length === 0) {
-            alert('Please select at least one social media channel.');
+            if (window.showToast) {
+                window.showToast('Please select at least one social media channel.', 'error');
+            } else {
+                alert('Please select at least one social media channel.');
+            }
             return;
         }
 

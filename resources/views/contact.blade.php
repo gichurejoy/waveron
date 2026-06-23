@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Contact Us - Waveron Technologies')
+@section('meta_description', 'Get in touch with Waveron Technologies. Contact our Nairobi office for custom software development, web app engineering, design, and digital marketing inquiries.')
 
 @section('content')
 <!-- Contact Header -->
