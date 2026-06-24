@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('title', 'Software Development - Waveron Technologies')
+@section('meta_description', 'Custom software development in Nairobi, Kenya. Waveron Technologies builds web apps, mobile apps, APIs, and enterprise systems using modern tech stacks like Laravel, React, Next.js, and Flutter.')
+@section('og_title', 'Custom Software Development — Waveron Technologies')
+@section('og_description', 'From custom web platforms and mobile apps to cloud infrastructure and enterprise systems. Full-cycle software development by Waveron\'s expert team in Nairobi, Kenya.')
+@section('og_url', 'https://waverontechnologies.co.ke/services/software-development')
 
 @section('content')
 

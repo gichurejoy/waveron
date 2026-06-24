@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('title', 'Portfolio - Waveron Technologies')
+@section('meta_description', 'Browse Waveron Technologies\' project portfolio. Discover our case studies in software development, AI automation, e-commerce, cybersecurity, and enterprise dashboards.')
+@section('og_title', 'Waveron Technologies Portfolio — Projects That Define Categories')
+@section('og_description', 'Explore Waveron\'s portfolio of proprietary SaaS products, enterprise dashboards, and intelligent automation systems built for high-impact results.')
+@section('og_url', 'https://waverontechnologies.co.ke/portfolio')
 
 @section('content')
 <!-- Abstract Hero Section -->

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Free Modern CV Builder & Resume Maker | Waveron Technologies')
+@section('title', 'CV Builder & Resume Maker | Waveron Technologies')
 @section('meta_description', 'Create a professional, job-winning CV in minutes with Waveron Technologies\' free online CV builder. Choose themes, upload photo, add work history, and print/download A4 PDF.')
 
 @section('content')

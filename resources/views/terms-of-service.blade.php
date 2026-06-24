@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('title', 'Terms of Service - Waveron Technologies')
+@section('meta_description', 'Review the terms of service governing your use of Waveron Technologies\' products and services. Covers user obligations, payments, liability, and applicable law.')
+@section('og_title', 'Terms of Service — Waveron Technologies')
+@section('og_description', 'The terms and conditions that govern your use of all Waveron Technologies services, platforms, and digital products.')
+@section('og_url', 'https://waverontechnologies.co.ke/terms-of-service')
 
 @section('content')
 <div class="container" style="padding-top: 100px; padding-bottom: 60px;">

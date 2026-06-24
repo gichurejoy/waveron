@@ -2,6 +2,9 @@
 
 @section('title', 'Careers & Referrals - Waveron')
 @section('meta_description', 'Join the Waveron Technologies team or participate in our referral program. Explore job openings, career development, and contract opportunities.')
+@section('og_title', 'Careers at Waveron Technologies — Join the Team')
+@section('og_description', 'We are building the future of digital solutions in Kenya. Explore open positions and our referral program to earn commissions by connecting clients with Waveron.')
+@section('og_url', 'https://waverontechnologies.co.ke/careers')
 
 @section('content')
 <!-- Hero Section -->

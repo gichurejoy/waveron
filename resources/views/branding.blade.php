@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('title', 'Branding - Waveron Technologies')
+@section('meta_description', 'Build a powerful brand identity with Waveron Technologies. We deliver brand strategy, logo design, visual identity systems, and brand guidelines that resonate with your target audience.')
+@section('og_title', 'Strategic Brand Development — Waveron Technologies')
+@section('og_description', 'From startup brand packages to comprehensive corporate rebrands, Waveron builds memorable identities that stand out and drive business growth.')
+@section('og_url', 'https://waverontechnologies.co.ke/services/branding')
 
 @push('styles')
 <style>

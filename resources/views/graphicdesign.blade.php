@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('title', 'Graphic Design - Waveron Technologies')
+@section('meta_description', 'Professional graphic design services in Nairobi, Kenya. Logo design, UI/UX, print materials, social media graphics, and digital marketing assets crafted with Adobe Illustrator, Photoshop, and Figma.')
+@section('og_title', 'Graphic Design Services — Waveron Technologies')
+@section('og_description', 'Transform your brand with stunning visuals. Waveron delivers logos, UI design, print collateral, and digital assets using industry-leading creative tools.')
+@section('og_url', 'https://waverontechnologies.co.ke/services/graphic-design')
 
 @push('styles')
 <style>

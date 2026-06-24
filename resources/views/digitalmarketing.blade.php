@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('title', 'Digital Marketing - Waveron Technologies')
+@section('meta_description', 'Data-driven digital marketing in Nairobi. Waveron Technologies offers SEO, social media management, email campaigns, paid advertising, and full-funnel marketing strategies to grow your business.')
+@section('og_title', 'Digital Marketing Excellence — Waveron Technologies')
+@section('og_description', 'Drive growth with Waveron\'s digital marketing strategies. SEO, social media, Google Ads, email automation, and influencer management — all results-focused.')
+@section('og_url', 'https://waverontechnologies.co.ke/services/digital-marketing')
 
 @push('styles')
 <style>

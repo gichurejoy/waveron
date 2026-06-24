@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('title', 'Blog | Waveron Technologies')
+@section('meta_description', 'Explore Waveron Technologies\' blog for developer guides, digital marketing strategies, software engineering insights, and business growth articles from our Nairobi team.')
+@section('og_title', 'Waveron Technologies Blog — Code, Design & Strategy')
+@section('og_description', 'Discover our latest articles on software development, graphic design, digital marketing, and tech business strategy written by the Waveron team.')
+@section('og_url', 'https://waverontechnologies.co.ke/blog')
 
 @section('content')
 <!-- Abstract Blog Hero Banner -->

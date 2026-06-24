@@ -2,6 +2,9 @@
 
 @section('title', 'About Us - Waveron Technologies')
 @section('meta_description', 'Learn about Waveron Technologies, our mission, vision, values, and how our team of engineers, designers, and marketing experts build the future of software.')
+@section('og_title', 'About Waveron Technologies — Innovating for Tomorrow')
+@section('og_description', 'Waveron Technologies is a Nairobi-based technology firm dedicated to creating cutting-edge software, brand identity, and digital growth solutions.')
+@section('og_url', 'https://waverontechnologies.co.ke/about')
 
 @section('content')
 <!-- Hero Section -->

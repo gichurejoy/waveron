@@ -2,6 +2,9 @@
 
 @section('title', 'Contact Us - Waveron Technologies')
 @section('meta_description', 'Get in touch with Waveron Technologies. Contact our Nairobi office for custom software development, web app engineering, design, and digital marketing inquiries.')
+@section('og_title', 'Contact Waveron Technologies')
+@section('og_description', 'Reach out to Waveron Technologies\'s Nairobi team. We\'re ready to discuss your next software, design, or digital marketing project.')
+@section('og_url', 'https://waverontechnologies.co.ke/contact')
 
 @section('content')
 <!-- Contact Header -->

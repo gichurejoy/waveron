@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Free KRA PAYE & Kenyan Salary Calculator | Waveron Technologies')
+@section('title', 'KRA PAYE Salary Calculator | Waveron Technologies')
 @section('meta_description', 'Calculate your net salary in Kenya. Computes exact KRA PAYE tax brackets, NSSF Tier I & II, SHIF (2.75%), and Housing Levy (AHL) deductions.')
 
 @section('content')

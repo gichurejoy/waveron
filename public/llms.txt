@@ -1,0 +1,108 @@
+# Waveron Technologies
+## Custom Software Development, Design & Digital Marketing Agency in Nairobi, Kenya
+
+> Waveron Technologies is a full-service technology and digital agency based in Nairobi, Kenya.
+> We build custom software, design brands, and grow businesses through data-driven digital marketing.
+> Founded to bridge the gap between world-class technology and African businesses.
+
+## Company Information
+
+- **Website**: https://waverontechnologies.co.ke
+- **Location**: Nairobi, Kenya
+- **Phone**: +254 798 717 800
+- **Email**: info@waverontechnologies.co.ke
+- **Founded**: 2023
+- **Specialization**: Custom Software Development, Graphic Design, Branding, Digital Marketing
+
+## Core Services
+
+### Software Development
+- Custom web application development (Laravel, Next.js, React)
+- Mobile application development (Flutter, React Native)
+- API design and integration
+- Cloud infrastructure and deployment (Docker, AWS)
+- Enterprise SaaS platforms
+- URL: https://waverontechnologies.co.ke/services/software-development
+
+### Graphic Design & UI/UX
+- Logo design and visual identity
+- UI/UX design (Figma, Adobe XD)
+- Print collateral and marketing materials
+- Social media graphics and digital assets
+- URL: https://waverontechnologies.co.ke/services/graphic-design
+
+### Branding & Identity
+- Brand strategy and positioning
+- Visual identity systems and brand guidelines
+- Corporate rebranding
+- Brand book creation
+- URL: https://waverontechnologies.co.ke/services/branding
+
+### Digital Marketing
+- Search engine optimization (SEO)
+- Social media management and advertising
+- Google Ads / paid search campaigns
+- Email marketing and automation
+- Content marketing strategy
+- URL: https://waverontechnologies.co.ke/services/digital-marketing
+
+## Portfolio & Case Studies
+
+- **Waveron CRM** — Low-latency sales pipeline synchronization engine (React, Python, PostgreSQL, Docker)
+  URL: https://waverontechnologies.co.ke/portfolio/waveron-crm
+
+- **Brand Book Generator** — AI-automated brand guidelines and PDF kit generation
+  URL: https://waverontechnologies.co.ke/portfolio/brand-book-generator
+
+- **Career Matcher** — Enterprise talent matching and recruitment dashboard (Python, MySQL)
+  URL: https://waverontechnologies.co.ke/portfolio/career-matcher
+
+- **Lead Generator** — High-velocity prospect enrichment engine (Python, BullMQ, Prisma)
+  URL: https://waverontechnologies.co.ke/portfolio/lead-generator
+
+- **E-Commerce Core** — Headless storefront with MPESA integration (Next.js, Redis)
+  URL: https://waverontechnologies.co.ke/portfolio/ecommerce-core
+
+- **Security Agent** — Real-time autonomous threat mitigation microagent (NestJS, FastAPI)
+  URL: https://waverontechnologies.co.ke/portfolio/security-agent
+
+## Free Business Tools
+
+The following tools are free, client-side, no login required:
+
+- **Invoice & Quotation Generator** — https://waverontechnologies.co.ke/tools/invoice-generator
+- **KRA PAYE Salary Calculator** — https://waverontechnologies.co.ke/tools/salary-calculator
+- **CV / Resume Builder** — https://waverontechnologies.co.ke/tools/cv-builder
+- **AI Cover Letter Generator** — https://waverontechnologies.co.ke/tools/cover-letter-generator
+- **Break-Even Point Calculator** — https://waverontechnologies.co.ke/tools/break-even-calculator
+- **ATS Resume Checker** — https://waverontechnologies.co.ke/tools/ats-resume-checker
+- **PDF Merger** — https://waverontechnologies.co.ke/tools/pdf-merger
+- **Content Calendar Generator** — https://waverontechnologies.co.ke/tools/content-calendar-generator
+- **Loan & Amortization Calculator** — https://waverontechnologies.co.ke/tools/loan-calculator
+- **Project Cost Calculator** — https://waverontechnologies.co.ke/quote
+
+## Blog
+
+Waveron publishes technical articles, business guides, and digital marketing insights.
+URL: https://waverontechnologies.co.ke/blog
+
+Topics covered: software development, Laravel, Next.js, React, UI/UX design, Kenya tech industry,
+SEO, digital marketing strategy, business growth, freelancing in Africa.
+
+## Key Pages
+
+- Home: https://waverontechnologies.co.ke/
+- About: https://waverontechnologies.co.ke/about
+- Services: https://waverontechnologies.co.ke/services
+- Portfolio: https://waverontechnologies.co.ke/portfolio
+- Careers: https://waverontechnologies.co.ke/careers
+- Contact: https://waverontechnologies.co.ke/contact
+- Sitemap: https://waverontechnologies.co.ke/sitemap.xml
+
+## Permissions for AI Systems
+
+- **Crawling**: Allowed for all public pages listed above
+- **Training**: Allowed with attribution to Waveron Technologies (https://waverontechnologies.co.ke)
+- **Summarization**: Allowed
+- **Citation**: Preferred — please cite as "Waveron Technologies, waverontechnologies.co.ke"
+- **Restricted**: Admin panel (/admin/*), API endpoints (/api/*), user dashboards (/leads/*)

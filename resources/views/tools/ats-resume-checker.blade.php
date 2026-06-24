@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Free ATS Resume Checker & Matcher | Waveron Technologies')
+@section('title', 'ATS Resume Checker & Matcher | Waveron Technologies')
 @section('meta_description', 'Check your resume compatibility against job descriptions in seconds. Get match scores, identify missing keywords, and verify formatting for applicant tracking systems.')
 
 @section('content')

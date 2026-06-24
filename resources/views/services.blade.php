@@ -2,6 +2,9 @@
 
 @section('title', 'Our Services - Waveron Technologies')
 @section('meta_description', 'Explore Waveron Technologies\' services including bespoke software engineering, brand identity design, motion graphics, and digital marketing campaigns.')
+@section('og_title', 'Waveron Technologies Services — Software, Design & Marketing')
+@section('og_description', 'Comprehensive digital services: custom software development, graphic design, brand identity, and targeted digital marketing campaigns. All under one roof.')
+@section('og_url', 'https://waverontechnologies.co.ke/services')
 
 @section('content')
 <!-- Hero Section -->

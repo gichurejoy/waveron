@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Free AI-Style Cover Letter Generator | Waveron Technologies')
+@section('title', 'AI Cover Letter Generator | Waveron Technologies')
 @section('meta_description', 'Generate a tailored, professional cover letter instantly. Choose templates, select tones (professional, enthusiastic, creative), edit content in real-time, and download or print A4 PDF.')
 
 @section('content')

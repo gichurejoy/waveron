@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Interactive Project Cost & Quote Calculator | Waveron Technologies')
+@section('title', 'Project Cost Calculator | Waveron Technologies')
 @section('meta_description', 'Configure and calculate ballpark estimates for software development, graphic design, branding, and digital marketing. Download detailed cost guides or request instant email quotes.')
+@section('og_title', 'Free Project Cost Calculator — Waveron Technologies')
+@section('og_description', 'Instantly estimate your software, design, branding, or digital marketing project cost. Adjust complexity, timeline, and features to build your quote online.')
+@section('og_url', 'https://waverontechnologies.co.ke/quote')
 
 @section('content')
 <section class="py-5 bg-light">

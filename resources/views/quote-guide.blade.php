@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Service Configuration & Pricing Guide | Waveron Technologies')
+@section('title', 'Service Pricing Guide | Waveron Technologies')
 @section('meta_description', 'A comprehensive detailed guide on Waveron Technologies project configurations, complexity levels, timeline multipliers, and estimated feature costs.')
+@section('og_title', 'Service Configuration & Pricing Guide — Waveron Technologies')
+@section('og_description', 'Understand how Waveron prices software, design, branding, and marketing projects. Detailed guide on complexity levels, timelines, and feature cost breakdowns.')
+@section('og_url', 'https://waverontechnologies.co.ke/quote/guide')
 
 @section('content')
 <div class="container py-5">

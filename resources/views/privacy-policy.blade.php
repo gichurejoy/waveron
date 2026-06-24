@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('title', 'Privacy Policy - Waveron Technologies')
+@section('meta_description', 'Read Waveron Technologies\' privacy policy. Understand how we collect, use, and protect your personal data when you use our services.')
+@section('og_title', 'Privacy Policy — Waveron Technologies')
+@section('og_description', 'Waveron Technologies\' privacy policy explains how your data is collected, stored, and protected when using our software and digital services.')
+@section('og_url', 'https://waverontechnologies.co.ke/privacy-policy')
 
 @section('content')
 <div class="container" style="padding-top: 100px; padding-bottom: 60px;">

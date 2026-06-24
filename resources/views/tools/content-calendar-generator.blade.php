@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Free Social Media & Blog Content Calendar Generator | Waveron Technologies')
+@section('title', 'Content Calendar Generator | Waveron Technologies')
 @section('meta_description', 'Generate a customized weekly marketing content calendar for your business. Tailored hooks, post templates, and calls-to-action for LinkedIn, Twitter, Instagram, and blogs.')
 
 @section('content')

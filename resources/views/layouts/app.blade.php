@@ -5,16 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="{{ asset('images/w.svg') }}">
-    <title>@yield('title', 'Waveron')</title>
-    <meta name="description" content="@yield('meta_description', 'Waveron Technologies is a leading software development, design, and digital marketing agency.')">
+    <title>@yield('title', 'Waveron Technologies')</title>
+    <meta name="description" content="@yield('meta_description', 'Waveron Technologies is a leading software development, design, and digital marketing agency in Nairobi, Kenya.')">
+    {{-- Canonical URL: prevents duplicate content issues. Uses the page-specific og_url if set, otherwise the current URL. --}}
+    <link rel="canonical" href="{{ $__env->yieldContent('og_url') ?: url()->current() }}">
+
+    {{-- Open Graph / Facebook --}}
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:url" content="@yield('og_url', url()->current())">
+    <meta property="og:title" content="{{ $__env->yieldContent('og_title') ?: $__env->yieldContent('title', 'Waveron Technologies') }}">
+    <meta property="og:description" content="{{ $__env->yieldContent('og_description') ?: $__env->yieldContent('meta_description', 'Waveron Technologies is a leading software development, design, and digital marketing agency in Nairobi, Kenya.') }}">
+    <meta property="og:image" content="@yield('og_image', asset('images/og-default.jpg'))">
+    <meta property="og:site_name" content="Waveron Technologies">
+    <meta property="og:locale" content="en_KE">
+
+    {{-- Twitter / X Card --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@waverontech">
+    <meta name="twitter:title" content="{{ $__env->yieldContent('og_title') ?: $__env->yieldContent('title', 'Waveron Technologies') }}">
+    <meta name="twitter:description" content="{{ $__env->yieldContent('og_description') ?: $__env->yieldContent('meta_description', 'Waveron Technologies is a leading software development, design, and digital marketing agency in Nairobi, Kenya.') }}">
+    <meta name="twitter:image" content="@yield('og_image', asset('images/og-default.jpg'))">
+
     @yield('meta')
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <!-- Google Fonts (Inter) -->
+    <!-- Resource Hints: DNS prefetch & preconnect for external CDNs -->
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//unpkg.com">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Bootstrap CSS (critical, high priority) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" fetchpriority="high">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts (Inter) — display=swap prevents render blocking -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Schema.org JSON-LD Metadata -->
     <script type="application/ld+json">
@@ -51,8 +76,8 @@
             gtag('config', '{{ config("services.google.analytics_id") }}');
         </script>
     @endif
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3555921222521764"
+    <!-- Google AdSense (deferred — non-critical) -->
+    <script async defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3555921222521764"
         crossorigin="anonymous"></script>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
@@ -190,12 +215,15 @@
         });
     </script>
     @stack('scripts')
-    <script src="https://unpkg.com/lucide@latest"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    lucide.createIcons();
-  });
-</script>
+    <!-- Lucide Icons (deferred — non-critical) -->
+    <script defer src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.lucide) lucide.createIcons();
+        // Fallback: retry after a short delay in case lucide loads late
+        setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 800);
+      });
+    </script>
 
 </body>
 

@@ -2,6 +2,10 @@
 
 @section('title', $caseStudy['title'] . ' — Case Study | Waveron Technologies')
 @section('meta_description', 'Case study of ' . $caseStudy['title'] . ': ' . $caseStudy['subtitle'] . '. Learn about the operational challenges, Waveron\'s solution, and measurable results.')
+@section('og_title', $caseStudy['title'] . ' — Case Study | Waveron Technologies')
+@section('og_description', $caseStudy['subtitle'] . '. Discover how Waveron Technologies solved ' . strtolower($caseStudy['category']) . ' challenges with measurable, high-impact results.')
+@section('og_url', 'https://waverontechnologies.co.ke/portfolio')
+@section('og_type', 'article')
 
 @section('content')
 <!-- Case Study Hero Section -->
