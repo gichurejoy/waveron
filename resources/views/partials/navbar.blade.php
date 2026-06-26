@@ -11,6 +11,10 @@
                 <li class="nav-item">
                     <a class="nav-link px-3 {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
                 </li>
+                   <li class="nav-item">
+                    <a class="nav-link px-3 {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">About</a>
+                </li>
+               
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle px-3 {{ request()->routeIs('services*') ? 'active' : '' }}" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Services
@@ -31,17 +35,12 @@
                     <a class="nav-link px-3 {{ request()->routeIs('tools*') ? 'active' : '' }}" href="{{ route('tools.index') }}">Tools</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link px-3 {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link px-3 {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contact</a>
-                </li>
+             
                 <li class="nav-item">
                     <a class="nav-link px-3 {{ request()->routeIs('quote') ? 'active' : '' }}" href="{{ route('quote') }}">Request Quote</a>
                 </li>
                 <li class="nav-item ms-lg-3">
-                    <a class="btn btn-primary rounded-pill px-4" href="{{ route('quote') }}">Get Started</a>
+                    <a class="btn btn-primary rounded-pill px-4" href="{{ route('contact') }}">Get Started</a>
                 </li>
             </ul>
         </div>

@@ -18,6 +18,8 @@
                     <li><a href="{{ route('blog.index') }}">Blog</a></li>
                     <li><a href="{{ route('careers') }}">Careers</a></li>
                     <li><a href="{{ route('about') }}">About</a></li>
+                    <li><a href="{{ route('portfolio') }}">Portfolio</a></li>
+                    <li><a href="{{ route('tools.index') }}">Tools</a></li>
                     <li><a href="{{ route('contact') }}">Contact</a></li>
                     <li><a href="{{ route('quote') }}">Request Quote</a></li>
                 </ul>
