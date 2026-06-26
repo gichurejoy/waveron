@@ -12,7 +12,7 @@
 <div class="hero min-vh-100 d-flex align-items-center position-relative">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6">
+            <div class="col-lg-6 hero-content-col">
                 <h1 class="display-4 fw-bold mb-4 text-primary">Innovation's Crest,<br>Tomorrow's Best</h1>
                 <p class="lead mb-4">A pioneering technology firm dedicated to creating cutting-edge solutions that
                     propel businesses into the future. We harness the power of advanced technology to transform
@@ -22,7 +22,7 @@
                     <a href="{{ route('contact') }}" class="btn btn-outline-primary btn-lg">Get Started</a>
                 </div>
             </div>
-            <div class="col-lg-6 mt-5 mt-lg-0 text-center text-lg-start">
+            <div class="col-lg-6 hero-illustration-col">
                 <div class="position-relative">
                     <div class="shape-blob"></div>
                     <div class="shape-blob2"></div>
@@ -583,6 +583,32 @@
     .hero {
         background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
         overflow: hidden;
+        padding-top: 2rem; /* clearance for fixed navbar on small screens */
+    }
+
+    @media (min-width: 992px) {
+        .hero {
+            padding-top: 0;
+        }
+    }
+
+    /* On mobile: slide illustration behind text as decorative layer */
+    @media (max-width: 991.98px) {
+        .hero-illustration-col {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            max-width: 100%;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .hero-content-col {
+            position: relative;
+            z-index: 1;
+        }
     }
 
     .shape-blob {
