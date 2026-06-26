@@ -583,7 +583,15 @@
     .hero {
         background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
         overflow: hidden;
-        padding-top: 2rem; /* clearance for fixed navbar on small screens */
+    }
+
+    /* Mobile: don't stretch to full viewport height; wrap content with padding instead */
+    @media (max-width: 991.98px) {
+        .hero {
+            min-height: auto !important;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
     }
 
     @media (min-width: 992px) {
