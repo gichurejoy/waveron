@@ -22,12 +22,12 @@
                     <a href="{{ route('contact') }}" class="btn btn-outline-primary btn-lg">Get Started</a>
                 </div>
             </div>
-            <div class="col-lg-6 d-none d-lg-block">
+            <div class="col-lg-6 mt-5 mt-lg-0 text-center text-lg-start">
                 <div class="position-relative">
                     <div class="shape-blob"></div>
                     <div class="shape-blob2"></div>
                     <img src="{{ asset('images/hero-illustration.svg') }}" alt="Innovation Illustration"
-                        class="img-fluid position-relative">
+                        class="img-fluid position-relative" style="max-width: 480px; width: 100%;">
                 </div>
             </div>
         </div>
@@ -251,9 +251,9 @@
                 <!-- Security Card -->
                 <div class="col-lg-8">
                     <div class="card border-0 shadow-sm h-100 p-4">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <h4 class="fw-bold">Enterprise-Grade Security</h4>
-                            <div class="d-flex gap-2 align-items-center">
+                        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2 mb-3">
+                            <h4 class="fw-bold mb-0">Enterprise-Grade Security</h4>
+                            <div class="d-flex flex-wrap gap-2 align-items-center">
                                 <span class="badge bg-success-subtle text-success">
                                     <i class="bi bi-shield-check me-1"></i> Best Practices
                                 </span>

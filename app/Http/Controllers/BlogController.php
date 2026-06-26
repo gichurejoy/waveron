@@ -52,6 +52,9 @@ class BlogController extends Controller
                 ->firstOrFail();
         });
 
+        // Increment views count in database
+        BlogPost::where('id', $post->id)->increment('views');
+
         // Get related posts by category (excluding current)
         $relatedPosts = Cache::remember('related_posts_' . $post->id, now()->addHours(24), function () use ($post) {
             $categoryIds = $post->categories->pluck('id')->toArray();

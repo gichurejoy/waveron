@@ -29,6 +29,11 @@ class BlogCommentForm
                 Textarea::make('comment')
                     ->required()
                     ->columnSpanFull(),
+                Textarea::make('reply')
+                    ->label('Admin Reply (shown publicly below the comment)')
+                    ->rows(4)
+                    ->nullable()
+                    ->columnSpanFull(),
                 Toggle::make('is_approved')
                     ->required(),
             ]);

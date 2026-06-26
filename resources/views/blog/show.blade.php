@@ -126,6 +126,22 @@
                                     </div>
                                 </div>
                                 <p class="text-dark mb-0" style="font-size: 0.9rem; line-height: 1.5; white-space: pre-line;">{{ $comment->comment }}</p>
+
+                                @if($comment->reply)
+                                <div class="mt-3 p-3 rounded" style="background-color: #f0f9f4; border-left: 4px solid var(--waveron-green, #00c853); margin-left: 1rem;">
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <div class="rounded-circle text-white d-flex align-items-center justify-content-center fw-bold" style="width: 28px; height: 28px; font-size: 0.75rem; background-color: #111; flex-shrink: 0;">W</div>
+                                        <div>
+                                            <h6 class="fw-bold mb-0 text-dark d-flex align-items-center gap-2" style="font-size: 0.85rem;">
+                                                Waveron Technologies
+                                                <span class="badge text-white" style="font-size: 0.6rem; background-color: var(--waveron-green, #00c853);">Admin</span>
+                                            </h6>
+                                            <span class="text-muted" style="font-size: 0.72rem;">Reply from Waveron</span>
+                                        </div>
+                                    </div>
+                                    <p class="text-dark mb-0" style="font-size: 0.85rem; line-height: 1.6; white-space: pre-line;">{{ $comment->reply }}</p>
+                                </div>
+                                @endif
                             </div>
                         @endforeach
                     </div>

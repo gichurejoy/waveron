@@ -109,6 +109,13 @@ class BlogPostForm
                                 })
                                 ->label(new HtmlString('Author <span style="font-weight: normal; color: #9ca3af; margin-left: 4px;">(The writer of this post)</span>'))
                                 ->extraAttributes(['class' => 'author-select-custom']),
+
+                            TextInput::make('views')
+                                ->label(new HtmlString('Views <span style="font-weight: normal; color: #9ca3af; margin-left: 4px;">(Total post views)</span>'))
+                                ->numeric()
+                                ->disabled()
+                                ->dehydrated(false)
+                                ->default(0),
                         ])->columnSpan(4),
                     ])->columnSpan('full'),
                 \Filament\Forms\Components\Placeholder::make('custom_styles')

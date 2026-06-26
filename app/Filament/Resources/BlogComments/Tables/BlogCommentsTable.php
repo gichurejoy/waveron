@@ -25,6 +25,11 @@ class BlogCommentsTable
                     ->searchable(),
                 IconColumn::make('is_approved')
                     ->boolean(),
+                TextColumn::make('reply')
+                    ->label('Admin Reply')
+                    ->limit(40)
+                    ->placeholder('— no reply yet —')
+                    ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

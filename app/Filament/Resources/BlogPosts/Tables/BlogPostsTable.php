@@ -29,6 +29,11 @@ class BlogPostsTable
                     ->label('Author')
                     ->searchable()
                     ->sortable(),
+                TextColumn::make('views')
+                    ->label('Views')
+                    ->numeric()
+                    ->sortable()
+                    ->icon('heroicon-o-eye'),
                 IconColumn::make('is_published')
                     ->label('Published')
                     ->boolean(),
