@@ -281,6 +281,10 @@ Route::post('/blog/{slug}/comments', [BlogController::class, 'storeComment'])->n
 use App\Http\Controllers\NewsletterController;
 Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
+// Dynamic Sitemap Route
+use App\Http\Controllers\SitemapController;
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
+
 // Tools/Utilities Routes
 Route::prefix('tools')->name('tools.')->group(function () {
     Route::get('/', function () {

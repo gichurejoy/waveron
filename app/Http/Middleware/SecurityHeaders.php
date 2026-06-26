@@ -81,7 +81,8 @@ class SecurityHeaders
                 "https://images.unsplash.com " .
                 "https://www.google-analytics.com " .
                 "https://pagead2.googlesyndication.com " .
-                "https://storage.googleapis.com",
+                "https://storage.googleapis.com " .
+                "https://*.supabase.co",
 
             // Frames: same origin only (Filament admin panel)
             "frame-src 'self'",
