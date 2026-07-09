@@ -10,6 +10,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Group;
+use Filament\Schemas\Components\View;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 use Illuminate\Database\Eloquent\Model;
@@ -30,7 +31,7 @@ class BlogPostForm
                                 ->label(new HtmlString('Title <span style="font-weight: normal; color: #9ca3af; margin-left: 4px;">(Name your blog)</span>'))
                                 ->required()
                                 ->live(onBlur: true)
-                                ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
+                                ->afterStateUpdated(fn(Set $set, ?string $state) => $set('slug', Str::slug($state))),
 
                             RichEditor::make('content')
                                 ->label(new HtmlString('Content <span style="font-weight: normal; color: #9ca3af; margin-left: 4px;">(Write your blog post)</span>'))
@@ -65,6 +66,7 @@ class BlogPostForm
                             Textarea::make('excerpt')
                                 ->label(new HtmlString('Excerpt <span style="font-weight: normal; color: #9ca3af; margin-left: 4px;">(Add a short excerpt to summarize this post)</span>'))
                                 ->rows(4)
+                                ->live(onBlur: true)
                                 ->columnSpanFull(),
 
                             Select::make('categories')
@@ -89,8 +91,8 @@ class BlogPostForm
                                 ->preload()
                                 ->allowHtml()
                                 ->getOptionLabelFromRecordUsing(function (Model $record) {
-                                    $avatarUrl = $record->avatar 
-                                        ? asset('storage/' . $record->avatar) 
+                                    $avatarUrl = $record->avatar
+                                        ? asset('storage/' . $record->avatar)
                                         : 'https://ui-avatars.com/api/?name=' . urlencode($record->name) . '&color=7F9CF5&background=EBF4FF';
                                     $role = $record->role ?? 'Marketing';
                                     return "
@@ -116,11 +118,12 @@ class BlogPostForm
                                 ->disabled()
                                 ->dehydrated(false)
                                 ->default(0),
+
+                            View::make('filament.pages.google-serp-preview')
+                                ->columnSpanFull(),
                         ])->columnSpan(4),
                     ])->columnSpan('full'),
-                \Filament\Forms\Components\Placeholder::make('custom_styles')
-                    ->label('')
-                    ->content(new HtmlString(view('filament.pages.blog-posts-style')->render()))
+                View::make('filament.pages.blog-posts-style')
                     ->columnSpan('full'),
             ]);
     }

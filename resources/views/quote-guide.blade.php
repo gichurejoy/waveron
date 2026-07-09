@@ -161,38 +161,153 @@
         <!-- Features Breakdown -->
         <div class="row mb-5">
             <div class="col-12">
-                <h4 class="fw-bold text-dark mb-3"><i class="bi bi-plugin text-primary me-2"></i> 5. Feature Scope Adjustments</h4>
-                <p class="text-muted">Feature counts adjust the scope linear coefficient. While the base price includes up to <strong>5 baseline features</strong>, additional features scale the cost by approximately <strong>+6% per feature</strong>. This represents developer effort, unit test integrations, and interface adjustments.</p>
+                <h4 class="fw-bold text-dark mb-4"><i class="bi bi-plugin text-primary me-2"></i> 5. Feature Scope Adjustments (All Services)</h4>
+                <p class="text-muted">Feature counts adjust the scope linear coefficient. While the base price includes up to <strong>5 baseline features</strong>, additional features scale the cost by approximately <strong>+6% per feature</strong>. This represents developer or designer effort, testing, and system complexity adjustments.</p>
                 
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <div class="border rounded-3 p-3">
-                            <span class="fw-bold text-dark d-block mb-1">Real-Time Live WebSockets & Messaging</span>
-                            <p class="text-muted small mb-0">Configuring persistent server-client channels for instantaneous message delivery, typing indicator logic, and active notification triggers. Replaces slow polling processes.</p>
+                <!-- Software Development Features -->
+                <div class="mb-4">
+                    <h5 class="fw-bold text-success border-bottom pb-2 mb-3"><i class="bi bi-code-slash me-2"></i> Software Development Features</h5>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="border rounded-3 p-3 h-100">
+                                <span class="fw-bold text-dark d-block mb-1">Real-Time Live WebSockets & Messaging</span>
+                                <p class="text-muted small mb-0">Persistent server-client channels for instant messaging, typing indicators, and active notification triggers. Replaces slow polling processes.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="border rounded-3 p-3 h-100">
+                                <span class="fw-bold text-dark d-block mb-1">Custom AI Model / Chatbot Integration</span>
+                                <p class="text-muted small mb-0">Interfacing with LLM APIs, engineering optimal prompts, vector database caching for common context, and creating conversational frontend chat bubbles.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="border rounded-3 p-3 h-100">
+                                <span class="fw-bold text-dark d-block mb-1">Multi-Tenant SaaS Infrastructure Setup</span>
+                                <p class="text-muted small mb-0">Isolating user databases at the row level, dynamic workspace subdomain routing (tenant.domain.com), and centralized subscription license controls.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="border rounded-3 p-3 h-100">
+                                <span class="fw-bold text-dark d-block mb-1">Offline-First Synchronization (PWA)</span>
+                                <p class="text-muted small mb-0">Using browser IndexedDB caches to read/write data locally without internet access, with automatic conflict resolution triggers once connection restores.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="border rounded-3 p-3 h-100">
+                                <span class="fw-bold text-dark d-block mb-1">Advanced Custom Search Engine Integration</span>
+                                <p class="text-muted small mb-0">Implementing index configurations (e.g. Meilisearch/Elasticsearch) for instant faceted filter lists, typographic tolerance matching, and custom weighting rules.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="border rounded-3 p-3">
-                            <span class="fw-bold text-dark d-block mb-1">Custom AI Model / Chatbot Integration</span>
-                            <p class="text-muted small mb-0">Interfacing with LLM APIs, engineering optimal prompts, vector database caching for common context, and creating conversational frontend chat bubbles.</p>
+                </div>
+
+                <!-- Graphic / UI Design Features -->
+                <div class="mb-4">
+                    <h5 class="fw-bold text-success border-bottom pb-2 mb-3"><i class="bi bi-palette me-2"></i> Graphic / UI Design Features</h5>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="border rounded-3 p-3 h-100">
+                                <span class="fw-bold text-dark d-block mb-1">Interactive Micro-Animations & Lottie Assets</span>
+                                <p class="text-muted small mb-0">Custom vector-based animations for transitions, micro-interactions, and visual feedback that enhance user experience.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="border rounded-3 p-3 h-100">
+                                <span class="fw-bold text-dark d-block mb-1">3D Rendered Elements & Scene Illustration</span>
+                                <p class="text-muted small mb-0">Creating custom 3D design models, abstract scenes, and realistic compositions to distinguish your digital products.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="border rounded-3 p-3 h-100">
+                                <span class="fw-bold text-dark d-block mb-1">Light / Dark Mode Adaptive Design System</span>
+                                <p class="text-muted small mb-0">Generating unified color tokens and layout adaptations to fit light and dark mode OS settings seamlessly.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="border rounded-3 p-3 h-100">
+                                <span class="fw-bold text-dark d-block mb-1">Interactive Figma Prototype & User Journeys</span>
+                                <p class="text-muted small mb-0">Fully clickable and animated prototypes ready for user testing, user flow audits, and developer handoff.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="border rounded-3 p-3 h-100">
+                                <span class="fw-bold text-dark d-block mb-1">Comprehensive Conversion Rate Audit Report</span>
+                                <p class="text-muted small mb-0">Detailed analytical evaluation of UI layouts to find points of friction and improve CTA conversion performance.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="border rounded-3 p-3">
-                            <span class="fw-bold text-dark d-block mb-1">Multi-Tenant SaaS Infrastructure Setup</span>
-                            <p class="text-muted small mb-0">Isolating user databases at the row level, dynamic workspace subdomain routing (tenant.domain.com), and centralized subscription license controls.</p>
+                </div>
+
+                <!-- Branding & Identity Features -->
+                <div class="mb-4">
+                    <h5 class="fw-bold text-success border-bottom pb-2 mb-3"><i class="bi bi-award me-2"></i> Branding & Identity Features</h5>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="border rounded-3 p-3 h-100">
+                                <span class="fw-bold text-dark d-block mb-1">Interactive Brand Guidelines Digital Portal</span>
+                                <p class="text-muted small mb-0">A dedicated web-based brand assets hub showing colors, typographies, code blocks, and asset download packages.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="border rounded-3 p-3 h-100">
+                                <span class="fw-bold text-dark d-block mb-1">Custom Bespoke Typography & Logomark Creation</span>
+                                <p class="text-muted small mb-0">Creation of custom vector logo marks and hand-drawn/adjusted typography specifically for your brand.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="border rounded-3 p-3 h-100">
+                                <span class="fw-bold text-dark d-block mb-1">Animated Motion Graphics (Intros, Transitions)</span>
+                                <p class="text-muted small mb-0">Animated logo idents, social media lower-thirds, and slide transitions ready for use in video production.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="border rounded-3 p-3 h-100">
+                                <span class="fw-bold text-dark d-block mb-1">Premium Packaging & Merchandise Mockups</span>
+                                <p class="text-muted small mb-0">Photorealistic prints and layouts mapping your branding onto packaging, corporate apparel, vehicles, or physical collateral.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="border rounded-3 p-3 h-100">
+                                <span class="fw-bold text-dark d-block mb-1">Sonic Brand Identity (Custom Audio Logo/Jingle)</span>
+                                <p class="text-muted small mb-0">Bespoke high-quality sound signature and musical theme for use on podcasts, videos, and phone systems.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="border rounded-3 p-3">
-                            <span class="fw-bold text-dark d-block mb-1">Offline-First Synchronization (PWA)</span>
-                            <p class="text-muted small mb-0">Using browser IndexedDB caches to read/write data locally without internet access, with automatic conflict resolution triggers once connection restores.</p>
+                </div>
+
+                <!-- Digital Marketing Features -->
+                <div class="mb-4">
+                    <h5 class="fw-bold text-success border-bottom pb-2 mb-3"><i class="bi bi-megaphone me-2"></i> Digital Marketing Features</h5>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="border rounded-3 p-3 h-100">
+                                <span class="fw-bold text-dark d-block mb-1">Automated CRM & Multi-Step Sales Funnel Integration</span>
+                                <p class="text-muted small mb-0">Setting up leads tracking, email sequencing triggers, dynamic email drips, and CRM landing page templates.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="border rounded-3 p-3">
-                            <span class="fw-bold text-dark d-block mb-1">Advanced Custom Search Engine Integration</span>
-                            <p class="text-muted small mb-0">Implementing index configurations (e.g. Meilisearch/Elasticsearch) for instant faceted filter lists, typographic tolerance matching, and custom weighting rules.</p>
+                        <div class="col-md-6">
+                            <div class="border rounded-3 p-3 h-100">
+                                <span class="fw-bold text-dark d-block mb-1">AI-Powered Competitor Intelligence Tracking</span>
+                                <p class="text-muted small mb-0">Configuring scraper monitors tracking competitors' pricing shifts, ad copy campaigns, and keywords ranking.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="border rounded-3 p-3 h-100">
+                                <span class="fw-bold text-dark d-block mb-1">SEO Domination (High-Authority Backlink Engine)</span>
+                                <p class="text-muted small mb-0">Targeted campaign structures aimed at acquiring high Domain Authority contextual backlinks to scale organic ranks.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="border rounded-3 p-3 h-100">
+                                <span class="fw-bold text-dark d-block mb-1">Influencer Partnership Strategy & Matchmaking</span>
+                                <p class="text-muted small mb-0">Vetting, coordinating, and outlining campaign briefs for micro and macro influencer target niches.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="border rounded-3 p-3 h-100">
+                                <span class="fw-bold text-dark d-block mb-1">Predictive Analytics & Lifetime Value Reporting</span>
+                                <p class="text-muted small mb-0">Dynamic dashboards showing conversion channels attribution models, LTV predictions, and cohort retention metrics.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -202,43 +317,132 @@
         <!-- Add-ons Breakdown -->
         <div class="row mb-4">
             <div class="col-12">
-                <h4 class="fw-bold text-dark mb-3"><i class="bi bi-box-seam-fill text-primary me-2"></i> 6. Premium Flat Add-ons</h4>
-                <p class="text-muted">Optional architecture and compliance modules that stack flat pricing layers onto any calculated base scope.</p>
+                <h4 class="fw-bold text-dark mb-4"><i class="bi bi-box-seam-fill text-primary me-2"></i> 6. Premium Flat Add-ons (All Services)</h4>
+                <p class="text-muted">Optional architecture and compliance modules that stack flat pricing layers onto any calculated base scope, specific to each service class.</p>
+                
                 <div class="row g-3">
+                    <!-- Software Dev Add-ons -->
                     <div class="col-md-6">
-                        <div class="border rounded-3 p-3 bg-light">
+                        <div class="border rounded-3 p-3 bg-light h-100">
                             <div class="d-flex justify-content-between align-items-center mb-1">
-                                <span class="fw-bold text-dark">Continuous Security & Auto-Patching</span>
-                                <span class="fw-bold text-primary">Ksh 25,000</span>
+                                <span class="fw-bold text-dark">Security & Auto-Patching</span>
+                                <span class="badge bg-primary text-white">Ksh 25,000</span>
                             </div>
-                            <p class="text-muted small mb-0">Automated vulnerability scans, periodic package framework security patching, security headers updates, and firewall logs maintenance.</p>
+                            <p class="text-muted small mb-0"><strong>Software Add-on:</strong> Automated vulnerability scans, framework patch upgrades, and regular firewall rules maintenance.</p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="border rounded-3 p-3 bg-light">
+                        <div class="border rounded-3 p-3 bg-light h-100">
                             <div class="d-flex justify-content-between align-items-center mb-1">
-                                <span class="fw-bold text-dark">24/7 SLA-Backed Emergency Support</span>
-                                <span class="fw-bold text-primary">Ksh 20,000</span>
+                                <span class="fw-bold text-dark">24/7 SLA Emergency Support</span>
+                                <span class="badge bg-primary text-white">Ksh 20,000</span>
                             </div>
-                            <p class="text-muted small mb-0">Guaranteed response timeline (e.g., under 1-hour during critical server shutdowns) with on-call system engineer rota triggers.</p>
+                            <p class="text-muted small mb-0"><strong>Software Add-on:</strong> Guaranteed 1-hour critical response, server monitor failover configs, and alert integrations.</p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="border rounded-3 p-3 bg-light">
+                        <div class="border rounded-3 p-3 bg-light h-100">
                             <div class="d-flex justify-content-between align-items-center mb-1">
-                                <span class="fw-bold text-dark">Advanced Behavioral Intelligence</span>
-                                <span class="fw-bold text-primary">Ksh 15,000</span>
+                                <span class="fw-bold text-dark">Behavioral Intelligence Setup</span>
+                                <span class="badge bg-primary text-white">Ksh 15,000</span>
                             </div>
-                            <p class="text-muted small mb-0">Hotjar / Mixpanel event trigger mappings, click and scroll heatmaps tracking, and conversion drop-off funnel monitors.</p>
+                            <p class="text-muted small mb-0"><strong>Software Add-on:</strong> Mixpanel/Hotjar analytics trigger mapping, session records, and conversion funnel dashboards.</p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="border rounded-3 p-3 bg-light">
+                        <div class="border rounded-3 p-3 bg-light h-100">
                             <div class="d-flex justify-content-between align-items-center mb-1">
-                                <span class="fw-bold text-dark">AI-Driven Automated Testing Suite</span>
-                                <span class="fw-bold text-primary">Ksh 30,000</span>
+                                <span class="fw-bold text-dark">AI E2E Testing Suite (Playwright)</span>
+                                <span class="badge bg-primary text-white">Ksh 30,000</span>
                             </div>
-                            <p class="text-muted small mb-0">Cypress or Playwright automated end-to-end integration tests written to block broken production release builds during deployments.</p>
+                            <p class="text-muted small mb-0"><strong>Software Add-on:</strong> Complete suite of automated browser tests running before deployment to avoid regressions.</p>
+                        </div>
+                    </div>
+
+                    <!-- Design Add-ons -->
+                    <div class="col-md-6">
+                        <div class="border rounded-3 p-3 bg-light h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <span class="fw-bold text-dark">Lottie & Micro-Animations</span>
+                                <span class="badge bg-success text-white">Ksh 15,000</span>
+                            </div>
+                            <p class="text-muted small mb-0"><strong>Design Add-on:</strong> Custom interactive SVG vector animations ready for web/app implementation.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="border rounded-3 p-3 bg-light h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <span class="fw-bold text-dark">Custom 3D Render Elements</span>
+                                <span class="badge bg-success text-white">Ksh 20,000</span>
+                            </div>
+                            <p class="text-muted small mb-0"><strong>Design Add-on:</strong> High-quality 3D models and compositions designed exclusively for layout integration.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="border rounded-3 p-3 bg-light h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <span class="fw-bold text-dark">UX A/B Testing Variant Assets</span>
+                                <span class="badge bg-success text-white">Ksh 25,000</span>
+                            </div>
+                            <p class="text-muted small mb-0"><strong>Design Add-on:</strong> Alternative screen layouts and elements designed specifically for UX variants comparison.</p>
+                        </div>
+                    </div>
+
+                    <!-- Branding Add-ons -->
+                    <div class="col-md-6">
+                        <div class="border rounded-3 p-3 bg-light h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <span class="fw-bold text-dark">Stationery & Pitch Deck Templates</span>
+                                <span class="badge bg-warning text-dark">Ksh 15,000</span>
+                            </div>
+                            <p class="text-muted small mb-0"><strong>Branding Add-on:</strong> Presentation slides, business cards, letterheads, and corporate templates.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="border rounded-3 p-3 bg-light h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <span class="fw-bold text-dark">Motion Graphics (Animated Logo)</span>
+                                <span class="badge bg-warning text-dark">Ksh 25,000</span>
+                            </div>
+                            <p class="text-muted small mb-0"><strong>Branding Add-on:</strong> 2D/3D custom animated logomarks, intro/outro idents for video campaigns.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="border rounded-3 p-3 bg-light h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <span class="fw-bold text-dark">Sonic Identity (Audio Jingle)</span>
+                                <span class="badge bg-warning text-dark">Ksh 30,000</span>
+                            </div>
+                            <p class="text-muted small mb-0"><strong>Branding Add-on:</strong> Custom-tailored audio logo and brand sound signatures.</p>
+                        </div>
+                    </div>
+
+                    <!-- Marketing Add-ons -->
+                    <div class="col-md-6">
+                        <div class="border rounded-3 p-3 bg-light h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <span class="fw-bold text-dark">Premium Editorial Backlinks</span>
+                                <span class="badge bg-info text-white">Ksh 30,000</span>
+                            </div>
+                            <p class="text-muted small mb-0"><strong>Marketing Add-on:</strong> Premium placement links pointing to your domains from high-ranking blogs.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="border rounded-3 p-3 bg-light h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <span class="fw-bold text-dark">Influencer Sourcing & Placement</span>
+                                <span class="badge bg-info text-white">Ksh 35,000</span>
+                            </div>
+                            <p class="text-muted small mb-0"><strong>Marketing Add-on:</strong> Vetting, connecting, and handling negotiations with niche industry influencer leaders.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="border rounded-3 p-3 bg-light h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <span class="fw-bold text-dark">Automated CRM Funnel Setup</span>
+                                <span class="badge bg-info text-white">Ksh 20,000</span>
+                            </div>
+                            <p class="text-muted small mb-0"><strong>Marketing Add-on:</strong> Setting up CRM triggers, integration APIs, scoring models, and auto-drip flows.</p>
                         </div>
                     </div>
                 </div>

@@ -574,6 +574,7 @@
 
 @include('partials.footer')
 @push('styles')
+
 <style>
     :root {
         --primary-color: #006400;
@@ -675,7 +676,10 @@
         box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
     }
 
-    .btn {
+    .hero .btn,
+    .portfolio-showcase .btn,
+    .case-study .btn,
+    #pricing .btn {
         padding: 0.8rem 2rem;
         border-radius: 50px;
         text-transform: uppercase;
@@ -684,11 +688,17 @@
         transition: all 0.3s ease;
     }
 
-    .btn-lg {
+    .hero .btn-lg,
+    .portfolio-showcase .btn-lg,
+    .case-study .btn-lg,
+    #pricing .btn-lg {
         padding: 1rem 2.5rem;
     }
 
-    .btn:hover {
+    .hero .btn:hover,
+    .portfolio-showcase .btn:hover,
+    .case-study .btn:hover,
+    #pricing .btn:hover {
         transform: translateY(-2px);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }

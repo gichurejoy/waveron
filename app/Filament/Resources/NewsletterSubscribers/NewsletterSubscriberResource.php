@@ -18,6 +18,8 @@ class NewsletterSubscriberResource extends Resource
 {
     protected static ?string $model = NewsletterSubscriber::class;
 
+    protected static string|\UnitEnum|null $navigationGroup = 'Content Management';
+
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-envelope';
 
     protected static ?string $recordTitleAttribute = 'email';

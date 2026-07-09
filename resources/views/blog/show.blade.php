@@ -411,7 +411,7 @@
 </section>
 @endif
 
-@include('partials.footer')
+
 
 <style>
 /* Rich Text Formatting Styles */

@@ -46,6 +46,34 @@ Route::get('/portfolio', function () {
 
 Route::get('/portfolio/{slug}', function ($slug) {
     $caseStudies = [
+        'waveron-plm' => [
+            'title' => 'Waveron PLM',
+            'subtitle' => 'All-in-One B2B SaaS Real Estate Portal',
+            'category' => 'PROPRIETARY SAAS',
+            'badges' => ['Laravel', 'Bootstrap', 'PostgreSQL', 'AI Staging'],
+            'problem' => 'Real estate brokerages and developers traditionally suffer from extreme software bloat, relying on disjointed single-purpose tools for CRM, virtual staging, blueprints, split calculation, showing reviews, and compliance auditing—causing operational friction and slow sales cycles.',
+            'solution' => 'Waveron PLM consolidates the entire real estate brokerage ecosystem into a single unified workspace. It combines onboarding wizards, global analytics dashboards, geographical maps, interactive listing grids, AI virtual staging presets (Scandinavian Modern, Industrial Loft, Boho Chic), 3D walkthroughs, CAD blueprint overlays, zoning documents, drag-and-drop deals pipelines, dynamic capping splits, invoice modal receipts, direct messaging chats, showing reviews, and pocket listing matching — all white-labeled under the brokerage\'s own brand.',
+            'result' => 'Eliminated 4 separate software tools, saving brokerages thousands monthly in licensing fees. Reduced the time-to-sale cycle by 30% and maintained 100% compliance-readiness with immutable audit logs.',
+            'metrics' => [
+                ['value' => '4-in-1', 'label' => 'Consolidated Apps'],
+                ['value' => '100%', 'label' => 'Compliance Logged'],
+                ['value' => '-30%', 'label' => 'Time-to-Sale Cycle'],
+            ],
+            'visual_class' => 'dark-block',
+            'visual_html' => '
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="text-success font-monospace small"><i class="bi bi-house-door-fill"></i> WAVERON_PLM</span>
+                    <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 rounded-pill" style="font-size:0.6rem;">ACTIVE WORKSPACE</span>
+                </div>
+                <div class="my-3 position-relative overflow-hidden rounded bg-black bg-opacity-20 d-flex align-items-center justify-content-center" style="height: 90px;">
+                    <div class="position-absolute top-0 start-0 h-100 bg-secondary bg-opacity-25 w-50 border-end border-success d-flex align-items-center justify-content-center text-white-50" style="font-size: 0.65rem;">BEFORE (EMPTY)</div>
+                    <div class="position-absolute top-0 end-0 h-100 w-50 d-flex align-items-center justify-content-center text-success fw-bold" style="font-size: 0.65rem; background: rgba(32, 201, 151, 0.05);">AFTER (STAGED)</div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center font-monospace" style="font-size: 0.65rem;">
+                    <span class="text-white-50">STAGING: Scandinavian Modern</span>
+                    <span class="text-success">AI Match: 98%</span>
+                </div>'
+        ],
         'waveron-crm' => [
             'title' => 'Waveron CRM',
             'subtitle' => 'Low-Latency Sync Pipeline',

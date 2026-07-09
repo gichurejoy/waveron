@@ -40,6 +40,7 @@ class BlogSeeder extends Seeder
             ['email' => 'info@waverontechnologies.co.ke'],
             [
                 'name' => 'Joy Gichure',
+                'password' => Hash::make('password'),
                 'role' => 'Marketing Lead',
                 'avatar' => null
             ]

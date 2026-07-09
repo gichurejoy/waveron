@@ -23,6 +23,50 @@
 <div class="container py-5">
     <!-- Case Studies Row -->
     <div class="row g-5">
+        <!-- Item 0: Waveron PLM -->
+        <div class="col-md-6 col-lg-4">
+            <div class="jwg-image-block dark-block mb-4 d-flex flex-column justify-content-between" style="min-height: 240px;">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="text-success font-monospace small"><i class="bi bi-house-door-fill"></i> WAVERON_PLM</span>
+                    <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 rounded-pill" style="font-size:0.6rem;">ACTIVE WORKSPACE</span>
+                </div>
+                <div class="my-3 position-relative overflow-hidden rounded bg-black bg-opacity-20 d-flex align-items-center justify-content-center" style="height: 110px;">
+                    <div class="position-absolute top-0 start-0 h-100 bg-secondary bg-opacity-25 w-50 border-end border-success d-flex align-items-center justify-content-center text-white-50" style="font-size: 0.65rem;">
+                        BEFORE (EMPTY)
+                    </div>
+                    <div class="position-absolute top-0 end-0 h-100 w-50 d-flex align-items-center justify-content-center text-success fw-bold" style="font-size: 0.65rem; background: rgba(32, 201, 151, 0.05);">
+                        AFTER (STAGED)
+                    </div>
+                    <div class="position-absolute top-0 bottom-0 start-50 border-end border-success border-2 shadow-sm plm-slider-line"></div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center font-monospace" style="font-size: 0.65rem;">
+                    <span class="text-white-50">STAGING: Scandinavian Modern</span>
+                    <span class="text-success">AI Match: 98%</span>
+                </div>
+            </div>
+
+            <div class="jwg-category mb-2">&bull; PROPRIETARY SAAS</div>
+            <h2 class="jwg-title mb-3">Waveron PLM</h2>
+            <p class="jwg-desc">All-in-one B2B SaaS Real Estate Portal consolidating CRM, AI virtual staging, CAD blueprints, commission auditing, and pocket listing matching into a single white-labeled brokerage workspace.</p>
+
+            <div class="jwg-result-block mt-4 mb-4">
+                <div class="result-label">RESULT</div>
+                <div class="result-text">Eliminated 4 separate tools; reduced time-to-sale cycle by 30%.</div>
+            </div>
+
+            <div class="jwg-badges mt-3">
+                <span>LARAVEL</span>
+                <span>BOOTSTRAP</span>
+                <span>POSTGRESQL</span>
+                <span>AI STAGING</span>
+            </div>
+            <div class="mt-4">
+                <a href="{{ route('portfolio.case-study', 'waveron-plm') }}" class="btn btn-outline-success btn-sm rounded-pill px-3 py-2 fw-semibold view-case-study-btn">
+                    <i class="bi bi-journal-text me-1"></i> View Case Study
+                </a>
+            </div>
+        </div>
+
         <!-- Item 1: Order Matching Engine (SaaS/CRM Equivalent) -->
         <div class="col-md-6 col-lg-4">
             <div class="jwg-image-block dark-block mb-4">
@@ -418,6 +462,15 @@
 
     .threat-pulse {
         animation: threatPulse 1.2s infinite ease-in-out;
+    }
+    @keyframes plmSlide {
+        0%   { left: 30%; }
+        50%  { left: 65%; }
+        100% { left: 30%; }
+    }
+    .plm-slider-line {
+        animation: plmSlide 4s ease-in-out infinite;
+        width: 2px;
     }
     .automation-pill {
         position: absolute;

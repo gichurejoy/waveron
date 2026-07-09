@@ -655,14 +655,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
    
     /* Button Styling */
-    .btn {
+    .service-hero .btn,
+    .pricing-section .btn,
+    .cta-section .btn {
         position: relative;
         overflow: hidden;
         z-index: 1;
         transition: all 0.3s ease;
     }
 
-    .btn::before {
+    .service-hero .btn::before,
+    .pricing-section .btn::before,
+    .cta-section .btn::before {
         content: '';
         position: absolute;
         top: 50%;
@@ -676,18 +680,24 @@ document.addEventListener('DOMContentLoaded', function() {
         z-index: -1;
     }
 
-    .btn:hover::before {
+    .service-hero .btn:hover::before,
+    .pricing-section .btn:hover::before,
+    .cta-section .btn:hover::before {
         width: 300%;
         height: 300%;
     }
 
-    .btn-primary {
+    .service-hero .btn-primary,
+    .pricing-section .btn-primary,
+    .cta-section .btn-primary {
         background: #2d2d2d;
         border: none;
         color: #fff;
     }
 
-    .btn-outline-light:hover {
+    .service-hero .btn-outline-light:hover,
+    .pricing-section .btn-outline-light:hover,
+    .cta-section .btn-outline-light:hover {
         background: transparent;
         color: #fff;
         border-color: #fff;
