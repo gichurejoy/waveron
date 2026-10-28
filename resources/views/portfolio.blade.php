@@ -185,39 +185,43 @@
             </div>
         </div>
 
-        <!-- Item 4: Lead Generator -->
+        <!-- Item 4: Waveron Opportunities -->
         <div class="col-md-6 col-lg-4">
             <div class="jwg-image-block light-block mb-4 p-0 overflow-hidden d-flex flex-column">
                 <div class="p-3 border-bottom border-secondary border-opacity-10 d-flex justify-content-between flex-wrap gap-1 align-items-center bg-white">
-                    <span class="text-muted small font-monospace"><i class="bi bi-funnel-fill text-success"></i> PIPELINE_ACTIVE</span>
-                    <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 rounded-pill" style="font-size:0.6rem;">+240 LEADS</span>
+                    <span class="text-muted small font-monospace"><i class="bi bi-check2-circle text-success"></i> ACTION_TRACKER</span>
+                    <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 rounded-pill" style="font-size:0.6rem;">LOG &amp; TRACK</span>
                 </div>
                 <div class="p-3 font-monospace flex-grow-1" style="font-size:0.7rem; background-color: #fafafa;">
                     <div class="d-flex justify-content-between mb-2">
-                        <span class="text-muted">Targeting:</span> <span class="fw-bold">Enterprise Tech</span>
+                        <span class="text-muted">Workflow:</span> <span class="fw-bold">Log Actions &amp; Track</span>
                     </div>
                     <div class="d-flex justify-content-between mb-2">
-                        <span class="text-muted">Enrichment:</span> <span class="jwg-green">100% Complete</span>
+                        <span class="text-muted">Traceability:</span> <span class="jwg-green fw-bold">100% Logged &amp; Tracked</span>
                     </div>
                     <div class="progress mt-3 mb-1" style="height: 6px;">
-                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 85%;"></div>
+                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%;"></div>
                     </div>
-                    <div class="text-end text-muted" style="font-size:0.6rem;">Conversion Prob: 85%</div>
+                    <div class="text-end text-muted" style="font-size:0.6rem;">opportunities.waverontechnologies.co.ke</div>
                 </div>
             </div>
 
-            <div class="jwg-category mb-2">&bull; SALES INTELLIGENCE</div>
-            <h2 class="jwg-title mb-3">Lead Generator</h2>
-            <p class="jwg-desc">Automated prospect identification and enrichment engine. Scrapes, verifies, and scores leads in real-time to continuously feed high-converting pipelines.</p>
+            <div class="jwg-category mb-2">&bull; ACTION LOGGING &amp; OPPORTUNITY TRACKER</div>
+            <h2 class="jwg-title mb-3">Waveron Opportunities</h2>
+            <p class="jwg-desc">A dedicated workspace where you log the actions you have done and track them systematically. Keep a live record of every application, outreach email, follow-up, and milestone in one place so nothing falls through the cracks.</p>
             
             <div class="jwg-badges mt-4">
-                <span>PRISMA</span>
-                <span>BULLMQ</span>
-                <span>PYTHON</span>
+                <span>ACTION LOGGING</span>
+                <span>TRACK PROGRESS</span>
+                <span>LARAVEL</span>
+                <span>LIVE</span>
             </div>
-            <div class="mt-4">
-                <a href="{{ route('portfolio.case-study', 'lead-generator') }}" class="btn btn-outline-success btn-sm rounded-pill px-3 py-2 fw-semibold view-case-study-btn">
-                    <i class="bi bi-journal-text me-1"></i> View Case Study
+            <div class="mt-4 d-flex gap-2 flex-wrap">
+                <a href="https://opportunities.waverontechnologies.co.ke/" target="_blank" rel="noopener" class="btn btn-success btn-sm rounded-pill px-3 py-2 fw-semibold">
+                    <i class="bi bi-box-arrow-up-right me-1"></i> Visit Platform
+                </a>
+                <a href="{{ route('portfolio.case-study', 'waveron-opportunities') }}" class="btn btn-outline-success btn-sm rounded-pill px-3 py-2 fw-semibold view-case-study-btn">
+                    <i class="bi bi-journal-text me-1"></i> Case Study
                 </a>
             </div>
         </div>
@@ -299,7 +303,6 @@
     </div>
 </div>
 
-@include('partials.footer')
 @endsection
 
 @push('styles')

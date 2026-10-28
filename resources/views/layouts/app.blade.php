@@ -85,6 +85,11 @@
         :root {
             --waveron-green: #006400;
             --waveron-dark-green: #004d00;
+            --bs-primary: #006400;
+            --bs-primary-rgb: 0, 100, 0;
+            --bs-link-color: #006400;
+            --bs-link-hover-color: #004d00;
+            --bs-link-color-rgb: 0, 100, 0;
         }
 
         html, body {
@@ -100,14 +105,21 @@
             zoom: 0.87;
         }
 
+        ::selection {
+            background-color: rgba(0, 100, 0, 0.2);
+            color: inherit;
+        }
+
         .btn-primary {
             background-color: var(--waveron-green);
             border-color: var(--waveron-green);
         }
 
-        .btn-primary:hover {
-            background-color: var(--waveron-dark-green);
-            border-color: var(--waveron-dark-green);
+        .btn-primary:hover,
+        .btn-primary:focus,
+        .btn-primary:active {
+            background-color: var(--waveron-dark-green) !important;
+            border-color: var(--waveron-dark-green) !important;
         }
 
         .text-primary {
@@ -118,15 +130,66 @@
             background-color: var(--waveron-green) !important;
         }
 
+        .border-primary {
+            border-color: var(--waveron-green) !important;
+        }
+
         .btn-outline-primary {
             color: var(--waveron-green);
             border-color: var(--waveron-green);
         }
 
-        .btn-outline-primary:hover {
-            background-color: var(--waveron-green);
-            border-color: var(--waveron-green);
-            color: white;
+        .btn-outline-primary:hover,
+        .btn-outline-primary:focus,
+        .btn-outline-primary:active {
+            background-color: var(--waveron-green) !important;
+            border-color: var(--waveron-green) !important;
+            color: white !important;
+        }
+
+        .nav-pills .nav-link.active,
+        .nav-pills .show > .nav-link {
+            background-color: var(--waveron-green) !important;
+            color: #ffffff !important;
+        }
+
+        .form-check-input:checked {
+            background-color: var(--waveron-green) !important;
+            border-color: var(--waveron-green) !important;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--waveron-green) !important;
+            box-shadow: 0 0 0 0.25rem rgba(0, 100, 0, 0.2) !important;
+        }
+
+        .page-item.active .page-link {
+            background-color: var(--waveron-green) !important;
+            border-color: var(--waveron-green) !important;
+        }
+
+        .page-link {
+            color: var(--waveron-green) !important;
+        }
+
+        /* Prevent Tailwind from hiding Bootstrap collapse and accordion content */
+        .collapse,
+        .collapsing,
+        .navbar-collapse,
+        .navbar .collapse {
+            visibility: visible !important;
+        }
+
+        footer.footer a {
+            color: #64748b !important;
+            text-decoration: none !important;
+            transition: color 0.2s ease;
+        }
+
+        footer.footer a:hover {
+            color: var(--waveron-green) !important;
+            text-decoration: none !important;
         }
     </style>
     @stack('styles')
@@ -141,8 +204,13 @@
         @yield('content')
     </main>
 
+    @include('partials.footer')
+
     <!-- AI Chatbot Widget -->
     @include('partials.chatbot')
+
+    <!-- Floating WhatsApp Action Button -->
+    @include('partials.whatsapp-button')
 
     <!-- Blog Newsletter Popup -->
     @if(request()->routeIs('blog.*'))

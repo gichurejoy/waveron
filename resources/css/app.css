@@ -50,3 +50,208 @@
     border-top: 1px solid #ddd;
     margin: 20px 0;
 }
+
+/* Unified Backend Typography - clean, consistent Inter font family */
+html,
+body,
+.fi-body,
+.fi-panel,
+.fi-page,
+.fi-header,
+.fi-header-heading,
+.fi-header-subheading,
+.fi-breadcrumbs,
+.fi-sidebar,
+.fi-topbar,
+.fi-section,
+.fi-ta,
+.fi-fo,
+#main-app-container,
+#careers-module-container,
+#leads-module-container {
+    font-family: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* Color contrast overrides for standard Filament gray elements in light mode */
+html:not(.dark) .fi-section-header-description,
+html:not(.dark) .fi-fo-field-wrp-helper-text,
+html:not(.dark) .fi-ta-text-item-description,
+html:not(.dark) .fi-sidebar-group-label,
+html:not(.dark) .fi-breadcrumbs-item-label,
+html:not(.dark) .fi-wi-stats-overview-stat-description,
+html:not(.dark) .fi-wi-account-user-name,
+html:not(.dark) .fi-wi-account-user-name + p,
+html:not(.dark) .text-gray-500,
+html:not(.dark) .text-slate-500 {
+    color: #475569 !important; /* slate-600 for better readability */
+}
+
+/* Clean Sidebar Styling Overrides */
+aside.fi-sidebar {
+    background-color: #fbfbfb !important; /* extremely clean off-white background */
+    border-right: 1px solid #e2e8f0 !important; /* clean right border line */
+    box-shadow: none !important;
+    z-index: 30 !important;
+}
+
+/* Hide navigation scrollbars to maintain clean desktop aesthetic */
+.fi-sidebar-nav {
+    scrollbar-width: none !important;
+    row-gap: 0.4rem !important; /* reduce vertical gap between header/quick-action/nav list */
+    padding-block-start: 0.25rem !important; /* tighter top padding */
+    padding-block-end: 1rem !important;
+}
+.fi-sidebar-nav::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* Reduce vertical gaps between groups container */
+.fi-sidebar-nav-groups {
+    row-gap: 0.5rem !important;
+}
+
+/* Style Brand Logo Section */
+.fi-sidebar-header {
+    border-bottom: 1px solid #e2e8f0 !important;
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.5rem !important;
+}
+
+/* Navigation Group Labels */
+.fi-sidebar-group-label {
+    font-size: 0.75rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    font-weight: 600 !important;
+    color: #64748b !important; /* slate-500 */
+    margin-top: 0.35rem !important; /* reduced spacing above group label */
+    margin-bottom: 0.2rem !important; /* reduced spacing below group label */
+}
+
+/* Sidebar List Item Elements */
+.fi-sidebar-item {
+    margin-bottom: 3px !important;
+}
+
+/* Navigation Links / Buttons */
+.fi-sidebar-item-button,
+.fi-sidebar-item-btn {
+    border-radius: 0.5rem !important; /* rounded-lg */
+    padding: 0.55rem 0.75rem !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    color: #475569 !important; /* slate-600 */
+    background-color: transparent !important;
+    transition: all 0.15s ease-in-out !important;
+}
+
+/* Sidebar Icons */
+.fi-sidebar-item-button svg,
+.fi-sidebar-item-btn svg {
+    width: 1.15rem !important;
+    height: 1.15rem !important;
+    color: #64748b !important; /* slate-500 */
+    transition: all 0.15s ease-in-out !important;
+}
+
+/* Hover States */
+.fi-sidebar-item-button:hover,
+.fi-sidebar-item-btn:hover {
+    background-color: #f1f5f9 !important; /* soft hover background */
+    color: #0f172a !important; /* slate-900 */
+}
+.fi-sidebar-item-button:hover svg,
+.fi-sidebar-item-btn:hover svg {
+    color: #0f172a !important;
+}
+
+/* Active Navigation Item Styles */
+.fi-sidebar-item-button.fi-active,
+.fi-sidebar-item-button[class*="active"],
+.fi-sidebar-item-button.fi-sidebar-item-active,
+.fi-sidebar-item-btn.fi-active,
+.fi-sidebar-item-btn[class*="active"],
+.fi-sidebar-item-btn.fi-sidebar-item-active {
+    background-color: #f1f5f9 !important; /* slate-100 equivalent */
+    color: #0f172a !important; /* bold dark active text */
+    font-weight: 600 !important;
+}
+.fi-sidebar-item-button.fi-active svg,
+.fi-sidebar-item-button[class*="active"] svg,
+.fi-sidebar-item-button.fi-sidebar-item-active svg,
+.fi-sidebar-item-btn.fi-active svg,
+.fi-sidebar-item-btn[class*="active"] svg,
+.fi-sidebar-item-btn.fi-sidebar-item-active svg {
+    color: #06b6d4 !important; /* cyan brand color for active icons */
+}
+
+/* Separation Border between Groups */
+.fi-sidebar-group {
+    border-bottom: 1px solid #f1f5f9 !important; /* soft line separator */
+    padding-bottom: 0.5rem !important; /* tighter group bottom padding */
+    margin-bottom: 0.5rem !important; /* tighter group bottom margin */
+    margin-top: 0 !important;
+}
+.fi-sidebar-group:last-child {
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Premium Topbar & Search Style Overrides */
+header.fi-topbar {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    box-shadow: none !important;
+    z-index: 30 !important;
+}
+
+.fi-topbar-container {
+    background-color: #ffffff !important;
+}
+
+/* Refined Search in Topbar (Quick Actions style) */
+.fi-global-search-field .fi-input-wrp {
+    background-color: #f1f5f9 !important; /* match quick actions bg */
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 0.5rem !important; /* rounded-lg */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.2s ease-in-out !important;
+    position: relative !important;
+    padding-right: 3.2rem !important;
+}
+
+.fi-global-search-field .fi-input-wrp:focus-within {
+    border-color: #06b6d4 !important; /* cyan accent */
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.15) !important;
+}
+
+.fi-global-search-field input {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    font-size: 0.875rem !important;
+    color: #0f172a !important;
+    outline: none !important;
+}
+
+/* Badge for ⌘ K shortcut */
+.fi-global-search-field .fi-input-wrp::after {
+    content: "⌘ K" !important;
+    position: absolute !important;
+    right: 0.5rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    font-family: monospace, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New" !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    color: #475569 !important; /* slate-600 */
+    background-color: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    padding: 0.1rem 0.4rem !important;
+    border-radius: 0.25rem !important;
+    pointer-events: none !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+}

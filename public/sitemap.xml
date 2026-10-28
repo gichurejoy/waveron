@@ -87,8 +87,8 @@
         <priority>0.75</priority>
     </url>
     <url>
-        <loc>https://waverontechnologies.co.ke/portfolio/lead-generator</loc>
-        <lastmod>2026-06-26</lastmod>
+        <loc>https://waverontechnologies.co.ke/portfolio/waveron-opportunities</loc>
+        <lastmod>2026-10-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>

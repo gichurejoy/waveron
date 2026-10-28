@@ -15,12 +15,16 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\BulkAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
-use Filament\Infolists\Components\Section;
+use Filament\Schemas\Components\Section;
 use Filament\Infolists\Components\TextEntry;
-use Filament\Infolists\Components\RepeatableEntry;
 
 class FastInquiryResource extends Resource
 {
+    public static function shouldRegisterNavigation(): bool
+    {
+        return false;
+    }
+
     protected static ?string $model = FastInquiry::class;
 
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-bolt';
@@ -32,6 +36,25 @@ class FastInquiryResource extends Resource
     protected static ?int $navigationSort = 2;
 
     protected static ?string $recordTitleAttribute = 'name';
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['name', 'email', 'company', 'services_requested'];
+    }
+
+    public static function getGlobalSearchResultDetails(\Illuminate\Database\Eloquent\Model $record): array
+    {
+        return [
+            'Email'   => $record->email,
+            'Company' => $record->company ?: 'N/A',
+            'Budget'  => $record->budget,
+        ];
+    }
+
+    public static function getGlobalSearchResultUrl(\Illuminate\Database\Eloquent\Model $record): string
+    {
+        return url('/admin/leads-and-inquiries');
+    }
 
     public static function getNavigationBadge(): ?string
     {
@@ -94,12 +117,11 @@ class FastInquiryResource extends Resource
 
             Section::make('Internal Notes')
                 ->schema([
-                    RepeatableEntry::make('internal_notes')
+                    TextEntry::make('internal_notes')
                         ->label('')
-                        ->schema([
-                            TextEntry::make('')->formatStateUsing(fn ($state) => $state),
-                        ])
-                        ->contained(false),
+                        ->listWithLineBreaks()
+                        ->bulleted()
+                        ->placeholder('No internal notes yet.'),
                 ])->collapsible(),
         ]);
     }
@@ -171,6 +193,42 @@ class FastInquiryResource extends Resource
                         return $query
                             ->when($data['from'], fn ($q, $date) => $q->whereDate('created_at', '>=', $date))
                             ->when($data['until'], fn ($q, $date) => $q->whereDate('created_at', '<=', $date));
+                    }),
+            ])
+            ->headerActions([
+                Action::make('export_csv')
+                    ->label('Export CSV')
+                    ->icon('heroicon-o-arrow-down-tray')
+                    ->color('success')
+                    ->action(function () {
+                        $inquiries = FastInquiry::orderBy('created_at', 'desc')->get();
+                        $headers = [
+                            "Content-type"        => "text/csv",
+                            "Content-Disposition" => "attachment; filename=fast_inquiries_" . date('Y-m-d') . ".csv",
+                            "Pragma"              => "no-cache",
+                            "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+                            "Expires"             => "0"
+                        ];
+                        $callback = function () use ($inquiries) {
+                            $file = fopen('php://output', 'w');
+                            fputcsv($file, ['ID', 'Name', 'Email', 'Phone', 'Company', 'Budget', 'Timeline', 'Services', 'Status', 'Date']);
+                            foreach ($inquiries as $i) {
+                                fputcsv($file, [
+                                    $i->id,
+                                    $i->name,
+                                    $i->email,
+                                    $i->phone ?? 'N/A',
+                                    $i->company ?? 'N/A',
+                                    $i->budget,
+                                    $i->timeline,
+                                    is_array($i->services_requested) ? implode(', ', $i->services_requested) : $i->services_requested,
+                                    $i->status,
+                                    $i->created_at->format('Y-m-d H:i')
+                                ]);
+                            }
+                            fclose($file);
+                        };
+                        return response()->streamDownload($callback, 'fast_inquiries_' . date('Y-m-d') . '.csv', $headers);
                     }),
             ])
             ->recordActions([

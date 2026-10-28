@@ -10,6 +10,8 @@ use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Attachment;
 
+use Illuminate\Mail\Mailables\Address;
+
 class JobApplicationMail extends Mailable
 {
     use Queueable, SerializesModels;
@@ -25,8 +27,36 @@ class JobApplicationMail extends Mailable
 
     public function envelope(): Envelope
     {
+        $contact = trim($this->applicationData['contact'] ?? '');
+        $applicantEmail = null;
+        if (filter_var($contact, FILTER_VALIDATE_EMAIL)) {
+            $applicantEmail = $contact;
+        } elseif (preg_match('/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/', $contact, $matches)) {
+            $applicantEmail = $matches[0];
+        }
+
+        $applicantName = trim($this->applicationData['name'] ?? 'Candidate');
+
+        $fromName = $applicantName;
+        if ($applicantEmail) {
+            $fromName .= " ({$applicantEmail})";
+        } elseif ($contact !== '') {
+            $fromName .= " ({$contact})";
+        }
+        $fromName .= ' via Waveron Careers';
+
+        $subjectSuffix = $applicantEmail ? " [{$applicantEmail}]" : ($contact !== '' ? " [{$contact}]" : '');
+        $subject = 'New Job Application - ' . $applicantName . $subjectSuffix;
+
+        $replyTo = [];
+        if ($applicantEmail) {
+            $replyTo[] = new Address($applicantEmail, $applicantName);
+        }
+
         return new Envelope(
-            subject: 'New Salesperson Application - ' . $this->applicationData['name'],
+            from: new Address(config('mail.from.address'), $fromName),
+            replyTo: $replyTo,
+            subject: $subject,
         );
     }
 

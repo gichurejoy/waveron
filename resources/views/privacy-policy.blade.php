@@ -42,5 +42,4 @@
         <p>If you have any questions about this privacy policy, please contact us at info@waverontechnologies.co.ke.</p>
     </div>
 </div>
-@include('partials.footer')
 @endsection

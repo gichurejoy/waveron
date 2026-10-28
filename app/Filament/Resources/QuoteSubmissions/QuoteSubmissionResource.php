@@ -15,11 +15,16 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\BulkAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
-use Filament\Infolists\Components\Section;
+use Filament\Schemas\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 
 class QuoteSubmissionResource extends Resource
 {
+    public static function shouldRegisterNavigation(): bool
+    {
+        return false;
+    }
+
     protected static ?string $model = QuoteSubmission::class;
 
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-calculator';
@@ -31,6 +36,25 @@ class QuoteSubmissionResource extends Resource
     protected static ?int $navigationSort = 1;
 
     protected static ?string $recordTitleAttribute = 'user_email';
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['user_email', 'company', 'service_type'];
+    }
+
+    public static function getGlobalSearchResultDetails(\Illuminate\Database\Eloquent\Model $record): array
+    {
+        return [
+            'Company' => $record->company ?: 'Client',
+            'Service' => $record->service_type,
+            'Total'   => 'KES ' . number_format($record->estimated_total),
+        ];
+    }
+
+    public static function getGlobalSearchResultUrl(\Illuminate\Database\Eloquent\Model $record): string
+    {
+        return url('/admin/leads-and-inquiries');
+    }
 
     public static function getNavigationBadge(): ?string
     {
@@ -182,6 +206,41 @@ class QuoteSubmissionResource extends Resource
                         return $query
                             ->when($data['from'], fn ($q, $date) => $q->whereDate('created_at', '>=', $date))
                             ->when($data['until'], fn ($q, $date) => $q->whereDate('created_at', '<=', $date));
+                    }),
+            ])
+            ->headerActions([
+                Action::make('export_csv')
+                    ->label('Export CSV')
+                    ->icon('heroicon-o-arrow-down-tray')
+                    ->color('success')
+                    ->action(function () {
+                        $quotes = QuoteSubmission::orderBy('created_at', 'desc')->get();
+                        $headers = [
+                            "Content-type"        => "text/csv",
+                            "Content-Disposition" => "attachment; filename=quote_submissions_" . date('Y-m-d') . ".csv",
+                            "Pragma"              => "no-cache",
+                            "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+                            "Expires"             => "0"
+                        ];
+                        $callback = function () use ($quotes) {
+                            $file = fopen('php://output', 'w');
+                            fputcsv($file, ['ID', 'Email', 'Company', 'Service', 'Complexity', 'Timeline', 'Estimated Total', 'Status', 'Date']);
+                            foreach ($quotes as $q) {
+                                fputcsv($file, [
+                                    $q->id,
+                                    $q->user_email,
+                                    $q->company ?? 'N/A',
+                                    $q->service_type,
+                                    $q->complexity ?? 'N/A',
+                                    $q->timeline ?? 'N/A',
+                                    $q->estimated_total,
+                                    $q->status,
+                                    $q->created_at->format('Y-m-d H:i')
+                                ]);
+                            }
+                            fclose($file);
+                        };
+                        return response()->streamDownload($callback, 'quote_submissions_' . date('Y-m-d') . '.csv', $headers);
                     }),
             ])
             ->recordActions([

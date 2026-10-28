@@ -13,6 +13,11 @@ use Filament\Actions\BulkAction;
 use Filament\Notifications\Notification;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Illuminate\Database\Eloquent\Collection;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewsletterBroadcastMail;
+use App\Models\AuditLog;
 
 class NewsletterSubscribersTable
 {
@@ -68,7 +73,36 @@ class NewsletterSubscribersTable
                         $response->headers->set('Content-Disposition', 'attachment; filename="newsletter_subscribers_' . now()->format('Y-m-d') . '.csv"');
 
                         return $response;
-                    })
+                    }),
+                Action::make('broadcast_email')
+                    ->label('Broadcast Email')
+                    ->icon('heroicon-o-paper-airplane')
+                    ->color('primary')
+                    ->form([
+                        TextInput::make('subject')
+                            ->label('Email Subject')
+                            ->required(),
+                        Textarea::make('message')
+                            ->label('Message Body')
+                            ->rows(6)
+                            ->required(),
+                    ])
+                    ->action(function (array $data) {
+                        $activeSubscribers = \App\Models\NewsletterSubscriber::where('is_active', true)->get();
+                        $count = 0;
+                        foreach ($activeSubscribers as $subscriber) {
+                            Mail::to($subscriber->email)->send(new NewsletterBroadcastMail($data['subject'], $data['message']));
+                            $count++;
+                        }
+
+                        AuditLog::logAction('Newsletter Broadcast Dispatched', "Sent newsletter broadcast '{$data['subject']}' to {$count} active subscribers", 'NewsletterSubscriber');
+
+                        Notification::make()
+                            ->title('Broadcast Dispatched')
+                            ->body("Newsletter successfully sent to {$count} active subscribers.")
+                            ->success()
+                            ->send();
+                    }),
             ])
             ->recordActions([
                 EditAction::make(),
@@ -142,6 +176,35 @@ class NewsletterSubscribersTable
                             $response->headers->set('Content-Disposition', 'attachment; filename="selected_newsletter_subscribers_' . now()->format('Y-m-d') . '.csv"');
 
                             return $response;
+                        }),
+                    BulkAction::make('bulk_broadcast_email')
+                        ->label('Broadcast Email to Selected')
+                        ->icon('heroicon-o-paper-airplane')
+                        ->color('primary')
+                        ->form([
+                            TextInput::make('subject')
+                                ->label('Email Subject')
+                                ->required(),
+                            Textarea::make('message')
+                                ->label('Message Body')
+                                ->rows(6)
+                                ->required(),
+                        ])
+                        ->action(function (Collection $records, array $data) {
+                            $activeRecords = $records->filter(fn ($r) => $r->is_active);
+                            $count = 0;
+                            foreach ($activeRecords as $subscriber) {
+                                Mail::to($subscriber->email)->send(new NewsletterBroadcastMail($data['subject'], $data['message']));
+                                $count++;
+                            }
+
+                            AuditLog::logAction('Newsletter Bulk Broadcast Dispatched', "Sent newsletter broadcast '{$data['subject']}' to {$count} selected active subscribers", 'NewsletterSubscriber');
+
+                            Notification::make()
+                                ->title('Broadcast Dispatched')
+                                ->body("Newsletter successfully sent to {$count} selected active subscribers.")
+                                ->success()
+                                ->send();
                         }),
                     DeleteBulkAction::make(),
                 ]),

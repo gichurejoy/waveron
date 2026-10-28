@@ -226,7 +226,6 @@
     <!-- Copy of payslip-preview will be loaded here dynamically via JS during print -->
 </div>
 
-@include('partials.footer')
 @endsection
 
 @push('styles')

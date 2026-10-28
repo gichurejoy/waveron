@@ -18,6 +18,22 @@ class BlogPostResource extends Resource
 {
     protected static ?string $model = BlogPost::class;
 
+    protected static ?string $recordTitleAttribute = 'title';
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['title', 'excerpt', 'slug', 'author.name'];
+    }
+
+    public static function getGlobalSearchResultDetails(\Illuminate\Database\Eloquent\Model $record): array
+    {
+        return [
+            'Author'    => $record->author?->name ?? 'Editorial',
+            'Category'  => $record->categories->first()?->name ?? 'General',
+            'Published' => $record->is_published ? 'Yes' : 'Draft',
+        ];
+    }
+
     protected static string|\UnitEnum|null $navigationGroup = 'Content Management';
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-document-text';

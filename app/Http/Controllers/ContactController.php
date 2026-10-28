@@ -57,6 +57,7 @@ class ContactController extends Controller
     {
         $validated = $request->validate([
             'email'                    => 'required|email',
+            'company'                  => 'nullable|string|max:255',
             'summary'                  => 'required|array',
             'summary.serviceLabel'     => 'required|string',
             'summary.complexityLabel'  => 'required|string',
@@ -71,8 +72,12 @@ class ContactController extends Controller
         ]);
 
         $email   = $validated['email'];
+        $company = $validated['company'] ?? null;
         $summary = $validated['summary'];
         $summary['recipient_email'] = $email;
+        if ($company) {
+            $summary['company'] = $company;
+        }
 
         try {
             // Save to database for admin dashboard
@@ -84,14 +89,16 @@ class ContactController extends Controller
                 'selected_addons'   => $summary['addonNames'] ?? [],
                 'estimated_total'   => (int) ($summary['total'] ?? 0),
                 'user_email'        => $email,
+                'company'           => $company,
                 'status'            => 'New',
             ]);
 
-            // Send directly to info@waverontechnologies.co.ke
-            Mail::to('info@waverontechnologies.co.ke')->send(new EstimateMail($summary));
+            // Send directly to admin with forAdmin = true
+            $adminEmail = config('mail.to.address') ?: 'info@waverontechnologies.co.ke';
+            Mail::to($adminEmail)->send(new EstimateMail($summary, true));
 
             // Also send a copy directly to the user
-            Mail::to($email)->send(new EstimateMail($summary));
+            Mail::to($email)->send(new EstimateMail($summary, false));
 
             return response()->json([
                 'success' => true,
@@ -105,4 +112,47 @@ class ContactController extends Controller
             ], 500);
         }
     }
+
+    public function submitFastInquiry(Request $request)
+    {
+        $validated = $request->validate([
+            'name'     => 'required|string|max:255',
+            'email'    => 'required|email|max:255',
+            'company'  => 'nullable|string|max:255',
+            'budget'   => 'nullable|string|max:255',
+            'timeline' => 'nullable|string|max:255',
+            'services' => 'nullable|string|max:255',
+            'message'  => 'required|string',
+        ]);
+
+        try {
+            // Save to database for admin dashboard using FastInquiry model
+            \App\Models\FastInquiry::create([
+                'name'               => $validated['name'],
+                'email'              => $validated['email'],
+                'company'            => $validated['company'] ?? null,
+                'budget'             => $validated['budget'] ?? null,
+                'timeline'           => $validated['timeline'] ?? null,
+                'services_requested' => $validated['services'] ?? null,
+                'project_details'    => $validated['message'],
+                'status'             => 'New',
+            ]);
+
+            // Set subject for email
+            $validated['subject'] = 'New Project Inquiry (Fast Track)';
+
+            // Send email
+            Mail::to(config('mail.to.address'))->send(new ContactFormMail($validated));
+
+            // Return with success message
+            return back()->with('success', 'Thank you for your inquiry. We will get back to you soon!');
+        } catch (\Exception $e) {
+            \Log::error('Fast Inquiry form error: ' . $e->getMessage() . ' in ' . $e->getFile() . ' on line ' . $e->getLine());
+            \Log::error($e->getTraceAsString());
+
+            return back()->with('error', 'Sorry, there was an error sending your inquiry. Please try again later.')
+                        ->withInput();
+        }
+    }
 }
+

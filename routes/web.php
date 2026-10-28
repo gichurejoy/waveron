@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CareerController;
+use App\Http\Controllers\ReferralController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/about', function () {
@@ -14,10 +15,9 @@ Route::get('/contact', function () {
 })->name('contact');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
-Route::get('/careers', function () {
-    return view('careers');
-})->name('careers');
+Route::get('/careers', [CareerController::class, 'index'])->name('careers');
 Route::post('/careers/submit', [CareerController::class, 'submit'])->name('careers.submit');
+Route::post('/referrals/submit', [ReferralController::class, 'submit'])->name('referrals.submit');
 
 // Services Pages
 Route::get('/services', function () {
@@ -178,36 +178,70 @@ Route::get('/portfolio/{slug}', function ($slug) {
                     <div class="text-white opacity-50">09:42:08 <span class="text-success">Trigger_Client_Notification()</span></div>
                 </div>'
         ],
-        'lead-generator' => [
-            'title' => 'Lead Generator',
-            'subtitle' => 'Automated Pipeline Engine',
-            'category' => 'SALES INTELLIGENCE',
-            'badges' => ['Prisma', 'BullMQ', 'Python'],
-            'problem' => 'Lead sourcing and contact verification took sales teams hours of manual effort daily. Because databases quickly went stale, cold outreach campaigns suffered from high bounce rates and low overall conversion percentages.',
-            'solution' => 'We constructed a high-velocity prospect enrichment engine powered by Python scraping agents, coordinated via BullMQ worker queues and managed with Prisma ORM. The architecture performs multi-source profile lookup, live email verification checkbacks, and logs quality-scored leads directly into client pipelines.',
-            'result' => 'Provided 240+ fully enriched, high-confidence leads daily with a 95% data accuracy rate, boosting sales conversion probability by 85%.',
+        'waveron-opportunities' => [
+            'title' => 'Waveron Opportunities',
+            'subtitle' => 'Log Actions Done & Track Opportunities to Completion',
+            'category' => 'ACTION LOGGING & OPPORTUNITY TRACKER',
+            'badges' => ['Action Logging', 'Action Tracker', 'Laravel', 'Live Platform'],
+            'live_url' => 'https://opportunities.waverontechnologies.co.ke/',
+            'problem' => 'When pursuing career, business, or client opportunities, individuals and teams take dozens of daily actions—sending outreach messages, applying, submitting proposals, and scheduling calls. Without a dedicated system, they quickly lose track of what actions they have done, when follow-ups are due, and which efforts actually deliver results.',
+            'solution' => 'Waveron designed and built Waveron Opportunities (opportunities.waverontechnologies.co.ke)—a specialized workspace where you log the actions you have done and track them through every stage. Users log completed actions in seconds, attach notes and outcomes, set reminders, and maintain complete visibility over their entire pipeline.',
+            'result' => 'Delivered an intuitive, real-time action logging and tracking platform that gives users 100% traceability over every action taken and completely eliminates dropped follow-ups.',
             'metrics' => [
-                ['value' => '240+', 'label' => 'Daily Enriched Leads'],
-                ['value' => '95%', 'label' => 'Contact Accuracy'],
-                ['value' => '85%', 'label' => 'Conversion Prob']
+                ['value' => '100%', 'label' => 'Actions Logged & Tracked'],
+                ['value' => '0', 'label' => 'Missed Follow-ups'],
+                ['value' => 'Live', 'label' => 'Active Platform']
             ],
             'visual_class' => 'light-block',
             'visual_html' => '
                 <div class="p-3 border-bottom border-secondary border-opacity-10 d-flex justify-content-between flex-wrap gap-1 align-items-center bg-white">
-                    <span class="text-muted small font-monospace"><i class="bi bi-funnel-fill text-success"></i> PIPELINE_ACTIVE</span>
-                    <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 rounded-pill" style="font-size:0.6rem;">+240 LEADS</span>
+                    <span class="text-muted small font-monospace"><i class="bi bi-check2-circle text-success"></i> ACTION_TRACKER</span>
+                    <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 rounded-pill" style="font-size:0.6rem;">LOG &amp; TRACK</span>
                 </div>
                 <div class="p-3 font-monospace" style="font-size:0.7rem; background-color: #fafafa;">
                     <div class="d-flex justify-content-between mb-2">
-                        <span class="text-muted">Targeting:</span> <span class="fw-bold">Enterprise Tech</span>
+                        <span class="text-muted">Workflow:</span> <span class="fw-bold">Log Actions &amp; Track</span>
                     </div>
                     <div class="d-flex justify-content-between mb-2">
-                        <span class="text-muted">Enrichment:</span> <span class="text-success">100% Complete</span>
+                        <span class="text-muted">Traceability:</span> <span class="text-success fw-bold">100% Logged &amp; Tracked</span>
                     </div>
                     <div class="progress mt-3 mb-1" style="height: 6px;">
-                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 85%;"></div>
+                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%;"></div>
                     </div>
-                    <div class="text-end text-muted" style="font-size:0.6rem;">Conversion Prob: 85%</div>
+                    <div class="text-end text-muted" style="font-size:0.6rem;">opportunities.waverontechnologies.co.ke</div>
+                </div>'
+        ],
+        'lead-generator' => [
+            'title' => 'Waveron Opportunities',
+            'subtitle' => 'Log Actions Done & Track Opportunities to Completion',
+            'category' => 'ACTION LOGGING & OPPORTUNITY TRACKER',
+            'badges' => ['Action Logging', 'Action Tracker', 'Laravel', 'Live Platform'],
+            'live_url' => 'https://opportunities.waverontechnologies.co.ke/',
+            'problem' => 'When pursuing career, business, or client opportunities, individuals and teams take dozens of daily actions—sending outreach messages, applying, submitting proposals, and scheduling calls. Without a dedicated system, they quickly lose track of what actions they have done, when follow-ups are due, and which efforts actually deliver results.',
+            'solution' => 'Waveron designed and built Waveron Opportunities (opportunities.waverontechnologies.co.ke)—a specialized workspace where you log the actions you have done and track them through every stage. Users log completed actions in seconds, attach notes and outcomes, set reminders, and maintain complete visibility over their entire pipeline.',
+            'result' => 'Delivered an intuitive, real-time action logging and tracking platform that gives users 100% traceability over every action taken and completely eliminates dropped follow-ups.',
+            'metrics' => [
+                ['value' => '100%', 'label' => 'Actions Logged & Tracked'],
+                ['value' => '0', 'label' => 'Missed Follow-ups'],
+                ['value' => 'Live', 'label' => 'Active Platform']
+            ],
+            'visual_class' => 'light-block',
+            'visual_html' => '
+                <div class="p-3 border-bottom border-secondary border-opacity-10 d-flex justify-content-between flex-wrap gap-1 align-items-center bg-white">
+                    <span class="text-muted small font-monospace"><i class="bi bi-check2-circle text-success"></i> ACTION_TRACKER</span>
+                    <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 rounded-pill" style="font-size:0.6rem;">LOG &amp; TRACK</span>
+                </div>
+                <div class="p-3 font-monospace" style="font-size:0.7rem; background-color: #fafafa;">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">Workflow:</span> <span class="fw-bold">Log Actions &amp; Track</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">Traceability:</span> <span class="text-success fw-bold">100% Logged &amp; Tracked</span>
+                    </div>
+                    <div class="progress mt-3 mb-1" style="height: 6px;">
+                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%;"></div>
+                    </div>
+                    <div class="text-end text-muted" style="font-size:0.6rem;">opportunities.waverontechnologies.co.ke</div>
                 </div>'
         ],
         'ecommerce-core' => [
@@ -298,6 +332,7 @@ Route::get('/quote/configuration-guide', function () {
 })->name('quote.guide');
 
 Route::post('/quote/email-estimate', [ContactController::class, 'emailEstimate'])->name('quote.email-estimate');
+Route::post('/quote/fast-inquiry', [ContactController::class, 'submitFastInquiry'])->name('quote.fast-inquiry');
 
 // Blog Routes
 use App\Http\Controllers\BlogController;
@@ -354,5 +389,13 @@ Route::prefix('tools')->name('tools.')->group(function () {
     Route::get('/loan-calculator', function () {
         return view('tools.loan-calculator');
     })->name('loan-calculator');
+});
+
+// Admin Invoice PDF & Print Routes
+use App\Http\Controllers\InvoicePdfController;
+Route::middleware(['web'])->prefix('admin/invoices')->name('admin.invoices.')->group(function () {
+    Route::get('/{invoice}/download-pdf', [InvoicePdfController::class, 'download'])->name('download-pdf');
+    Route::get('/{invoice}/preview-pdf', [InvoicePdfController::class, 'preview'])->name('preview-pdf');
+    Route::get('/{invoice}/print', [InvoicePdfController::class, 'print'])->name('print');
 });
 

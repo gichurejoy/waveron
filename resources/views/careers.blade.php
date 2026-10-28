@@ -26,39 +26,58 @@
             <p class="text-muted">Currently looking for passionate individuals to join us.</p>
         </div>
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center g-4">
             <div class="col-lg-8">
-                <div class="card border-0 shadow-sm rounded-4 hover-lift">
-                    <div class="card-body p-4 d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                        <div class="mb-4">
-                            <div class="d-flex align-items-center gap-3 mb-2">
-                                <h3 class="fw-bold mb-0">Salesperson</h3>
-                                <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3 py-2">Full-Time / Contract</span>
-                            </div>
-                            <p class="text-muted mb-3">
-                                <i class="bi bi-geo-alt me-2"></i>Nairobi, Kenya (Hybrid/Remote) &nbsp;&bull;&nbsp;
-                                <i class="bi bi-cash me-2"></i>Commission-Based
-                            </p>
-                            <div class="mb-4 text-start">
-                                <h5 class="fw-bold fs-6">Job Description:</h5>
-                                <p class="text-muted small mb-2">As a Salesperson at Waveron, you will be responsible for driving business growth. Unique to Waveron, you won't just be selling our custom digital services (Software Development, Branding, Design)—you will also have a powerful suite of our proprietary SaaS software products to pitch, making your closing potential immense!</p>
-                                <ul class="text-muted small">
-                                    <li>Sell subscriptions and licenses to our proprietary platforms: Waveron CRM, our automated Brand Book Generator, and our Job/Scholarship Matching Platform.</li>
-                                    <li>Identify and pursue new B2B clients for custom agency services (Web, Mobile, Enterprise Solutions).</li>
-                                    <li>Understand client needs and match them accurately with our SaaS products or custom services.</li>
-                                    <li>Negotiate contracts, close enterprise deals, and build lasting relationships to maximize your revenue.</li>
-                                </ul>
-                                <div class="alert alert-success bg-success bg-opacity-10 border-0 py-2 px-3 mt-3">
-                                    <i class="bi bi-info-circle-fill text-success me-2"></i>
-                                    <span class="small fw-medium text-success text-dark">Compensation: Commissions are paid out strictly on clients who have successfully paid for their services.</span>
+                @forelse($roles as $role)
+                    <div class="card border-0 shadow-sm rounded-4 hover-lift mb-4">
+                        <div class="card-body p-4 d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+                            <div class="mb-4 mb-md-0 flex-grow-1">
+                                <div class="d-flex align-items-center gap-3 mb-2">
+                                    <h3 class="fw-bold mb-0">{{ $role->title }}</h3>
+                                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3 py-2">{{ $role->employment_type }}</span>
+                                </div>
+                                <p class="text-muted mb-3">
+                                    <i class="bi bi-geo-alt me-2"></i>{{ $role->location }} &nbsp;&bull;&nbsp;
+                                    <i class="bi bi-cash me-2"></i>{{ $role->compensation }}
+                                </p>
+                                <div class="mb-2 text-start">
+                                    <h5 class="fw-bold fs-6">Prerequisites:</h5>
+                                    @if(is_array($role->prerequisites))
+                                        <ul class="text-muted small mb-0">
+                                            @foreach($role->prerequisites as $prereq)
+                                                <li>{{ $prereq }}</li>
+                                            @endforeach
+                                        </ul>
+                                    @else
+                                        <p class="text-muted small mb-0">{{ $role->prerequisites }}</p>
+                                    @endif
                                 </div>
                             </div>
-                        </div>
-                        <div>
-                            <button class="btn btn-primary rounded-pill px-4 py-2 w-100" data-bs-toggle="modal" data-bs-target="#applyModal">Apply Now</button>
+                            <div class="ms-md-4 shrink-0">
+                                <button class="btn btn-primary rounded-pill px-4 py-2 w-100" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#applyModal" 
+                                        data-role-id="{{ $role->id }}" 
+                                        data-role-title="{{ $role->title }}">
+                                    Apply Now
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @empty
+                    <div class="card border-0 shadow-sm rounded-4 p-5 text-center">
+                        <i class="bi bi-briefcase text-muted mb-3" style="font-size: 3rem;"></i>
+                        <h4 class="fw-bold">No Open Positions</h4>
+                        <p class="text-muted">We don't have any open recruitment postings at the moment. However, we are always on the lookout for talent!</p>
+                        <button class="btn btn-primary rounded-pill px-4 py-2 mt-2" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#applyModal" 
+                                data-role-id="" 
+                                data-role-title="General Application">
+                            Submit General Application
+                        </button>
+                    </div>
+                @endforelse
             </div>
         </div>
     </div>
@@ -105,13 +124,19 @@
 
         <form action="{{ route('careers.submit') }}" method="POST" enctype="multipart/form-data">
           @csrf
+          <input type="hidden" name="career_role_id" id="modal_career_role_id" value="">
+
           <div class="mb-3">
             <label class="form-label text-muted small fw-bold">Full Name</label>
             <input type="text" name="name" class="form-control rounded-3" required placeholder="John Doe">
           </div>
           <div class="mb-3">
-            <label class="form-label text-muted small fw-bold">Email Address / Phone Number</label>
-            <input type="text" name="contact" class="form-control rounded-3" required placeholder="john@example.com">
+            <label class="form-label text-muted small fw-bold">Email Address &amp; Phone Contact</label>
+            <input type="text" name="contact" class="form-control rounded-3" required placeholder="e.g. john@example.com or +254 700 000 000">
+          </div>
+          <div class="mb-3">
+            <label class="form-label text-muted small fw-bold">Years of Professional Experience</label>
+            <input type="number" name="years_exp" class="form-control rounded-3" required min="0" max="50" placeholder="e.g. 5">
           </div>
           <div class="mb-3">
             <label class="form-label text-muted small fw-bold">Resume / CV (PDF, DOCX)</label>
@@ -119,28 +144,28 @@
           </div>
           <div class="mb-3">
             <label class="form-label text-muted small fw-bold">Why are you a great fit for Waveron?</label>
-            <textarea name="why_fit" class="form-control rounded-3" rows="3" required placeholder="Briefly describe your sales experience and why you would excel at pitching our custom services and SaaS products..."></textarea>
+            <textarea name="why_fit" class="form-control rounded-3" rows="3" required placeholder="Briefly describe your experience and why you would excel in this role..."></textarea>
           </div>
 
           <hr class="my-3">
           <p class="fw-bold text-dark mb-3" style="font-size:0.95rem;">Custom Application Questions</p>
 
           <div class="mb-3">
-            <label class="form-label text-muted small fw-bold">1. What is the largest deal you have personally closed?</label>
-            <p class="text-muted" style="font-size:0.78rem; margin-top:-4px;">Include the product/service sold, approximate deal value, and your specific role in the sale.</p>
-            <textarea name="largest_deal" class="form-control rounded-3" rows="4" required placeholder="E.g. Closed a KSh 2.5M ERP implementation for a logistics company — I prospected the lead, ran all demos, and negotiated the contract..."></textarea>
+            <label class="form-label text-muted small fw-bold" id="q1_label">1. What is the largest deal you have personally closed?</label>
+            <p class="text-muted" id="q1_desc" style="font-size:0.78rem; margin-top:-4px;">Include the product/service sold, approximate deal value, and your specific role in the sale.</p>
+            <textarea name="largest_deal" class="form-control rounded-3" rows="4" required placeholder="E.g. Closed a KSh 2.5M ERP implementation..."></textarea>
           </div>
 
           <div class="mb-3">
-            <label class="form-label text-muted small fw-bold">2. Describe a sale you are particularly proud of.</label>
-            <p class="text-muted" style="font-size:0.78rem; margin-top:-4px;">What was the client's challenge, how did you approach the opportunity, and what was the outcome?</p>
-            <textarea name="proud_sale" class="form-control rounded-3" rows="4" required placeholder="The client was struggling with customer churn. I positioned our CRM as a retention tool, ran a 2-week trial, and converted them to a 12-month contract..."></textarea>
+            <label class="form-label text-muted small fw-bold" id="q2_label">2. Describe a sale you are particularly proud of.</label>
+            <p class="text-muted" id="q2_desc" style="font-size:0.78rem; margin-top:-4px;">What was the client's challenge, how did you approach the opportunity, and what was the outcome?</p>
+            <textarea name="proud_sale" class="form-control rounded-3" rows="4" required placeholder="Describe the opportunity..."></textarea>
           </div>
 
           <div class="mb-4">
-            <label class="form-label text-muted small fw-bold">3. If hired, how would you find your first three potential clients for Waveron Technologies within the first 30 days?</label>
-            <p class="text-muted" style="font-size:0.78rem; margin-top:-4px;">Please be as specific as possible.</p>
-            <textarea name="first_clients" class="form-control rounded-3" rows="4" required placeholder="Week 1: I would map SMEs in Westlands using Google Maps and LinkedIn, targeting founders with active Facebook/Instagram pages but no professional website. Week 2..."></textarea>
+            <label class="form-label text-muted small fw-bold" id="q3_label">3. If hired, how would you find your first three potential clients for Waveron Technologies within the first 30 days?</label>
+            <p class="text-muted" id="q3_desc" style="font-size:0.78rem; margin-top:-4px;">Please be as specific as possible.</p>
+            <textarea name="first_clients" class="form-control rounded-3" rows="4" required placeholder="Describe your 30-day outreach strategy..."></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary w-100 rounded-pill py-2 fw-bold">Submit Application</button>
@@ -184,24 +209,77 @@
                             <div class="card border-0 shadow-sm border-top border-primary border-4 rounded-4">
                                 <div class="card-body p-4">
                                     <h4 class="fw-bold mb-4 text-center">Referral Form</h4>
-                                    <form onsubmit="event.preventDefault(); const code = 'WVRN-' + Math.random().toString(36).substr(2, 6).toUpperCase(); document.getElementById('referralCodeDisplay').textContent = code; const refModal = new bootstrap.Modal(document.getElementById('referralSuccessModal')); refModal.show(); this.reset();">
-                                        <div class="mb-3">
-                                            <label class="form-label text-muted small">Your Name</label>
-                                            <input type="text" class="form-control" required placeholder="John Doe">
+                                    @if (session('referral_success'))
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            Referral submitted successfully! Your tracking code is: <strong>{{ session('referral_code') }}</strong>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
-                                        <div class="mb-3">
-                                            <label class="form-label text-muted small">Your Email / Phone</label>
-                                            <input type="text" class="form-control" required placeholder="To contact you for payout">
+                                        <script>
+                                            document.addEventListener("DOMContentLoaded", function() {
+                                                document.getElementById('referralCodeDisplay').textContent = "{{ session('referral_code') }}";
+                                                const refModal = new bootstrap.Modal(document.getElementById('referralSuccessModal'));
+                                                refModal.show();
+                                            });
+                                        </script>
+                                    @endif
+
+                                    @if ($errors->any() && !session('success'))
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <ul class="mb-0">
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
-                                        <div class="mb-3">
-                                            <label class="form-label text-muted small">Client / Company Name</label>
-                                            <input type="text" class="form-control" required placeholder="Acme Corp">
+                                    @endif
+
+                                    <form action="{{ route('referrals.submit') }}" method="POST">
+                                        @csrf
+                                        <div class="row g-3 mb-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label text-muted small fw-semibold">Your Name <span class="text-danger">*</span></label>
+                                                <input type="text" name="referrer_name" class="form-control" required placeholder="John Doe">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label text-muted small fw-semibold">Your Email or Phone <span class="text-danger">*</span></label>
+                                                <input type="text" name="referrer_contact" class="form-control" required placeholder="For tracking code & payout">
+                                            </div>
                                         </div>
+
+                                        <div class="p-3 bg-light rounded-3 mb-3 border">
+                                            <div class="text-xs uppercase fw-bold text-primary mb-2" style="letter-spacing: 0.5px;">Client Lead Information</div>
+                                            <div class="mb-2">
+                                                <label class="form-label text-muted small fw-semibold">Company / Client Name <span class="text-danger">*</span></label>
+                                                <input type="text" name="client_name" class="form-control" required placeholder="Acme Enterprises or Client Full Name">
+                                            </div>
+                                            <div class="row g-2 mb-2">
+                                                <div class="col-md-12">
+                                                    <label class="form-label text-muted small">Key Contact Person (Optional)</label>
+                                                    <input type="text" name="client_contact_person" class="form-control" placeholder="E.g. Managing Director, Sarah Muthoni">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-muted small">Client Email (Optional)</label>
+                                                    <input type="email" name="client_email" class="form-control" placeholder="client@company.co.ke">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-muted small">Client Phone (Optional)</label>
+                                                    <input type="text" name="client_phone" class="form-control" placeholder="+254 7XX XXX XXX">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label text-muted small fw-semibold">What services do they need?</label>
+                                            <textarea name="services_needed" class="form-control" rows="2" placeholder="E.g. Custom web portal, mobile app development, branding..."></textarea>
+                                        </div>
+
                                         <div class="mb-4">
-                                            <label class="form-label text-muted small">What services do they need?</label>
-                                            <textarea class="form-control" rows="2" placeholder="E.g. A new e-commerce website and logo design."></textarea>
+                                            <label class="form-label text-muted small">Additional Notes / Intro Context (Optional)</label>
+                                            <textarea name="notes" class="form-control" rows="2" placeholder="E.g. They are planning to launch next month and looking for a reputable software partner."></textarea>
                                         </div>
-                                        <button type="submit" class="btn btn-primary w-100 rounded-pill py-2 fw-bold">Submit Client Referral</button>
+
+                                        <button type="submit" class="btn btn-primary w-100 rounded-pill py-2.5 fw-bold shadow-sm">Submit Client Referral</button>
                                     </form>
                                 </div>
                             </div>
@@ -236,8 +314,6 @@
     </div>
   </div>
 </div>
-
-@include('partials.footer')
 
 @endsection
 
@@ -410,6 +486,63 @@ document.addEventListener('DOMContentLoaded', function() {
             transform: translateZ(${Math.random() * 100}px);
         `;
         background.appendChild(stream);
+    }
+
+    // Dynamic Apply Modal Labels & Fields Configuration
+    const applyModal = document.getElementById('applyModal');
+    if (applyModal) {
+        applyModal.addEventListener('show.bs.modal', function(event) {
+            const button = event.relatedTarget;
+            const roleId = button.getAttribute('data-role-id');
+            const roleTitle = button.getAttribute('data-role-title');
+            
+            const modalTitle = applyModal.querySelector('.modal-title');
+            const roleIdInput = applyModal.querySelector('#modal_career_role_id');
+            
+            modalTitle.textContent = 'Apply for ' + roleTitle;
+            roleIdInput.value = roleId;
+
+            // Check if the title is sales-related or general/default
+            const isSales = roleTitle.toLowerCase().includes('sales') || roleTitle.toLowerCase().includes('general') || !roleId;
+
+            const q1Label = applyModal.querySelector('#q1_label');
+            const q1Desc = applyModal.querySelector('#q1_desc');
+            const q1Input = applyModal.querySelector('textarea[name="largest_deal"]');
+
+            const q2Label = applyModal.querySelector('#q2_label');
+            const q2Desc = applyModal.querySelector('#q2_desc');
+            const q2Input = applyModal.querySelector('textarea[name="proud_sale"]');
+
+            const q3Label = applyModal.querySelector('#q3_label');
+            const q3Desc = applyModal.querySelector('#q3_desc');
+            const q3Input = applyModal.querySelector('textarea[name="first_clients"]');
+
+            if (isSales) {
+                q1Label.textContent = '1. What is the largest deal you have personally closed?';
+                q1Desc.textContent = 'Include the product/service sold, approximate deal value, and your specific role in the sale.';
+                q1Input.placeholder = 'E.g. Closed a KSh 2.5M ERP implementation for a logistics company — I prospected the lead, ran all demos, and negotiated the contract...';
+
+                q2Label.textContent = '2. Describe a sale you are particularly proud of.';
+                q2Desc.textContent = 'What was the client\'s challenge, how did you approach the opportunity, and what was the outcome?';
+                q2Input.placeholder = 'The client was struggling with customer churn. I positioned our CRM as a retention tool, ran a 2-week trial, and converted them to a 12-month contract...';
+
+                q3Label.textContent = '3. If hired, how would you find your first three potential clients for Waveron Technologies within the first 30 days?';
+                q3Desc.textContent = 'Please be as specific as possible.';
+                q3Input.placeholder = 'Week 1: I would map SMEs in Westlands using Google Maps and LinkedIn, targeting founders with active Facebook/Instagram pages but no professional website. Week 2...';
+            } else {
+                q1Label.textContent = '1. What is the largest or most complex technical system you have architected/delivered?';
+                q1Desc.textContent = 'Include the technologies used, scale of the project, and your specific architectural contributions.';
+                q1Input.placeholder = 'E.g. Architected a real-time telemetry pipeline for a logistics company using Go and Kafka, handling 50k concurrent requests...';
+
+                q2Label.textContent = '2. Describe a technical achievement or system migration you are particularly proud of.';
+                q2Desc.textContent = 'What was the technical bottleneck or problem, how did you solve it, and what was the engineering impact?';
+                q2Input.placeholder = 'Convinced a skeptical team to migrate a legacy monolith to Go microservices, improving throughput by 10x and database load by 40%...';
+
+                q3Label.textContent = '3. If hired, what is your 30-day plan to integrate and start contributing to Waveron\'s technical stack?';
+                q3Desc.textContent = 'Describe how you will familiarize yourself with our codebase, architecture, and systems.';
+                q3Input.placeholder = 'Week 1: Local setup, audit dependencies. Week 2: Fix minor backlogged bugs, write unit tests. Week 3: Partner with senior devs on core tasks...';
+            }
+        });
     }
 });
 </script>

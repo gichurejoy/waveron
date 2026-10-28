@@ -9,6 +9,8 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
+use Illuminate\Mail\Mailables\Address;
+
 class QuoteSubmittedMail extends Mailable
 {
     use Queueable, SerializesModels;
@@ -28,8 +30,26 @@ class QuoteSubmittedMail extends Mailable
      */
     public function envelope(): Envelope
     {
+        $email = $this->quote->contact_email ?? null;
+        $name = $this->quote->contact_name ?? 'Client';
+        $quoteNum = $this->quote->quote_number ?? '';
+
+        $subject = "New Quote Submitted: {$quoteNum}";
+        if ($email) {
+            $subject .= " - {$email}";
+        }
+
+        $fromName = $email ? "{$name} ({$email}) via Waveron" : "{$name} via Waveron";
+
+        $replyTo = [];
+        if ($email && filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $replyTo[] = new Address($email, $name);
+        }
+
         return new Envelope(
-            subject: 'New Quote Submitted: ' . ($this->quote->quote_number ?? ''),
+            from: new Address(config('mail.from.address'), $fromName),
+            replyTo: $replyTo,
+            subject: $subject,
         );
     }
 

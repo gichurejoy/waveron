@@ -28,10 +28,10 @@ class BlogSeeder extends Seeder
         User::updateOrCreate(
             ['email' => 'admin@waverontechnologies.co.ke'],
             [
-                'name' => 'Admin User',
-                'password' => Hash::make('password'),
+                'name' => 'Waveron Admin',
                 'role' => 'Administrator',
-                'avatar' => null
+                'password' => 'Yelloe5433',
+                'avatar' => null,
             ]
         );
 
@@ -40,9 +40,9 @@ class BlogSeeder extends Seeder
             ['email' => 'info@waverontechnologies.co.ke'],
             [
                 'name' => 'Joy Gichure',
-                'password' => Hash::make('password'),
                 'role' => 'Marketing Lead',
-                'avatar' => null
+                'password' => 'Yelloe5433',
+                'avatar' => null,
             ]
         );
     }

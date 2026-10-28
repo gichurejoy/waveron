@@ -16,6 +16,10 @@ class SecurityHeaders
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if (app()->environment('local', 'testing')) {
+            return $next($request);
+        }
+
         $response = $next($request);
 
         // ── HSTS ──────────────────────────────────────────────────────────────

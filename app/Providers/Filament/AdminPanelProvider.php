@@ -29,7 +29,9 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->domain(env('FILAMENT_DOMAIN', 'admin.waverontechnologies.co.ke'))
             ->login()
-            ->darkMode(true)
+            ->darkMode(false)
+            ->sidebarCollapsibleOnDesktop()
+            ->font('Inter')
             ->colors([
                 'primary'   => Color::Emerald,
                 'gray'      => Color::Slate,
@@ -38,13 +40,41 @@ class AdminPanelProvider extends PanelProvider
                 'warning'   => Color::Amber,
                 'danger'    => Color::Rose,
             ])
+            ->renderHook(
+                \Filament\View\PanelsRenderHook::HEAD_END,
+                fn (): string => \Illuminate\Support\Facades\Blade::render('
+                    @vite(["resources/css/app.css"])
+                    <script>
+                        (function() {
+                            const savedWidth = localStorage.getItem("filament-sidebar-width");
+                            if (savedWidth) {
+                                document.documentElement.style.setProperty("--sidebar-width", `${savedWidth}px`);
+                            }
+                            
+                            // Ctrl+K / Cmd+K listener to focus global search
+                            document.addEventListener("keydown", function(e) {
+                                if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+                                    e.preventDefault();
+                                    document.querySelector(".fi-global-search input, div.fi-global-search-field input, input[placeholder*=\"Search\"]")?.focus();
+                                }
+                            });
+                        })();
+                    </script>
+                '),
+            )
+            ->renderHook(
+                \Filament\View\PanelsRenderHook::BODY_END,
+                fn (): string => view('filament.partials.resizable-sidebar')->render(),
+            )
             ->navigationGroups([
                 'Leads & Inquiries',
-                'Blog',
+                'Careers & Referrals',
+                'Financial Ledgers',
+                'Content Management',
                 'System',
             ])
             ->brandName('Waveron Admin')
-            ->brandLogo(null)
+            ->brandLogo(fn () => view('filament.partials.sidebar-header'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
@@ -53,6 +83,8 @@ class AdminPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 LeadsOverviewWidget::class,
+                \App\Filament\Widgets\FinancialOverviewWidget::class,
+                \App\Filament\Widgets\RecentLeadsWidget::class,
                 AccountWidget::class,
             ])
             ->middleware([

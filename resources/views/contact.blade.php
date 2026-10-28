@@ -72,7 +72,7 @@
                                         <label for="subject" class="form-label">Subject</label>
                                         <input type="text" class="form-control @error('subject') is-invalid @enderror" 
                                             id="subject" name="subject" required placeholder="How can we help?"
-                                            value="{{ old('subject') }}">
+                                            value="{{ request('subject') ?? old('subject') }}">
                                         @error('subject')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -83,7 +83,7 @@
                                         <label for="message" class="form-label">Message</label>
                                         <textarea class="form-control @error('message') is-invalid @enderror" 
                                             id="message" name="message" rows="5" required 
-                                            placeholder="Tell us about your project...">{{ old('message') }}</textarea>
+                                            placeholder="Tell us about your project...">{{ request('message') ?? old('message') }}</textarea>
                                         @error('message')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -149,8 +149,6 @@
         </div>
     </div>
 </div>
-
-@include('partials.footer')
 
 @push('styles')
 <style>

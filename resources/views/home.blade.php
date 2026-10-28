@@ -86,11 +86,11 @@
                         <div class="project-card" style="height: 300px;">
                             <div class="position-relative h-100 rounded-3 overflow-hidden" style="background: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/9b13123e-ec51-4d3a-b994-c64aab4555ba_800w.jpg') center/cover;">
                                 <span class="badge bg-light text-dark position-absolute top-0 start-0 m-3">
-                                    <i class="bi bi-activity"></i>
+                                    <i class="bi bi-check2-circle"></i>
                                 </span>
-                                <span class="badge bg-light bg-opacity-25 text-white position-absolute top-0 end-0 m-3 backdrop-blur">Health</span>
+                                <span class="badge bg-light bg-opacity-25 text-white position-absolute top-0 end-0 m-3 backdrop-blur">Action Tracker</span>
                                 <div class="position-absolute bottom-0 start-0 p-3 text-white">
-                                    <h5 class="mb-0">Lead Generator</h5>
+                                    <h5 class="mb-0">Waveron Opportunities</h5>
                                 </div>
                             </div>
                         </div>
@@ -212,7 +212,7 @@
                         <p class="text-muted small mb-4">Streamline product delivery with our iterative sprint methodology and continuous feedback loops.</p>
 
                         <div class="bg-light rounded-3 mb-3 overflow-hidden" style="height: 120px;">
-                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f03d228e-5eab-4149-af94-7d6c5c2eb5c5_800w.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="Agile Development">
+                            <img src="{{ asset('images/services/short-sprints.webp') }}" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="Short development sprints" loading="lazy">
                         </div>
 
                         <span class="badge bg-success bg-opacity-10 text-success">
@@ -350,7 +350,7 @@
             <!-- Main Feature - Product Development -->
             <div class="col-lg-8">
                 <div class="card border-0 shadow-sm h-100">
-                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/8eb65de1-5616-4a1b-a6cb-f2a48d70bcb7_1600w.jpg" class="card-img-top" alt="Sprint workshop" style="height: 400px; object-fit: cover;">
+                    <img src="{{ asset('images/services/custom-software-web-apps.webp') }}" class="card-img-top" alt="Custom software and web app development" style="height: 400px; object-fit: cover;">
                     <div class="card-body p-4">
                         <div class="d-flex gap-2 mb-3">
                             <span class="badge bg-success rounded-pill px-3 py-2">ENGINEERING</span>
@@ -381,7 +381,7 @@
                                 <span class="badge bg-light text-dark border rounded-pill">BRANDING</span>
                             </div>
                             <p class="text-muted small mb-3">Cohesive visual identities and component libraries that ensure consistency across all your digital touchpoints.</p>
-                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/97aab9d9-1ab5-4a9b-a254-33095a9fadf2_800w.jpg" class="img-fluid rounded-3" alt="Design system">
+                            <img src="{{ asset('images/services/brand-identity-design.webp') }}" class="img-fluid rounded-3" style="object-fit: cover;" alt="Brand identity and design" loading="lazy">
                         </div>
                     </div>
 
@@ -393,7 +393,7 @@
                                 <span class="badge bg-light text-dark border rounded-pill">WEB DEV</span>
                             </div>
                             <p class="text-muted small mb-3">Fast, SEO-optimized websites built on modern frameworks to drive engagement and conversions.</p>
-                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/452fb7c8-d2af-414b-9dd0-99ba9a76cc5a_800w.jpg" class="img-fluid rounded-3" alt="Website performance">
+                            <img src="{{ asset('images/services/websites-online-stores.webp') }}" class="img-fluid rounded-3" style="object-fit: cover;" alt="Websites and online stores" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -410,7 +410,7 @@
                             <span class="badge bg-success bg-opacity-10 text-success rounded-pill">STRATEGY</span>
                         </div>
                         <p class="text-muted small mb-3">Data-driven insights to validate your product ideas and identify key market opportunities.</p>
-                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/3499908d-d502-44d2-9721-9b471b0460bb_800w.jpg" class="img-fluid rounded-3" alt="Research">
+                        <img src="{{ asset('images/services/business-systems-integrations.webp') }}" class="img-fluid rounded-3" style="object-fit: cover;" alt="Business systems and integrations" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -420,7 +420,7 @@
                     <div class="card-body p-4">
                         <h5 class="fw-bold mb-3">Digital Marketing & Content</h5>
                         <p class="text-muted small mb-3">Compelling content strategies and targeted campaigns to grow your audience and boost ROI.</p>
-                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f03d228e-5eab-4149-af94-7d6c5c2eb5c5_800w.jpg" class="img-fluid rounded-3" alt="Motion">
+                        <img src="{{ asset('images/services/seo-digital-marketing.webp') }}" class="img-fluid rounded-3" style="object-fit: cover;" alt="SEO and digital marketing growth" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -430,7 +430,7 @@
                     <div class="card-body p-4">
                         <h5 class="fw-bold mb-3">Strategic Partnerships</h5>
                         <p class="text-muted small mb-3">We work as an extension of your team, providing ongoing support and strategic guidance.</p>
-                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0153dbec-e119-4666-b642-3f8e0284fb69_800w.jpg" class="img-fluid rounded-3" alt="Partnership">
+                        <img src="{{ asset('images/services/ongoing-support-care.webp') }}" class="img-fluid rounded-3" style="object-fit: cover;" alt="Ongoing website support and security" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -441,107 +441,250 @@
 <!-- Pricing Section -->
 <section id="pricing" class="py-5">
     <div class="container">
-        <div class="row mb-5">
+        <div class="row mb-4 align-items-end">
             <div class="col-lg-8">
-                <p class="text-muted mb-2">Transparent pricing</p>
-                <h2 class="display-5 fw-bold mb-3">Plans that match how you ship</h2>
-                <p class="lead text-muted">Clear scopes, fixed sprints, and embedded options. No surprises—just momentum.</p>
+                <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3 py-2 mb-2 fw-bold text-uppercase" style="letter-spacing: 1px; font-size: 0.75rem;">PRICING</span>
+                <h2 class="display-5 fw-bold mb-3">Clear pricing. No surprises.</h2>
+                <p class="lead text-muted mb-0">Fixed quotes before we start. Pay in milestones. Prices are starting points and depend on your scope.</p>
             </div>
-            <div class="col-lg-4 text-lg-end d-flex align-items-center justify-content-lg-end">
-                <a href="{{ route('quote') }}" class="btn btn-dark rounded-pill">
-                    Get a tailored quote
-                    <i class="bi bi-arrow-up-right ms-2"></i>
-                </a>
+            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                <!-- Currency Toggle -->
+                <div class="d-inline-flex align-items-center p-1 bg-light border rounded-pill shadow-sm" id="currency-toggle-wrapper">
+                    <button type="button" class="btn btn-sm rounded-pill px-3 fw-bold active-currency-btn" id="currency-kes-btn" onclick="setPricingCurrency('KES')">KES (Ksh)</button>
+                    <button type="button" class="btn btn-sm rounded-pill px-3 fw-bold text-muted" id="currency-usd-btn" onclick="setPricingCurrency('USD')">USD ($)</button>
+                </div>
             </div>
         </div>
 
-        <div class="row g-4 mb-5 justify-content-center">
-            <!-- Popular / Student -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-2 rounded-4 shadow-sm hover-lift">
-                    <div class="card-body p-4">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h4 class="fw-bold mb-0">Popular</h4>
-                            <span class="badge bg-success rounded-pill px-3 py-2">Students & Portfolio</span>
+        <!-- 4-Card Pricing Grid -->
+        <div class="row g-4 mb-4">
+            <!-- Card 1: Launch -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 border-2 rounded-4 shadow-sm hover-lift d-flex flex-column">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="fw-bold mb-0">Launch</h4>
+                            <span class="badge bg-light text-dark border rounded-pill px-2.5 py-1 small">Starter</span>
                         </div>
 
-                        <div class="mb-4">
-                            <div class="d-flex align-items-baseline gap-2 mb-2">
-                                <h2 class="display-6 fw-bold mb-0">Ksh 65,000</h2>
-                                <span class="text-muted">starting price</span>
+                        <div class="mb-3">
+                            <div class="d-flex align-items-baseline gap-1 mb-1">
+                                <h3 class="display-6 fw-bold mb-0 price-launch">KES 45,000</h3>
                             </div>
-                            <p class="text-muted small">Perfect for personal brands, students, and creative portfolios.</p>
+                            <span class="text-muted small price-sub-launch">starting price (≈ $350)</span>
+                            <p class="text-muted small mt-2 mb-0" style="min-height: 40px;">Personal brands, freelancers, students and portfolios.</p>
                         </div>
 
-                        <ul class="list-unstyled mb-4">
-                            <li class="d-flex gap-3 mb-3">
-                                <i class="bi bi-check-circle-fill text-success"></i>
-                                <span>Professional Portfolio Website</span>
+                        <hr class="my-3">
+
+                        <ul class="list-unstyled mb-4 small flex-grow-1">
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>Up to 5 pages</span>
                             </li>
-                            <li class="d-flex gap-3 mb-3">
-                                <i class="bi bi-check-circle-fill text-success"></i>
-                                <span>Mobile Responsive Design</span>
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>Mobile responsive design</span>
                             </li>
-                            <li class="d-flex gap-3 mb-3">
-                                <i class="bi bi-check-circle-fill text-success"></i>
-                                <span>Basic SEO Setup</span>
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>Contact form + WhatsApp button</span>
                             </li>
-                            <li class="d-flex gap-3 mb-3">
-                                <i class="bi bi-check-circle-fill text-success"></i>
-                                <span>1 Month Support</span>
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>Basic SEO setup</span>
+                            </li>
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>1 month free support</span>
                             </li>
                         </ul>
 
-                        <a href="{{ route('contact') }}" class="btn btn-outline-dark w-100 rounded-pill">
-                            Get Started
+                        <a href="https://wa.me/254798717800?text=Hi%20Waveron%2C%20I%27m%20interested%20in%20the%20Launch%20plan.%20Can%20we%20talk%3F" 
+                           target="_blank" 
+                           rel="noopener" 
+                           aria-label="Chat with Waveron on WhatsApp" 
+                           class="btn btn-outline-dark w-100 rounded-pill d-inline-flex align-items-center justify-content-center gap-2 mt-auto">
+                            <i class="bi bi-whatsapp"></i> Get Started
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Custom / Quote -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-success border-2 rounded-4 shadow-lg position-relative hover-lift">
-                    <div class="card-body p-4 bg-success bg-opacity-10">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h4 class="fw-bold mb-0">Custom</h4>
-                            <span class="badge bg-success bg-opacity-25 text-success border border-success rounded-pill">Enterprise & Agency</span>
+            <!-- Card 2: Business [Popular badge] -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 border-success border-2 rounded-4 shadow-lg position-relative hover-lift d-flex flex-column" style="background-color: #f6fdf8;">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="fw-bold mb-0 text-success">Business</h4>
+                            <span class="badge bg-success rounded-pill px-3 py-1.5 shadow-sm">Popular</span>
                         </div>
 
-                        <div class="mb-4">
-                            <div class="d-flex align-items-baseline gap-2 mb-2">
-                                <h2 class="display-6 fw-bold mb-0">Custom</h2>
-                                <span class="text-muted">tailored to you</span>
+                        <div class="mb-3">
+                            <div class="d-flex align-items-baseline gap-1 mb-1">
+                                <h3 class="display-6 fw-bold mb-0 price-business">KES 120,000</h3>
                             </div>
-                            <p class="text-muted small">For businesses needing scalable, high-performance solutions.</p>
+                            <span class="text-muted small price-sub-business">starting price (≈ $950)</span>
+                            <p class="text-muted small mt-2 mb-0" style="min-height: 40px;">Small and growing businesses that need a site that brings in customers.</p>
                         </div>
 
-                        <ul class="list-unstyled mb-4">
-                            <li class="d-flex gap-3 mb-3">
-                                <i class="bi bi-check-circle-fill text-success"></i>
-                                <span>Full-Stack Development</span>
+                        <hr class="my-3">
+
+                        <ul class="list-unstyled mb-4 small flex-grow-1">
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>Up to 12 pages</span>
                             </li>
-                            <li class="d-flex gap-3 mb-3">
-                                <i class="bi bi-check-circle-fill text-success"></i>
-                                <span>Advanced Design Systems</span>
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>Custom design to your brand</span>
                             </li>
-                            <li class="d-flex gap-3 mb-3">
-                                <i class="bi bi-check-circle-fill text-success"></i>
-                                <span>API Integrations & Security</span>
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>Blog or news section</span>
                             </li>
-                            <li class="d-flex gap-3 mb-3">
-                                <i class="bi bi-check-circle-fill text-success"></i>
-                                <span>Dedicated Project Manager</span>
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>SEO setup + Google Business Profile</span>
+                            </li>
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>Google Analytics</span>
+                            </li>
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>3 months free support</span>
                             </li>
                         </ul>
 
-                        <a href="{{ route('quote') }}" class="btn btn-success w-100 rounded-pill">
-                            Request a Quote
-                            <i class="bi bi-arrow-right ms-2"></i>
+                        <a href="https://wa.me/254798717800?text=Hi%20Waveron%2C%20I%27m%20interested%20in%20the%20Business%20plan.%20Can%20we%20talk%3F" 
+                           target="_blank" 
+                           rel="noopener" 
+                           aria-label="Chat with Waveron on WhatsApp" 
+                           class="btn btn-success w-100 rounded-pill d-inline-flex align-items-center justify-content-center gap-2 mt-auto shadow-sm">
+                            <i class="bi bi-whatsapp"></i> Get Started
                         </a>
                     </div>
                 </div>
             </div>
+
+            <!-- Card 3: Growth -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 border-2 rounded-4 shadow-sm hover-lift d-flex flex-column">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="fw-bold mb-0">Growth</h4>
+                            <span class="badge bg-light text-dark border rounded-pill px-2.5 py-1 small">E-commerce</span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex align-items-baseline gap-1 mb-1">
+                                <h3 class="display-6 fw-bold mb-0 price-growth">KES 280,000</h3>
+                            </div>
+                            <span class="text-muted small price-sub-growth">starting price (≈ $2,200)</span>
+                            <p class="text-muted small mt-2 mb-0" style="min-height: 40px;">E-commerce stores and businesses that need custom features.</p>
+                        </div>
+
+                        <hr class="my-3">
+
+                        <ul class="list-unstyled mb-4 small flex-grow-1">
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>Online store or custom web app</span>
+                            </li>
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>Payment integration (M-Pesa, card, PayPal)</span>
+                            </li>
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>Customer accounts + admin dashboard</span>
+                            </li>
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>Third-party integrations</span>
+                            </li>
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>3 months free support</span>
+                            </li>
+                        </ul>
+
+                        <a href="https://wa.me/254798717800?text=Hi%20Waveron%2C%20I%27m%20interested%20in%20the%20Growth%20plan.%20Can%20we%20talk%3F" 
+                           target="_blank" 
+                           rel="noopener" 
+                           aria-label="Chat with Waveron on WhatsApp" 
+                           class="btn btn-outline-dark w-100 rounded-pill d-inline-flex align-items-center justify-content-center gap-2 mt-auto">
+                            <i class="bi bi-whatsapp"></i> Get Started
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Enterprise -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 border-2 rounded-4 shadow-sm hover-lift d-flex flex-column">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="fw-bold mb-0">Enterprise</h4>
+                            <span class="badge bg-light text-dark border rounded-pill px-2.5 py-1 small">Custom Build</span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex align-items-baseline gap-1 mb-1">
+                                <h3 class="display-6 fw-bold mb-0">Custom</h3>
+                            </div>
+                            <span class="text-muted small">tailored to your scope</span>
+                            <p class="text-muted small mt-2 mb-0" style="min-height: 40px;">Organisations that need custom software, business systems or long-term development.</p>
+                        </div>
+
+                        <hr class="my-3">
+
+                        <ul class="list-unstyled mb-4 small flex-grow-1">
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>Custom software &amp; business systems</span>
+                            </li>
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>ERP, CRM and API integrations</span>
+                            </li>
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>Advanced security</span>
+                            </li>
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>Dedicated project manager</span>
+                            </li>
+                            <li class="d-flex gap-2 mb-2.5">
+                                <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                                <span>Flexible team that scales with you</span>
+                            </li>
+                        </ul>
+
+                        <a href="{{ route('quote') }}" class="btn btn-dark w-100 rounded-pill d-inline-flex align-items-center justify-content-center gap-2 mt-auto">
+                            Request a Quote <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Care Plan Add-On Row -->
+        <div class="p-3 p-md-4 rounded-4 bg-light border d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 mb-5">
+            <div class="d-flex align-items-center gap-3">
+                <div class="bg-success bg-opacity-10 text-success p-2 rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 44px; height: 44px;">
+                    <i class="bi bi-shield-check fs-5"></i>
+                </div>
+                <div>
+                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-2.5 py-1 mb-1 small fw-bold">CARE PLAN ADD-ON</span>
+                    <p class="mb-0 text-dark small fw-medium">Keep your site fast, secure and updated. <strong id="care-plan-text">From KES 8,000 / $65 per month.</strong> Includes updates, backups, security monitoring and small changes.</p>
+                </div>
+            </div>
+            <a href="https://wa.me/254798717800?text=Hi%20Waveron%2C%20I%27d%20like%20to%20discuss%20the%20Care%20Plan." target="_blank" rel="noopener" aria-label="Chat with Waveron on WhatsApp" class="btn btn-outline-dark btn-sm rounded-pill px-3 whitespace-nowrap">
+                Add Care Plan
+            </a>
         </div>
 
         <!-- Pricing Footer Info -->
@@ -551,30 +694,27 @@
                     <div class="bg-success rounded-circle" style="width: 8px; height: 8px;"></div>
                     <span class="badge bg-light text-dark border">What's included</span>
                 </div>
-                <p>Every plan includes weekly demos, shared roadmaps, async updates, and access to source files or repos.</p>
+                <p>Every plan includes weekly updates, a shared roadmap and full ownership of your source code.</p>
             </div>
             <div class="col-lg-4">
                 <div class="d-flex align-items-center gap-2 mb-3">
                     <div class="bg-success rounded-circle" style="width: 8px; height: 8px;"></div>
                     <span class="badge bg-light text-dark border">Flexible scope</span>
                 </div>
-                <p>Pause between sprints. Scale pods up or down as priorities shift.</p>
+                <p>Start small and add features as you grow. Pause between phases anytime.</p>
             </div>
             <div class="col-lg-4">
                 <div class="d-flex align-items-center gap-2 mb-3">
                     <div class="bg-success rounded-circle" style="width: 8px; height: 8px;"></div>
                     <span class="badge bg-light text-dark border">Custom engagements</span>
                 </div>
-                <p>Have a unique scope? We'll tailor a plan and price to your goals.</p>
+                <p>Not sure which plan fits? Message us and we'll recommend one in plain language.</p>
             </div>
         </div>
     </div>
 </section>
 
-
-@include('partials.footer')
 @push('styles')
-
 <style>
     :root {
         --primary-color: #006400;
@@ -680,19 +820,18 @@
     .portfolio-showcase .btn,
     .case-study .btn,
     #pricing .btn {
-        padding: 0.8rem 2rem;
+        padding: 0.8rem 1.8rem;
         border-radius: 50px;
-        text-transform: uppercase;
-        font-weight: 500;
-        letter-spacing: 0.5px;
-        transition: all 0.3s ease;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        transition: all 0.25s ease;
     }
 
     .hero .btn-lg,
     .portfolio-showcase .btn-lg,
     .case-study .btn-lg,
     #pricing .btn-lg {
-        padding: 1rem 2.5rem;
+        padding: 0.9rem 2.2rem;
     }
 
     .hero .btn:hover,
@@ -703,10 +842,63 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
-    .hero-image {
-        filter: hue-rotate(85deg) saturate(120%) brightness(85%);
+    .hover-lift {
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .hover-lift:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    /* Currency toggle styling */
+    .active-currency-btn {
+        background-color: var(--waveron-green, #006400) !important;
+        color: #ffffff !important;
+        box-shadow: 0 2px 6px rgba(0, 100, 0, 0.25);
     }
 </style>
 @endpush
 
+<script>
+    function setPricingCurrency(currency) {
+        const kesBtn = document.getElementById('currency-kes-btn');
+        const usdBtn = document.getElementById('currency-usd-btn');
+        const priceLaunch = document.querySelector('.price-launch');
+        const priceSubLaunch = document.querySelector('.price-sub-launch');
+        const priceBusiness = document.querySelector('.price-business');
+        const priceSubBusiness = document.querySelector('.price-sub-business');
+        const priceGrowth = document.querySelector('.price-growth');
+        const priceSubGrowth = document.querySelector('.price-sub-growth');
+        const carePlanText = document.getElementById('care-plan-text');
+
+        if (currency === 'USD') {
+            usdBtn.classList.add('active-currency-btn');
+            usdBtn.classList.remove('text-muted');
+            kesBtn.classList.remove('active-currency-btn');
+            kesBtn.classList.add('text-muted');
+
+            if (priceLaunch) priceLaunch.textContent = '$350';
+            if (priceSubLaunch) priceSubLaunch.textContent = 'starting price (≈ KES 45,000)';
+            if (priceBusiness) priceBusiness.textContent = '$950';
+            if (priceSubBusiness) priceSubBusiness.textContent = 'starting price (≈ KES 120,000)';
+            if (priceGrowth) priceGrowth.textContent = '$2,200';
+            if (priceSubGrowth) priceSubGrowth.textContent = 'starting price (≈ KES 280,000)';
+            if (carePlanText) carePlanText.textContent = 'From $65 / KES 8,000 per month.';
+        } else {
+            kesBtn.classList.add('active-currency-btn');
+            kesBtn.classList.remove('text-muted');
+            usdBtn.classList.remove('active-currency-btn');
+            usdBtn.classList.add('text-muted');
+
+            if (priceLaunch) priceLaunch.textContent = 'KES 45,000';
+            if (priceSubLaunch) priceSubLaunch.textContent = 'starting price (≈ $350)';
+            if (priceBusiness) priceBusiness.textContent = 'KES 120,000';
+            if (priceSubBusiness) priceSubBusiness.textContent = 'starting price (≈ $950)';
+            if (priceGrowth) priceGrowth.textContent = 'KES 280,000';
+            if (priceSubGrowth) priceSubGrowth.textContent = 'starting price (≈ $2,200)';
+            if (carePlanText) carePlanText.textContent = 'From KES 8,000 / $65 per month.';
+        }
+    }
+</script>
 @endsection

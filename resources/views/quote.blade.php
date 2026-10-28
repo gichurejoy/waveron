@@ -165,9 +165,8 @@
                                     </div>
                                     
                                     <div class="col-lg-8 ps-lg-5">
-                                        <form action="{{ route('contact.submit') }}" method="POST">
+                                        <form action="{{ route('quote.fast-inquiry') }}" method="POST">
                                             @csrf
-                                            <input type="hidden" name="subject" value="New Project Inquiry (Fast Track)">
                                             
                                             <div class="row g-3">
                                                 <div class="col-md-6">
@@ -233,6 +232,10 @@
                     <input type="email" id="estimate-email-input" class="form-control rounded-3" placeholder="name@company.com" required>
                     <div class="invalid-feedback" id="estimate-email-error-msg">Please enter a valid email address.</div>
                 </div>
+                <div class="mb-3">
+                    <label for="estimate-company-input" class="form-label small fw-bold">Company Name (Optional)</label>
+                    <input type="text" id="estimate-company-input" class="form-control rounded-3" placeholder="e.g. Acme Corp">
+                </div>
             </div>
             <div class="modal-footer border-top-0 pt-0">
                 <button type="button" class="btn btn-light rounded-pill px-3" data-bs-dismiss="modal">Cancel</button>
@@ -244,8 +247,6 @@
         </div>
     </div>
 </div>
-
-@include('partials.footer')
 
 @push('styles')
 <style>
@@ -622,6 +623,34 @@ document.addEventListener('DOMContentLoaded', () => {
             modalInstance.show();
         };
         pdfEstimateBtn.onclick = () => openPdf(summary);
+
+        // Dynamically update the 'Share my project details' contact page link
+        const shareDetailsBtn = document.getElementById('shareDetailsBtn');
+        if (shareDetailsBtn) {
+            const { serviceLabel, complexityLabel, timelineLabel } = summary;
+            const msgLines = [
+                `Hi Waveron,`,
+                ``,
+                `I generated an estimate using the interactive calculator:`,
+                `- Service: ${serviceLabel}`,
+                `- Complexity: ${complexityLabel}`,
+                `- Timeline: ${timelineLabel}`,
+                `- Selected Features:`,
+                ...(selectedFeatures.length ? selectedFeatures.map(f => `  * ${f}`) : [`  * None`]),
+                `- Selected Add-ons:`,
+                ...(summary.addonNames.length ? summary.addonNames.map(a => `  * ${a}`) : [`  * None`]),
+                `- Estimated Total: ${formatCurrency(total)}`,
+                `- Est. Monthly (6mo): ${formatCurrency(monthly)}/mo`,
+                ``,
+                `Let's discuss my project.`
+            ];
+            const subject = `Quote Request: ${serviceLabel}`;
+            const messageText = msgLines.join('\n');
+            const url = new URL('{{ route("contact") }}', window.location.origin);
+            url.searchParams.set('subject', subject);
+            url.searchParams.set('message', messageText);
+            shareDetailsBtn.href = url.toString();
+        }
     }
 
     function renderBreakdown({ base, complexityMultiplier, timeline, featureAdj, addonTotal, total, monthly }) {
@@ -674,10 +703,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle sending estimate via AJAX
     const sendEstimateSubmitBtn = document.getElementById('sendEstimateSubmitBtn');
     const estimateEmailInput = document.getElementById('estimate-email-input');
+    const estimateCompanyInput = document.getElementById('estimate-company-input');
     const sendEstimateSpinner = document.getElementById('sendEstimateSpinner');
 
     sendEstimateSubmitBtn.addEventListener('click', () => {
         const email = estimateEmailInput.value.trim();
+        const company = estimateCompanyInput ? estimateCompanyInput.value.trim() : '';
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         
         if (!email || !emailRegex.test(email)) {
@@ -703,6 +734,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             body: JSON.stringify({
                 email: email,
+                company: company,
                 summary: window.activeEstimateSummary
             })
         })
@@ -725,6 +757,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 
                 estimateEmailInput.value = '';
+                if (estimateCompanyInput) estimateCompanyInput.value = '';
             } else {
                 if (window.showToast) {
                     window.showToast('Error: ' + (data.message || 'Failed to send estimate email.'), 'error');

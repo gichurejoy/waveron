@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Casts\AsArray;
 
 class QuoteSubmission extends Model
 {
+    use SoftDeletes;
     protected $fillable = [
         'service_type',
         'complexity',
@@ -31,5 +33,10 @@ class QuoteSubmission extends Model
     public function getFormattedTotalAttribute(): string
     {
         return 'KES ' . number_format($this->estimated_total);
+    }
+
+    public function getScaleAndTimelineAttribute(): string
+    {
+        return implode(' / ', array_filter([$this->complexity, $this->timeline]));
     }
 }

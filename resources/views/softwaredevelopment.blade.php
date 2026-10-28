@@ -462,8 +462,6 @@ class WaveronTech {
     </div>
 </div>
 
-
-@include('partials.footer')
 @endsection
 
 @push('scripts')
@@ -531,6 +529,7 @@ document.addEventListener('DOMContentLoaded', function() {
 //     }
 // });
 </script>
+@endpush
 
 @push('styles')
 <style>
@@ -980,8 +979,14 @@ document.addEventListener('DOMContentLoaded', function() {
         margin-top: 0.5rem;
     }
 
+    .process-content .collapse,
+    .process-content .collapsing,
     .process-details {
-        background: rgba(26, 26, 26, 0.3);
+        visibility: visible !important;
+    }
+
+    .process-details {
+        background: rgba(26, 26, 26, 0.4);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 0 0 12px 12px;
         margin-top: -1px;
@@ -995,9 +1000,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
     .tasks-section h4,
     .deliverables-section h4 {
-        color: #fff;
+        color: #ffffff !important;
         font-size: 1.1rem;
         margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .process-details ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1.5rem 0;
+    }
+
+    .process-details ul li {
+        color: #e2e8f0 !important;
+        margin-bottom: 0.5rem;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    .process-details ul li::before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: #00ff9d !important;
     }
 
     .process-duration {

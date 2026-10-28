@@ -39,7 +39,17 @@
                 <li class="nav-item">
                     <a class="nav-link px-3 {{ request()->routeIs('quote') ? 'active' : '' }}" href="{{ route('quote') }}">Request Quote</a>
                 </li>
-                <li class="nav-item ms-lg-3">
+                <li class="nav-item ms-lg-2 my-2 my-lg-0">
+                    <a class="btn btn-outline-success rounded-pill px-3 d-inline-flex align-items-center gap-2" 
+                       href="https://wa.me/254798717800?text=Hi%20Waveron%2C%20I%27d%20like%20to%20discuss%20a%20project." 
+                       target="_blank" 
+                       rel="noopener" 
+                       aria-label="Chat with Waveron on WhatsApp">
+                        <i class="bi bi-whatsapp"></i>
+                        <span class="d-none d-lg-inline">WhatsApp Us</span>
+                    </a>
+                </li>
+                <li class="nav-item ms-lg-2 my-2 my-lg-0">
                     <a class="btn btn-primary rounded-pill px-4" href="{{ route('contact') }}">Get Started</a>
                 </li>
             </ul>
@@ -50,17 +60,21 @@
 <!-- Spacer for fixed navbar -->
 <div class="navbar-spacer" style="height: 76px;"></div>
 
-@push('styles')
 <style>
-  
+    /* Fix Tailwind CSS conflict overriding Bootstrap .collapse visibility */
+    .navbar-collapse,
+    .navbar .collapse {
+        visibility: visible !important;
+    }
+
     .navbar {
-       
         transition: all 0.3s ease;
     }
- 
-    .navbar-brand{
+
+    .navbar-brand {
         padding-bottom: 0px;
     }
+
     .navbar.scrolled {
         background: rgba(255, 255, 255, 0.95) !important;
         backdrop-filter: blur(10px);
@@ -72,7 +86,7 @@
     }
 
     .nav-link:hover {
-        color: var(--waveron-green);
+        color: var(--waveron-green) !important;
     }
 
     .dropdown-item {
@@ -82,8 +96,8 @@
     }
 
     .dropdown-item:hover {
-        background-color: var(--waveron-green);
-        color: white;
+        background-color: var(--waveron-green) !important;
+        color: white !important;
     }
 
     .dropdown-menu {
@@ -92,7 +106,6 @@
         border-radius: 0.5rem;
     }
 </style>
-@endpush
 
 @push('scripts')
 <script>

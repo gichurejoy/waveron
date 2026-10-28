@@ -24,10 +24,30 @@
                             <p style="margin: 0 0 20px 0; font-size: 16px; line-height: 1.6; color: #4b5563;">
                                 Hello,
                             </p>
-                            <p style="margin: 0 0 30px 0; font-size: 16px; line-height: 1.6; color: #4b5563;">
+                            <p style="margin: 0 0 25px 0; font-size: 16px; line-height: 1.6; color: #4b5563;">
                                 Thank you for configuring a ballpark estimate for your project with Waveron Technologies. Below is the detailed breakdown of the features and options selected.
                             </p>
                             
+                            <!-- Client / Sender Information Box -->
+                            @if(!empty($summary['recipient_email']))
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom: 25px; background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; overflow: hidden;">
+                                <tr>
+                                    <td style="padding: 16px 20px;">
+                                        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #166534; margin-bottom: 6px;">
+                                            Prospective Client / Sender Information
+                                        </div>
+                                        <div style="font-size: 14px; color: #1f2937; line-height: 1.6;">
+                                            <strong>Email Address:</strong>
+                                            <a href="mailto:{{ $summary['recipient_email'] }}" style="color: #006400; font-weight: 700; text-decoration: underline;">{{ $summary['recipient_email'] }}</a>
+                                            @if(!empty($summary['company']))
+                                                <br><strong>Company / Organization:</strong> <span style="font-weight: 600; color: #111827;">{{ $summary['company'] }}</span>
+                                            @endif
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            @endif
+
                             <!-- Breakdown Table -->
                             <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom: 30px; border: 1px solid #e5e7eb; border-radius: 6px; overflow: hidden;">
                                 <tr>
@@ -35,6 +55,20 @@
                                         Configuration Details
                                     </td>
                                 </tr>
+                                @if(!empty($summary['recipient_email']))
+                                <tr>
+                                    <td width="40%" style="padding: 12px 20px; border-bottom: 1px solid #e5e7eb; font-size: 14px; color: #6b7280; font-weight: 600;">Client Email</td>
+                                    <td style="padding: 12px 20px; border-bottom: 1px solid #e5e7eb; font-size: 14px; color: #006400; font-weight: bold;">
+                                        <a href="mailto:{{ $summary['recipient_email'] }}" style="color: #006400; text-decoration: none;">{{ $summary['recipient_email'] }}</a>
+                                    </td>
+                                </tr>
+                                @endif
+                                @if(!empty($summary['company']))
+                                <tr>
+                                    <td width="40%" style="padding: 12px 20px; border-bottom: 1px solid #e5e7eb; font-size: 14px; color: #6b7280; font-weight: 600;">Company</td>
+                                    <td style="padding: 12px 20px; border-bottom: 1px solid #e5e7eb; font-size: 14px; color: #111827; font-weight: 600;">{{ $summary['company'] }}</td>
+                                </tr>
+                                @endif
                                 <tr>
                                     <td width="40%" style="padding: 12px 20px; border-bottom: 1px solid #e5e7eb; font-size: 14px; color: #6b7280; font-weight: 600;">Service Type</td>
                                     <td style="padding: 12px 20px; border-bottom: 1px solid #e5e7eb; font-size: 14px; color: #111827; font-weight: bold;">{{ $summary['serviceLabel'] }}</td>

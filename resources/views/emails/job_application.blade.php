@@ -9,12 +9,27 @@
     
     <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
         <tr>
-            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold; width: 200px;">Name:</td>
-            <td style="padding: 10px; border: 1px solid #ddd;">{{ $data['name'] }}</td>
+            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold; width: 200px; background-color: #f9f9f9;">Applicant Name:</td>
+            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold; font-size: 15px;">{{ $data['name'] }}</td>
         </tr>
         <tr>
-            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Contact / Email:</td>
-            <td style="padding: 10px; border: 1px solid #ddd;">{{ $data['contact'] }}</td>
+            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold; background-color: #f9f9f9;">Applicant Email / Contact:</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">
+                @php
+                    $contactVal = trim($data['contact'] ?? '');
+                    $extractedEmail = null;
+                    if (filter_var($contactVal, FILTER_VALIDATE_EMAIL)) {
+                        $extractedEmail = $contactVal;
+                    } elseif (preg_match('/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/', $contactVal, $m)) {
+                        $extractedEmail = $m[0];
+                    }
+                @endphp
+                @if($extractedEmail)
+                    <a href="mailto:{{ $extractedEmail }}" style="color: #006400; font-weight: bold; font-size: 15px; text-decoration: underline;">{{ $contactVal }}</a>
+                @else
+                    <span style="font-weight: bold; font-size: 14px;">{{ $contactVal }}</span>
+                @endif
+            </td>
         </tr>
     </table>
 

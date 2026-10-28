@@ -130,7 +130,6 @@
         </div>
     </div>
 </section>
-@include('partials.footer')
 @push('styles')
 <style>
     :root {

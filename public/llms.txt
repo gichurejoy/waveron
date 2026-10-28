@@ -57,8 +57,9 @@
 - **Career Matcher** — Enterprise talent matching and recruitment dashboard (Python, MySQL)
   URL: https://waverontechnologies.co.ke/portfolio/career-matcher
 
-- **Lead Generator** — High-velocity prospect enrichment engine (Python, BullMQ, Prisma)
-  URL: https://waverontechnologies.co.ke/portfolio/lead-generator
+- **Waveron Opportunities** — Action-logging and opportunity-tracking platform to log completed actions and track them to completion (Laravel, MySQL)
+  Live URL: https://opportunities.waverontechnologies.co.ke/
+  URL: https://waverontechnologies.co.ke/portfolio/waveron-opportunities
 
 - **E-Commerce Core** — Headless storefront with MPESA integration (Next.js, Redis)
   URL: https://waverontechnologies.co.ke/portfolio/ecommerce-core
